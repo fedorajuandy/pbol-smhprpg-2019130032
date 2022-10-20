@@ -6,7 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class RaceModel {
     private int id, parentrace_id;
-    private String name, desc;
+    private String name, desc, parentraceName;
 
     public int getId() {
         return id;
@@ -38,5 +38,13 @@ public class RaceModel {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getParentraceName() {
+        return parentraceName;
+    }
+
+    public void setParentraceName(String parentraceName) {
+        this.parentraceName = parentraceName;
     }
 }

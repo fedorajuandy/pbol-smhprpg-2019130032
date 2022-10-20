@@ -6,7 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class ClassModel {
     private int id, parentclass_id;
-    private String name, desc;
+    private String name, desc, parentclassName;
 
     public int getId() {
         return id;
@@ -38,5 +38,13 @@ public class ClassModel {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getParentclassName() {
+        return parentclassName;
+    }
+
+    public void setParentclassName(String parentclassName) {
+        this.parentclassName = parentclassName;
     }
 }
