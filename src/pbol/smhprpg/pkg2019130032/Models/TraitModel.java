@@ -6,7 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class TraitModel {
     private int id;
-    private String name, desc;
+    private String name, des;
 
     public int getId() {
         return id;
@@ -24,11 +24,11 @@ public class TraitModel {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDes() {
+        return des;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDes(String des) {
+        this.des = des;
     }
 }

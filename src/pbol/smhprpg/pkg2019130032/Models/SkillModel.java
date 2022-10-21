@@ -6,7 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class SkillModel {
     private int id, type_id, effect_id, mp_cost;
-    private String name, desc;
+    private String name, des;
     private double dmg, success_rate;
 
     public int getId() {
@@ -49,12 +49,12 @@ public class SkillModel {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDes() {
+        return des;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDes(String des) {
+        this.des = des;
     }
 
     public double getDmg() {

@@ -31,7 +31,7 @@ public class DBHeroes {
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             
-            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name, h.curr_class_id, name, c.name, h.gender, h.desc, h.lv, h.exp FROM heroes h JOIN races c ON(h.race_id = c.id) JOIN classes ON(h.curr_class_id = c.id)");
+            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name, h.curr_class_id, name, c.name, h.gender, h.des, h.lv, h.exp FROM heroes h JOIN races c ON(h.race_id = c.id) JOIN classes ON(h.curr_class_id = c.id)");
 
             int i = 1;
             while (rs.next()) {
@@ -43,7 +43,7 @@ public class DBHeroes {
                 d.setClassName(rs.getString("c.name"));
                 d.setName(rs.getString("name"));
                 d.setGender(rs.getString("gender").charAt(0));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 d.setLv(rs.getInt("lv"));
                 d.setExp(rs.getInt("exp"));
                 
@@ -86,12 +86,12 @@ public class DBHeroes {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO heroes (race_id, curr_class_id, name, gender, desc, lv, exp) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO heroes (race_id, curr_class_id, name, gender, des, lv, exp) VALUES (?, ?, ?, ?, ?, ?, ?)");
             con.preparedStatement.setInt(1, getHeroModel().getRace_id());
             con.preparedStatement.setInt(2, getHeroModel().getCurr_class_id());
             con.preparedStatement.setString(3, getHeroModel().getName());
             con.preparedStatement.setString(4, String.valueOf(getHeroModel().getGender()));
-            con.preparedStatement.setString(5, getHeroModel().getDesc());
+            con.preparedStatement.setString(5, getHeroModel().getDes());
             con.preparedStatement.setInt(6, getHeroModel().getLv());
             con.preparedStatement.setInt(7, getHeroModel().getExp());
             con.preparedStatement.executeUpdate();
@@ -131,12 +131,12 @@ public class DBHeroes {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE heroes SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, desc = ?, lv = ?, exp = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE heroes SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, des = ?, lv = ?, exp = ?  WHERE  id = ? ");
             con.preparedStatement.setInt(1, getHeroModel().getRace_id());
             con.preparedStatement.setInt(2, getHeroModel().getCurr_class_id());
             con.preparedStatement.setString(3, getHeroModel().getName());
             con.preparedStatement.setString(4, String.valueOf(getHeroModel().getGender()));
-            con.preparedStatement.setString(5, getHeroModel().getDesc());
+            con.preparedStatement.setString(5, getHeroModel().getDes());
             con.preparedStatement.setInt(6, getHeroModel().getLv());
             con.preparedStatement.setInt(7, getHeroModel().getExp());
             con.preparedStatement.executeUpdate();
@@ -158,7 +158,7 @@ public class DBHeroes {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name, h.curr_class_id, name, c.name, h.gender, h.desc, h.lv, h.exp FROM heroes h JOIN races c ON(h.race_id = c.id) JOIN classes ON(h.curr_class_id = c.id) WHERE r.name LIKE '" + ras + "%' OR c.name LIKE '" + kelas + "%' OR h.name LIKE '" + nama + "%' OR h.gender LIKE '" + jk + "%' OR h.desc LIKE '" + desk + "%' OR h.lv LIKE '" + lv + "%' OR h.exp LIKE '" + pengalaman + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name, h.curr_class_id, name, c.name, h.gender, h.des, h.lv, h.exp FROM heroes h JOIN races c ON(h.race_id = c.id) JOIN classes ON(h.curr_class_id = c.id) WHERE r.name LIKE '" + ras + "%' OR c.name LIKE '" + kelas + "%' OR h.name LIKE '" + nama + "%' OR h.gender LIKE '" + jk + "%' OR h.des LIKE '" + desk + "%' OR h.lv LIKE '" + lv + "%' OR h.exp LIKE '" + pengalaman + "%'");
             
             int i = 1;
             while(rs.next()) {
@@ -170,7 +170,7 @@ public class DBHeroes {
                 d.setClassName(rs.getString("c.name"));
                 d.setName(rs.getString("name"));
                 d.setGender(rs.getString("gender").charAt(0));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 d.setLv(rs.getInt("lv"));
                 d.setExp(rs.getInt("exp"));
                 

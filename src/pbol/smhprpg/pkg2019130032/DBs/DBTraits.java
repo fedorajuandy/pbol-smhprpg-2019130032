@@ -30,14 +30,14 @@ public class DBTraits {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT id, name, desc FROM traits");
+            ResultSet rs = con.statement.executeQuery("SELECT id, name, des FROM traits");
 
             int i = 1;
             while (rs.next()) {
                 TraitModel d = new TraitModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;
@@ -78,9 +78,9 @@ public class DBTraits {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO traits (name, desc) VALUES (?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO traits (name, des) VALUES (?, ?)");
             con.preparedStatement.setString(1, getTraitModel().getName());
-            con.preparedStatement.setString(2, getTraitModel().getDesc());
+            con.preparedStatement.setString(2, getTraitModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -118,9 +118,9 @@ public class DBTraits {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE traits SET name = ?, desc = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE traits SET name = ?, des = ?  WHERE  id = ? ");
             con.preparedStatement.setString(1, getTraitModel().getName());
-            con.preparedStatement.setString(2, getTraitModel().getDesc());
+            con.preparedStatement.setString(2, getTraitModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -140,14 +140,14 @@ public class DBTraits {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM traits WHERE name LIKE '" + nama + "%' OR desc LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM traits WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
             while(rs.next()) {
                 TraitModel d = new TraitModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;

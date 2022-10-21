@@ -31,7 +31,7 @@ public class DBRaces {
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             
-            ResultSet rs = con.statement.executeQuery("SELECT id, parentrace_id, name, desc FROM races");
+            ResultSet rs = con.statement.executeQuery("SELECT id, parentrace_id, name, des FROM races");
 
             int i = 1;
             while (rs.next()) {
@@ -49,7 +49,7 @@ public class DBRaces {
                 }
                 
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;
@@ -90,10 +90,10 @@ public class DBRaces {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO races (parentrace_id, name, desc) VALUES (?, ?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO races (parentrace_id, name, des) VALUES (?, ?, ?)");
             con.preparedStatement.setInt(1, getRaceModel().getParentrace_id());
             con.preparedStatement.setString(2, getRaceModel().getName());
-            con.preparedStatement.setString(3, getRaceModel().getDesc());
+            con.preparedStatement.setString(3, getRaceModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -131,10 +131,10 @@ public class DBRaces {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE races SET parentrace_id = ?, name = ?, desc = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE races SET parentrace_id = ?, name = ?, des = ?  WHERE  id = ? ");
             con.preparedStatement.setInt(1, getRaceModel().getParentrace_id());
             con.preparedStatement.setString(2, getRaceModel().getName());
-            con.preparedStatement.setString(3, getRaceModel().getDesc());
+            con.preparedStatement.setString(3, getRaceModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -154,7 +154,7 @@ public class DBRaces {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM races WHERE parentrace_id LIKE '" + parent + "%' OR name LIKE '" + nama + "%' OR desc LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM races WHERE parentrace_id LIKE '" + parent + "%' OR name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
             while(rs.next()) {
@@ -172,7 +172,7 @@ public class DBRaces {
                 }
                 
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;

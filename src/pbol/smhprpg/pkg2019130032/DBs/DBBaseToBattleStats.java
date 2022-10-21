@@ -24,7 +24,7 @@ public class DBBaseToBattleStats {
         dt = s;
     }
     
-    public ObservableList<BaseToBattleStatModel> load(String kode) {
+    public ObservableList<BaseToBattleStatModel> load(int kode) {
         try {
             ObservableList<BaseToBattleStatModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();

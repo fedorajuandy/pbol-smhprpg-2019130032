@@ -30,7 +30,7 @@ public class DBBattleStats {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT id, abbrev, name, desc FROM battle_stats");
+            ResultSet rs = con.statement.executeQuery("SELECT id, abbrev, name, des FROM battle_stats");
 
             int i = 1;
             while (rs.next()) {
@@ -38,7 +38,7 @@ public class DBBattleStats {
                 d.setId(rs.getInt("id"));
                 d.setAbbrev(rs.getString("abbrev"));
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;
@@ -79,10 +79,10 @@ public class DBBattleStats {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO battle_stats (abbrev, name, desc) VALUES (?, ?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO battle_stats (abbrev, name, des) VALUES (?, ?, ?)");
             con.preparedStatement.setString(1, getBattleStatModel().getAbbrev());
             con.preparedStatement.setString(2, getBattleStatModel().getName());
-            con.preparedStatement.setString(3, getBattleStatModel().getDesc());
+            con.preparedStatement.setString(3, getBattleStatModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -120,10 +120,10 @@ public class DBBattleStats {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE battle_stats SET abbrev = ?, name = ?, desc = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE battle_stats SET abbrev = ?, name = ?, des = ?  WHERE  id = ? ");
             con.preparedStatement.setString(1, getBattleStatModel().getAbbrev());
             con.preparedStatement.setString(2, getBattleStatModel().getName());
-            con.preparedStatement.setString(3, getBattleStatModel().getDesc());
+            con.preparedStatement.setString(3, getBattleStatModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -143,7 +143,7 @@ public class DBBattleStats {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM battle_stats WHERE abbrev LIKE '" + singkatan + "%' OR name LIKE '" + nama + "%' OR desc LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM battle_stats WHERE abbrev LIKE '" + singkatan + "%' OR name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
             while(rs.next()) {
@@ -151,7 +151,7 @@ public class DBBattleStats {
                 d.setId(rs.getInt("id"));
                 d.setAbbrev(rs.getString("abbrev"));
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;

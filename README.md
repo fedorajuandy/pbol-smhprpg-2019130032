@@ -22,9 +22,10 @@
 ## Images references
 
 - Main menu photo by <a href="https://unsplash.com/@sebastian_unrau?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sebastian Unrau</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@betno?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dominik Bednarz</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Heroes photo by <a href="https://unsplash.com/@betno?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dominik Bednarz</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Classes photo by <a href="https://unsplash.com/@tjump?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nik Shuliahin 💛💙</a> on <a href="https://unsplash.com/s/photos/medieval?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Races photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - 
-
 
 ## Tools
 

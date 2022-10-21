@@ -30,14 +30,14 @@ public class DBEffects {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT id, name, desc FROM effects");
+            ResultSet rs = con.statement.executeQuery("SELECT id, name, des FROM effects");
 
             int i = 1;
             while (rs.next()) {
                 EffectModel d = new EffectModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;
@@ -78,9 +78,9 @@ public class DBEffects {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO effects (name, desc) VALUES (?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO effects (name, des) VALUES (?, ?)");
             con.preparedStatement.setString(1, getEffectModel().getName());
-            con.preparedStatement.setString(2, getEffectModel().getDesc());
+            con.preparedStatement.setString(2, getEffectModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -118,9 +118,9 @@ public class DBEffects {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE effects SET name = ?, desc = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE effects SET name = ?, des = ?  WHERE  id = ? ");
             con.preparedStatement.setString(1, getEffectModel().getName());
-            con.preparedStatement.setString(2, getEffectModel().getDesc());
+            con.preparedStatement.setString(2, getEffectModel().getDes());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -140,14 +140,14 @@ public class DBEffects {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM effects WHERE name LIKE '" + nama + "%' OR desc LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM effects WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
             while(rs.next()) {
                 EffectModel d = new EffectModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
-                d.setDesc(rs.getString("desc"));
+                d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
                 i++;

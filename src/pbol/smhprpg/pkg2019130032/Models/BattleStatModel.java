@@ -6,7 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class BattleStatModel {
     private int id;
-    private String abbrev, name, desc;
+    private String abbrev, name, des;
 
     public int getId() {
         return id;
@@ -32,11 +32,11 @@ public class BattleStatModel {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDes() {
+        return des;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDes(String des) {
+        this.des = des;
     }
 }
