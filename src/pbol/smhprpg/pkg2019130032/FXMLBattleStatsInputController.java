@@ -1,11 +1,15 @@
 package pbol.smhprpg.pkg2019130032;
 
+import pbol.smhprpg.pkg2019130032.Models.BattleStatModel;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -16,7 +20,8 @@ import javafx.scene.input.KeyEvent;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class FXMLBattleStatsInputController implements Initializable {
-
+    private boolean edited = false;
+    private int id;
     @FXML
     private Button btnExit;
     @FXML
@@ -26,36 +31,85 @@ public class FXMLBattleStatsInputController implements Initializable {
     @FXML
     private TextArea txtDes;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void execute(BattleStatModel d) {
+        if(d.getId() != 0) {
+          edited = true;
+          
+          id = d.getId();
+          txtAbbrev.setText(d.getAbbrev());
+          txtName.setText(d.getName());
+          txtDes.setText(d.getDes());
+          
+          txtAbbrev.requestFocus();
+        }
+    }
 
     @FXML
     private void saveClicked(ActionEvent event) {
+        BattleStatModel n = new BattleStatModel();
+        n.setId(id);
+        n.setAbbrev(txtAbbrev.getText());
+        n.setName(txtName.getText()); 
+        n.setDes(txtDes.getText());
+        
+        FXMLDocumentController.dtbt.setBattleStatModel(n);
+        if(edited) {
+            if(FXMLDocumentController.dtbt.update()) {
+               Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
+               a.showAndWait();
+               clearClicked(event);
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed..", ButtonType.OK);
+                a.showAndWait(); 
+            }
+        } else if(FXMLDocumentController.dtbt.validasi(n.getId()) <= 0) {
+            if(FXMLDocumentController.dtbt.insert()) {
+               Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
+               a.showAndWait();
+            } else {
+               Alert a = new Alert(Alert.AlertType.ERROR, "Saving data failed.", ButtonType.OK);
+               a.showAndWait();
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "There is already the same data.", ButtonType.OK);
+            a.showAndWait();
+            txtAbbrev.requestFocus();
+        }
     }
 
     @FXML
     private void clearClicked(ActionEvent event) {
+        txtAbbrev.setText("");
+        txtName.setText("");
+        txtDes.setText("");
+        txtAbbrev.requestFocus();
     }
 
     @FXML
     private void exitClicked(ActionEvent event) {
+        btnExit.getScene().getWindow().hide();
     }
 
     @FXML
     private void validateAbbrev(KeyEvent event) {
+        int batas = 5;
+        if(txtAbbrev.getText().length() >= batas) event.consume();
     }
 
     @FXML
     private void validateName(KeyEvent event) {
+        int batas = 50;
+        if(txtName.getText().length() >= batas) event.consume();
     }
 
     @FXML
     private void validateDes(KeyEvent event) {
+        int batas = 255;
+        if(txtDes.getText().length() >= batas) event.consume();
     }
-    
 }

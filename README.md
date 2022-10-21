@@ -27,6 +27,9 @@
 - Races photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Battle stats photo by <a href="https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aaron Burden</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Base stats photo by <a href="https://unsplash.com/@kerber?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marko Blažević</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Skills photo by <a href="https://unsplash.com/@worldsbetweenlines?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Hendry</a> on <a href="https://unsplash.com/s/photos/fire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Effects photo by <a href="https://unsplash.com/@worldsbetweenlines?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Hendry</a> on <a href="https://unsplash.com/s/photos/fire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Levels photo by <a href="https://unsplash.com/@evgenit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Evgeni Tcherkasski</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - 
 
 ## Tools
