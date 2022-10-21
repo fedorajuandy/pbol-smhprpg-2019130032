@@ -25,7 +25,7 @@
       <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
       <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
       <TextField fx:id="txtAbbrev" layoutX="176.0" layoutY="96.0" onKeyTyped="#validateAbbrev" />
-      <Label layoutX="32.0" layoutY="32.0" text="Add or edit a base stat data" textFill="WHITE">
+      <Label layoutX="32.0" layoutY="32.0" text="Add or edit a base stat" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
