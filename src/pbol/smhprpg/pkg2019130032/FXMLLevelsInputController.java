@@ -37,7 +37,6 @@ public class FXMLLevelsInputController implements Initializable {
     }
 
     public void execute(LevelModel d) {
-        if(d.getId() != 0) {
           edited = true;
           
           id = d.getId();
@@ -46,7 +45,6 @@ public class FXMLLevelsInputController implements Initializable {
           txtMaxlv.setText(Integer.toString(d.getMax_lv()));
           
           txtNeededexp.requestFocus();
-        }
     }
 
     @FXML
@@ -71,6 +69,7 @@ public class FXMLLevelsInputController implements Initializable {
             if(FXMLDocumentController.dtl.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
+               clearClicked(event);
             } else {
                Alert a = new Alert(Alert.AlertType.ERROR, "Saving data failed.", ButtonType.OK);
                a.showAndWait();

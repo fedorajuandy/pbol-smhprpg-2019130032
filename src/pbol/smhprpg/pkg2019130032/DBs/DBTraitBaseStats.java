@@ -24,7 +24,7 @@ public class DBTraitBaseStats {
         dt = s;
     }
     
-    public ObservableList<TraitBaseStatModel> load(String kode) {
+    public ObservableList<TraitBaseStatModel> load(int kode) {
         try {
             ObservableList<TraitBaseStatModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();

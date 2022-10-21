@@ -13,6 +13,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+
 /**
  * FXML Controller class
  *
@@ -70,7 +71,6 @@ public class FXMLSkillsInputController implements Initializable {
             if(FXMLDocumentController.dts.update()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
-               clearClicked(event);
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed..", ButtonType.OK);
                 a.showAndWait(); 
@@ -79,6 +79,7 @@ public class FXMLSkillsInputController implements Initializable {
             if(FXMLDocumentController.dts.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
+               clearClicked(event);
             } else {
                Alert a = new Alert(Alert.AlertType.ERROR, "Saving data failed.", ButtonType.OK);
                a.showAndWait();

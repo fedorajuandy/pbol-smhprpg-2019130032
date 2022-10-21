@@ -40,7 +40,7 @@ public class DBSkills {
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setDes(rs.getString("des"));
-                d.setMp_cost(rs.getInt("lv"));
+                d.setMp_cost(rs.getInt("mp_cost"));
                 d.setDmg(rs.getDouble("dmg"));
                 d.setSuccess_rate(rs.getDouble("success_rate"));
                 
@@ -88,7 +88,7 @@ public class DBSkills {
             con.preparedStatement.setString(2, getSkillModel().getDes());
             con.preparedStatement.setInt(3, getSkillModel().getMp_cost());
             con.preparedStatement.setDouble(4, getSkillModel().getDmg());
-            con.preparedStatement.setDouble(4, getSkillModel().getSuccess_rate());
+            con.preparedStatement.setDouble(5, getSkillModel().getSuccess_rate());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -126,12 +126,13 @@ public class DBSkills {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE skills SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, des = ?, lv = ?, exp = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE skills SET name = ?, des = ?, mp_cost = ?, dmg = ?, success_rate = ?  WHERE  id = ? ");
             con.preparedStatement.setString(1, getSkillModel().getName());
             con.preparedStatement.setString(2, getSkillModel().getDes());
             con.preparedStatement.setInt(3, getSkillModel().getMp_cost());
             con.preparedStatement.setDouble(4, getSkillModel().getDmg());
-            con.preparedStatement.setDouble(4, getSkillModel().getSuccess_rate());
+            con.preparedStatement.setDouble(5, getSkillModel().getSuccess_rate());
+            con.preparedStatement.setInt(6, getSkillModel().getId());
             con.preparedStatement.executeUpdate();
             con.preparedStatement.executeUpdate();
             
@@ -160,7 +161,7 @@ public class DBSkills {
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setDes(rs.getString("des"));
-                d.setMp_cost(rs.getInt("lv"));
+                d.setMp_cost(rs.getInt("mp_cost"));
                 d.setDmg(rs.getDouble("dmg"));
                 d.setSuccess_rate(rs.getDouble("success_rate"));
                 

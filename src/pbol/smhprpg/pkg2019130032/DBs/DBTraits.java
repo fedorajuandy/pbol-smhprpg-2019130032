@@ -121,6 +121,7 @@ public class DBTraits {
             con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE traits SET name = ?, des = ?  WHERE  id = ? ");
             con.preparedStatement.setString(1, getTraitModel().getName());
             con.preparedStatement.setString(2, getTraitModel().getDes());
+            con.preparedStatement.setInt(3, getTraitModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;

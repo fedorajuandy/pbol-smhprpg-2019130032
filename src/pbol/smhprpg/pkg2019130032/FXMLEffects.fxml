@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.FXMLEffectsController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.FXMLEffectsController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,7 +24,7 @@
          </font>
       </Label>
       <TextField fx:id="search" layoutX="724.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
-      <TableView fx:id="tbv" layoutX="33.0" layoutY="77.0" onMouseClicked="#showDetails" prefHeight="400.0" prefWidth="891.0">
+      <TableView fx:id="tbv" layoutX="33.0" layoutY="77.0" prefHeight="400.0" prefWidth="891.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
