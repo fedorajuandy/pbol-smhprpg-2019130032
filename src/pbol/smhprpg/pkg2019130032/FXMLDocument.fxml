@@ -23,22 +23,23 @@
                   <MenuItem mnemonicParsing="false" onAction="#inputBasestatsClicked" text="Base Stats" />
                   <MenuItem mnemonicParsing="false" onAction="#inputBattlestatsClicked" text="Battle Stats" />
                   <MenuItem mnemonicParsing="false" onAction="#inputEffectsClicked" text="Effects" />
-                  <MenuItem mnemonicParsing="false" onAction="#inputLevelsClicked" text="Levels" />
                   <MenuItem mnemonicParsing="false" onAction="#inputSkillsClicked" text="Skills" />
                   <MenuItem mnemonicParsing="false" onAction="#inputTraitsClicked" text="Traits" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Masters">
+            <Menu mnemonicParsing="false" text="Data">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#displayBasestatsClicked" text="Base Stats" />
                   <MenuItem mnemonicParsing="false" onAction="#displayBattlestatsClicked" text="Battle Stats" />
                   <MenuItem mnemonicParsing="false" onAction="#displayEffectsClicked" text="Effects" />
-                  <MenuItem mnemonicParsing="false" onAction="#displayLevelsClicked" text="Levels" />
                   <MenuItem mnemonicParsing="false" onAction="#displaySkillsClicked" text="Skills" />
                   <MenuItem mnemonicParsing="false" onAction="#displayTraitsClicked" text="Traits" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Details" />
+            <Menu mnemonicParsing="false" text="Level">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#manageLevelsClicked" text="Manage" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <Label layoutX="148.0" layoutY="158.0" text="Simulasi Maintenance Hero" textAlignment="CENTER" textFill="WHITE">

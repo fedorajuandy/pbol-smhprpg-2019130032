@@ -120,23 +120,6 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void inputLevelsClicked(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLevelsInput.fxml"));
-            Parent root = (Parent)loader.load();
-            Scene scene = new Scene(root);
-            Stage stg = new Stage();
-            stg.initModality(Modality.APPLICATION_MODAL);
-            stg.setResizable(false);
-            stg.setIconified(false);
-            stg.setScene(scene);
-            stg.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     private void inputSkillsClicked(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSkillsInput.fxml"));
@@ -222,9 +205,9 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void displayLevelsClicked(ActionEvent event) {
+    private void manageLevelsClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLevels.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLevelsInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();

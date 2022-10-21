@@ -10,9 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 /**
  * FXML Controller class
  *
@@ -22,18 +24,18 @@ public class FXMLSkillsController implements Initializable {
     private boolean edited = false;
     private int id;
 
-    @FXML
     private Button btnExit;
-    @FXML
     private TextField txtMpcost;
-    @FXML
     private TextField txtName;
-    @FXML
     private TextArea txtDes;
-    @FXML
     private TextField txtDmg;
-    @FXML
     private TextField txtSuccessrate;
+    @FXML
+    private TextField search;
+    @FXML
+    private TableView<?> tbv;
+    @FXML
+    private Button btnQuit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -55,7 +57,6 @@ public class FXMLSkillsController implements Initializable {
         }
     }
 
-    @FXML
     private void saveClicked(ActionEvent event) {
         SkillModel n = new SkillModel();
         n.setId(id);
@@ -90,7 +91,6 @@ public class FXMLSkillsController implements Initializable {
         }
     }
 
-    @FXML
     private void clearClicked(ActionEvent event) {
         txtName.setText("");
         txtDes.setText("");
@@ -100,39 +100,73 @@ public class FXMLSkillsController implements Initializable {
         txtName.requestFocus();
     }
 
-    @FXML
     private void exitClicked(ActionEvent event) {
         btnExit.getScene().getWindow().hide();
     }
 
-    @FXML
     private void validateMpcost(KeyEvent event) {
         char test = event.getCharacter().charAt(0);
         if(!Character.isDigit(test)) event.consume();
     }
 
-    @FXML
     private void validateName(KeyEvent event) {
         int batas = 50;
         if(txtName.getText().length() >= batas) event.consume();
     }
 
-    @FXML
     private void validateDes(KeyEvent event) {
         int batas = 255;
         if(txtDes.getText().length() >= batas) event.consume();
     }
 
-    @FXML
     private void validateDmg(KeyEvent event) {
         char test = event.getCharacter().charAt(0);
         if(!Character.isDigit(test) && test != '.') event.consume();
     }
 
-    @FXML
     private void validateSuccessrate(KeyEvent event) {
         char test = event.getCharacter().charAt(0);
         if(!Character.isDigit(test) && test != '.') event.consume();
+    }
+
+    @FXML
+    private void searchData(KeyEvent event) {
+    }
+
+    @FXML
+    private void showDetails(MouseEvent event) {
+    }
+
+    @FXML
+    private void firstClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void quitClicked(ActionEvent event) {
     }
     
 }
