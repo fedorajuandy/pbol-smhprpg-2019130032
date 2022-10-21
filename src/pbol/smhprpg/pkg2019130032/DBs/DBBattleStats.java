@@ -124,6 +124,7 @@ public class DBBattleStats {
             con.preparedStatement.setString(1, getBattleStatModel().getAbbrev());
             con.preparedStatement.setString(2, getBattleStatModel().getName());
             con.preparedStatement.setString(3, getBattleStatModel().getDes());
+            con.preparedStatement.setInt(4, getBattleStatModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;

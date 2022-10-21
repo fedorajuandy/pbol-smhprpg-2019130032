@@ -17,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
@@ -88,6 +87,10 @@ public class FXMLEffectsController implements Initializable {
 
                 col = new TableColumn("Name");
                 col.setCellValueFactory(new PropertyValueFactory<EffectModel, String>("name"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Des");
+                col.setCellValueFactory(new PropertyValueFactory<EffectModel, String>("des"));
                 tbv.getColumns().addAll(col);
                 
                 tbv.setItems(data);

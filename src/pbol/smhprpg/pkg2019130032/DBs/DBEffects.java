@@ -121,6 +121,7 @@ public class DBEffects {
             con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE effects SET name = ?, des = ?  WHERE  id = ? ");
             con.preparedStatement.setString(1, getEffectModel().getName());
             con.preparedStatement.setString(2, getEffectModel().getDes());
+            con.preparedStatement.setInt(3, getEffectModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;

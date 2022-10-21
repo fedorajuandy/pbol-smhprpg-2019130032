@@ -6,18 +6,12 @@
 
 ## Codes references
 
-- PBO notes and past projects
-- PGBD past project
+- IMK notes and past projects
 - PBOL notes and past projects
-- <a href=""></a>
-- 
 
 ## Ideas references
 
-- Final Fantasy Tactics Advance GBA
-- Elona Mobile
-- Random RPG bullshit that I pull from memory, brain, dreams, or IDK-
-- 
+- Located at DB tables' comments
 
 ## Images references
 
@@ -31,10 +25,9 @@
 - Effects photo by <a href="https://unsplash.com/@worldsbetweenlines?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Hendry</a> on <a href="https://unsplash.com/s/photos/fire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Levels photo by <a href="https://unsplash.com/@evgenit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Evgeni Tcherkasski</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Traits photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- 
 
 ## Tools
 
-- Database: Laragon
+- Database: Laragon (HeidiSQL)
 - IDE: Apache NetBeans IDE 14
 - Images editor : <a href="https://www.canva.com/">Canva</a>
