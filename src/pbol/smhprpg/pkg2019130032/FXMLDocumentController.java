@@ -41,7 +41,7 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
     public static DBBaseStats dtbs = new DBBaseStats();
-    public static DBBaseToBattleStats dtbtbs = new DBBaseToBattleStats();
+    public static DBBaseToBattleStats dtbtb = new DBBaseToBattleStats();
     public static DBBattleStats dtbt = new DBBattleStats();
     public static DBClassBaseStats dtcbs = new DBClassBaseStats();
     public static DBClassBattleStats dtcbt = new DBClassBattleStats();
