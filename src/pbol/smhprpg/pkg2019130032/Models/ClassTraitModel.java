@@ -6,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class ClassTraitModel {
     private int class_id, trait_id;
+    private String traitName;
 
     public int getClass_id() {
         return class_id;
@@ -21,5 +22,13 @@ public class ClassTraitModel {
 
     public void setTrait_id(int trait_id) {
         this.trait_id = trait_id;
+    }
+
+    public String getTraitName() {
+        return traitName;
+    }
+
+    public void setTraitName(String traitName) {
+        this.traitName = traitName;
     }
 }

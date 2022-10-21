@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pbol.smhprpg.pkg2019130032.Models;
 
 /**
@@ -10,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class HeroClassModel {
     private int id, hero_id, class_id, mastery_lv;
+    private String className;
 
     public int getId() {
         return id;
@@ -41,5 +38,13 @@ public class HeroClassModel {
 
     public void setMastery_lv(int mastery_lv) {
         this.mastery_lv = mastery_lv;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }

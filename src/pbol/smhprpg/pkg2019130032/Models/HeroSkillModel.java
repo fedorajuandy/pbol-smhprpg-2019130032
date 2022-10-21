@@ -6,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class HeroSkillModel {
     private int hero_class_id, skill_id, lv;
+    private String skillName;
 
     public int getHero_class_id() {
         return hero_class_id;
@@ -29,5 +30,13 @@ public class HeroSkillModel {
 
     public void setLv(int lv) {
         this.lv = lv;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
     }
 }

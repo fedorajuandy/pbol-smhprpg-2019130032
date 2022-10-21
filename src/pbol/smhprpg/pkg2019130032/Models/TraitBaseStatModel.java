@@ -6,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class TraitBaseStatModel {
     private int trait_id, base_stat_id, val;
+    private String basestatName;
 
     public int getTrait_id() {
         return trait_id;
@@ -29,5 +30,13 @@ public class TraitBaseStatModel {
 
     public void setVal(int val) {
         this.val = val;
+    }
+
+    public String getBasestatName() {
+        return basestatName;
+    }
+
+    public void setBasestatName(String basestatName) {
+        this.basestatName = basestatName;
     }
 }

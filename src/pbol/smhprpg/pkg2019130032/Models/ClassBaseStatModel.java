@@ -5,7 +5,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class ClassBaseStatModel {
-    private int class_id, base_stat_id, levelup_id;
+    private int class_id, base_stat_id, levelup_val;
 
     public int getClass_id() {
         return class_id;
@@ -23,11 +23,11 @@ public class ClassBaseStatModel {
         this.base_stat_id = base_stat_id;
     }
 
-    public int getLevelup_id() {
-        return levelup_id;
+    public int getLevelup_val() {
+        return levelup_val;
     }
 
-    public void setLevelup_id(int levelup_id) {
-        this.levelup_id = levelup_id;
+    public void setLevelup_val(int levelup_val) {
+        this.levelup_val = levelup_val;
     }
 }

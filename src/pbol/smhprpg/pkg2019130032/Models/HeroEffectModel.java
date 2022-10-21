@@ -6,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class HeroEffectModel {
     private int id, hero_id, effect_id, duration_left;
+    private String effectName;
 
     public int getId() {
         return id;
@@ -37,5 +38,13 @@ public class HeroEffectModel {
 
     public void setDuration_left(int duration_left) {
         this.duration_left = duration_left;
+    }
+
+    public String getEffectName() {
+        return effectName;
+    }
+
+    public void setEffectName(String effectName) {
+        this.effectName = effectName;
     }
 }

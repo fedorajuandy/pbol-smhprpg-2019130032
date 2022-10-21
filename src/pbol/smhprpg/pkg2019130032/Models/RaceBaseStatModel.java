@@ -6,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class RaceBaseStatModel {
     private int race_id, base_stat_id, val;
+    private String basestatName;
 
     public int getRace_id() {
         return race_id;
@@ -29,5 +30,13 @@ public class RaceBaseStatModel {
 
     public void setVal(int val) {
         this.val = val;
+    }
+
+    public String getBasestatName() {
+        return basestatName;
+    }
+
+    public void setBasestatName(String basestatName) {
+        this.basestatName = basestatName;
     }
 }

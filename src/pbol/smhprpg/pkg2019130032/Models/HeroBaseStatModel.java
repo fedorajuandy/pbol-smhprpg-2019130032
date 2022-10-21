@@ -8,8 +8,9 @@ package pbol.smhprpg.pkg2019130032.Models;
  *
  * @author 2019130032 - Fedora Yoshe Juandy
  */
-public class HeroBaseStat {
+public class HeroBaseStatModel {
     private int hero_id, base_stat_id, val;
+    private String basestatName;
 
     public int getHero_id() {
         return hero_id;
@@ -33,5 +34,13 @@ public class HeroBaseStat {
 
     public void setVal(int val) {
         this.val = val;
+    }
+
+    public String getBasestatName() {
+        return basestatName;
+    }
+
+    public void setBasestatName(String basestatName) {
+        this.basestatName = basestatName;
     }
 }
