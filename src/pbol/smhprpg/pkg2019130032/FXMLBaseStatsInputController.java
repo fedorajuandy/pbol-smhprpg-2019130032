@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -93,5 +94,23 @@ public class FXMLBaseStatsInputController implements Initializable {
     @FXML
     private void exitClicked(ActionEvent event) {
         btnExit.getScene().getWindow().hide();
+    }
+
+    @FXML
+    private void validateAbbrev(KeyEvent event) {
+        int batas = 5;
+        if(txtAbbrev.getText().length() >= batas) event.consume();
+    }
+
+    @FXML
+    private void validateName(KeyEvent event) {
+        int batas = 50;
+        if(txtName.getText().length() >= batas) event.consume();
+    }
+
+    @FXML
+    private void validateDes(KeyEvent event) {
+        int batas = 255;
+        if(txtDes.getText().length() >= batas) event.consume();
     }
 }

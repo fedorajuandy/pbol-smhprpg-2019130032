@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
  *
  * @author 2019130032 - Fedora Yoshe Juandy
  */
-public class FXMLBattleStatsInputController implements Initializable {
+public class FXMLHeroesInputController implements Initializable {
 
     /**
      * Initializes the controller class.

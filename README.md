@@ -25,6 +25,8 @@
 - Heroes photo by <a href="https://unsplash.com/@betno?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dominik Bednarz</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Classes photo by <a href="https://unsplash.com/@tjump?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nik Shuliahin 💛💙</a> on <a href="https://unsplash.com/s/photos/medieval?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Races photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Battle stats photo by <a href="https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aaron Burden</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Base stats photo by <a href="https://unsplash.com/@kerber?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marko Blažević</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - 
 
 ## Tools

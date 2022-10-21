@@ -1,6 +1,5 @@
 package pbol.smhprpg.pkg2019130032;
 
-import java.io.IOException;
 import pbol.smhprpg.pkg2019130032.Models.BaseStatModel;
 import pbol.smhprpg.pkg2019130032.Models.BaseToBattleStatModel;
 
