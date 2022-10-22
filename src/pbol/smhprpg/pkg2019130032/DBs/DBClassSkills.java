@@ -24,7 +24,7 @@ public class DBClassSkills {
         dt = s;
     }
     
-    public ObservableList<ClassSkillModel> load(String kode) {
+    public ObservableList<ClassSkillModel> load(int kode) {
         try {
             ObservableList<ClassSkillModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();

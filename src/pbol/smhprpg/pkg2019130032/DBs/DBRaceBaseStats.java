@@ -24,13 +24,13 @@ public class DBRaceBaseStats {
         dt = s;
     }
     
-    public ObservableList<RaceBaseStatModel> load(String kode) {
+    public ObservableList<RaceBaseStatModel> load(int kode) {
         try {
             ObservableList<RaceBaseStatModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT rbs.race_id, rbs.base_stat_id, bs.name, rbs.val FROM race_base_stats rbs JOIN base_stats bs ON (rbs.base_stat_id = bs.id) WHERE rbs.race_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT rbs.race_id, rbs.base_stat_id, bs.name AS basestatName, rbs.val FROM race_base_stats rbs JOIN base_stats bs ON (rbs.base_stat_id = bs.id) WHERE rbs.race_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {
@@ -38,7 +38,7 @@ public class DBRaceBaseStats {
                 d.setRace_id(rs.getInt("race_id"));
                 d.setBase_stat_id(rs.getInt("base_stat_id"));
                 d.setVal(rs.getInt("val"));
-                d.setBasestatName(rs.getString("s.name"));
+                d.setBasestatName(rs.getString("basestatName"));
                 
                 tableData.add(d);
                 i++;

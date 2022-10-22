@@ -30,25 +30,19 @@ public class DBClasses {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            
-            ResultSet rs = con.statement.executeQuery("SELECT id, parentclass_id, name, des FROM classes");
-
+            ResultSet rs = con.statement.executeQuery("SELECT c.id, c.parentclass_id, p.name AS parentclassName, c.name, c.des FROM classes c LEFT JOIN classes p ON(c.parentclass_id = p.id)");
+                        
             int i = 1;
             while (rs.next()) {
                 ClassModel d = new ClassModel();
                 d.setId(rs.getInt("id"));
-                
-                d.setParentclass_id(rs.getInt("parentclass_id"));
-                int parentraceId;
-                if(rs.getInt("parentclass_id") != 0) {
-                    parentraceId = rs.getInt("parentclass_id");
-                    ResultSet rs2 = con.statement.executeQuery("SELECT p.name FROM classes c JOIN classes p ON(c.parentclass_id = p.id) WHERE parentclass_id = " + parentraceId);
-                    d.setParentclassName(rs2.getString("name"));
-                } else {
-                    d.setParentclassName("-");
-                }
-                
                 d.setName(rs.getString("name"));
+                d.setParentclass_id(rs.getInt("parentclass_id"));
+                if(rs.getInt("parentclass_id") != 0) {
+                    d.setParentclassName(rs.getString("parentclassName"));
+                } else {
+                    d.setParentclassName("");
+                }
                 d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
@@ -135,6 +129,7 @@ public class DBClasses {
             con.preparedStatement.setInt(1, getClassModel().getParentclass_id());
             con.preparedStatement.setString(2, getClassModel().getName());
             con.preparedStatement.setString(3, getClassModel().getDes());
+            con.preparedStatement.setInt(4, getClassModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -154,24 +149,19 @@ public class DBClasses {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM classes WHERE parentclass_id LIKE '" + parent + "%' OR name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
-            
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT c.id, c.parentclass_id, p.name AS parentclassName, c.name, c.des FROM classes c LEFT JOIN classes p ON(c.parentclass_id = p.id) WHERE c.parentclass_id LIKE '" + parent + "%' OR c.name LIKE '" + nama + "%' OR p.name LIKE '" + nama + "%' OR c.des LIKE '" + desk + "%'");
+                        
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 ClassModel d = new ClassModel();
                 d.setId(rs.getInt("id"));
-                
-                d.setParentclass_id(rs.getInt("parentclass_id"));
-                int parentraceId;
-                if(rs.getInt("parentclass_id") != 0) {
-                    parentraceId = rs.getInt("parentclass_id");
-                    ResultSet rs2 = con.statement.executeQuery("SELECT p.name FROM classes c JOIN classes p ON(c.parentclass_id = p.id) WHERE parentclass_id = " + parentraceId);
-                    d.setParentclassName(rs2.getString("name"));
-                } else {
-                    d.setParentclassName("-");
-                }
-                
                 d.setName(rs.getString("name"));
+                d.setParentclass_id(rs.getInt("parentclass_id"));
+                if(rs.getInt("parentclass_id") != 0) {
+                    d.setParentclassName(rs.getString("parentclassName"));
+                } else {
+                    d.setParentclassName("");
+                }
                 d.setDes(rs.getString("des"));
                 
                 tableData.add(d);

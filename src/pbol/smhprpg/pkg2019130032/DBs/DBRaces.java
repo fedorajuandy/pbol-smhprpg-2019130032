@@ -30,25 +30,19 @@ public class DBRaces {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
+            ResultSet rs = con.statement.executeQuery("SELECT r.id, r.parentrace_id, p.name AS parentraceName, r.name, r.des FROM races r LEFT JOIN races p ON(r.parentrace_id = p.id)");
             
-            ResultSet rs = con.statement.executeQuery("SELECT id, parentrace_id, name, des FROM races");
-
             int i = 1;
             while (rs.next()) {
                 RaceModel d = new RaceModel();
                 d.setId(rs.getInt("id"));
-                
-                d.setParentrace_id(rs.getInt("parentrace_id"));
-                int parentraceId;
-                if(rs.getInt("parentrace_id") != 0) {
-                    parentraceId = rs.getInt("parentrace_id");
-                    ResultSet rs2 = con.statement.executeQuery("SELECT p.name FROM races c JOIN races p ON(c.parentrace_id = p.id) WHERE parentrace_id = " + parentraceId);
-                    d.setParentraceName(rs2.getString("name"));
-                } else {
-                    d.setParentraceName("-");
-                }
-                
                 d.setName(rs.getString("name"));
+                d.setParentrace_id(rs.getInt("parentrace_id"));
+                if(rs.getInt("parentrace_id") != 0) {
+                    d.setParentraceName(rs.getString("parentRaceName"));
+                } else {
+                    d.setParentraceName("");
+                }
                 d.setDes(rs.getString("des"));
                 
                 tableData.add(d);
@@ -112,7 +106,7 @@ public class DBRaces {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM races WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM races WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -135,6 +129,7 @@ public class DBRaces {
             con.preparedStatement.setInt(1, getRaceModel().getParentrace_id());
             con.preparedStatement.setString(2, getRaceModel().getName());
             con.preparedStatement.setString(3, getRaceModel().getDes());
+            con.preparedStatement.setInt(4, getRaceModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -154,24 +149,19 @@ public class DBRaces {
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM races WHERE parentrace_id LIKE '" + parent + "%' OR name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
-            
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT r.id, r.parentrace_id, p.name AS parentraceName, r.name, r.des FROM races r LEFT JOIN races p ON(r.parentrace_id = p.id) WHERE r.parentrace_id LIKE '" + parent + "%' OR r.name LIKE '" + nama + "%' OR p.name LIKE '" + nama + "%' OR r.des LIKE '" + desk + "%'");
+                        
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 RaceModel d = new RaceModel();
                 d.setId(rs.getInt("id"));
-                
-                d.setParentrace_id(rs.getInt("parentrace_id"));
-                int parentraceId;
-                if(rs.getInt("parentrace_id") != 0) {
-                    parentraceId = rs.getInt("parentrace_id");
-                    ResultSet rs2 = con.statement.executeQuery("SELECT p.name FROM races c JOIN races p ON(c.parentrace_id = p.id) WHERE parentrace_id = " + parentraceId);
-                    d.setParentraceName(rs2.getString("name"));
-                } else {
-                    d.setParentraceName("-");
-                }
-                
                 d.setName(rs.getString("name"));
+                d.setParentrace_id(rs.getInt("parentrace_id"));
+                if(rs.getInt("parentrace_id") != 0) {
+                    d.setParentraceName(rs.getString("parentRaceName"));
+                } else {
+                    d.setParentraceName("");
+                }
                 d.setDes(rs.getString("des"));
                 
                 tableData.add(d);

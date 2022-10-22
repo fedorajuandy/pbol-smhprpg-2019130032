@@ -6,6 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class ClassBaseStatModel {
     private int class_id, base_stat_id, levelup_val;
+    private String basestatName;
 
     public int getClass_id() {
         return class_id;
@@ -29,5 +30,13 @@ public class ClassBaseStatModel {
 
     public void setLevelup_val(int levelup_val) {
         this.levelup_val = levelup_val;
+    }
+
+    public String getBasestatName() {
+        return basestatName;
+    }
+
+    public void setBasestatName(String basestatName) {
+        this.basestatName = basestatName;
     }
 }

@@ -16,7 +16,6 @@ import pbol.smhprpg.pkg2019130032.DBs.DBHeroEffects;
 import pbol.smhprpg.pkg2019130032.DBs.DBHeroSkills;
 import pbol.smhprpg.pkg2019130032.DBs.DBHeroTraits;
 import pbol.smhprpg.pkg2019130032.DBs.DBHeroes;
-import pbol.smhprpg.pkg2019130032.DBs.DBLevels;
 import pbol.smhprpg.pkg2019130032.DBs.DBRaceBaseStats;
 import pbol.smhprpg.pkg2019130032.DBs.DBRaceTraits;
 import pbol.smhprpg.pkg2019130032.DBs.DBRaces;
@@ -55,7 +54,6 @@ public class FXMLDocumentController implements Initializable {
     public static DBHeroSkills dths = new DBHeroSkills();
     public static DBHeroTraits dtht = new DBHeroTraits();
     public static DBHeroes dth = new DBHeroes();
-    public static DBLevels dtl = new DBLevels();
     public static DBRaceBaseStats dtrbs = new DBRaceBaseStats();
     public static DBRaceTraits dtrt = new DBRaceTraits();
     public static DBRaces dtr = new DBRaces();
@@ -205,23 +203,6 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void manageLevelsClicked(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLLevelsInput.fxml"));
-            Parent root = (Parent)loader.load();
-            Scene scene = new Scene(root);
-            Stage stg = new Stage();
-            stg.initModality(Modality.APPLICATION_MODAL);
-            stg.setResizable(false);
-            stg.setIconified(false);
-            stg.setScene(scene);
-            stg.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     private void displaySkillsClicked(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSkills.fxml"));
@@ -242,6 +223,57 @@ public class FXMLDocumentController implements Initializable {
     private void displayTraitsClicked(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLTraits.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void displayHeroes(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHeroes.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void displayRaces(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRaces.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void displayClasses(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLClasses.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();

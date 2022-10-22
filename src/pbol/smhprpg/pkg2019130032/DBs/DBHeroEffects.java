@@ -24,7 +24,7 @@ public class DBHeroEffects {
         dt = s;
     }
     
-    public ObservableList<HeroEffectModel> load(String kode) {
+    public ObservableList<HeroEffectModel> load(int kode) {
         try {
             ObservableList<HeroEffectModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();

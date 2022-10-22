@@ -24,13 +24,13 @@ public class DBRaceTraits {
         dt = s;
     }
     
-    public ObservableList<RaceTraitModel> load(String kode) {
+    public ObservableList<RaceTraitModel> load(int kode) {
         try {
             ObservableList<RaceTraitModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT rt.race_id, rt.trait_id, t.name FROM race_traits rt JOIN traits_ t ON (rt.trait_id = t.id) WHERE rt.race_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT rt.race_id, rt.trait_id, t.name FROM race_traits rt JOIN traits t ON (rt.trait_id = t.id) WHERE rt.race_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {

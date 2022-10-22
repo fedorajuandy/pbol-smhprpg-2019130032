@@ -24,19 +24,20 @@ public class DBClassBattleStats {
         dt = s;
     }
     
-    public ObservableList<ClassBattleStatModel> load(String kode) {
+    public ObservableList<ClassBattleStatModel> load(int kode) {
         try {
             ObservableList<ClassBattleStatModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();            
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT cbs.battle_stat_id, bs.name, cbs.scale" + "FROM class_battle_stats btb JOIN battle_stats bs ON(cbs.battle_stat_id = bs.id) WHERE cbs.class_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT cbs.class_id, cbs.battle_stat_id, bs.name, cbs.scale FROM class_battle_stats cbs JOIN battle_stats bs ON(cbs.battle_stat_id = bs.id) WHERE cbs.class_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {
                 ClassBattleStatModel d = new ClassBattleStatModel();
                 d.setBattle_stat_id(rs.getInt("battle_stat_id"));                
                 d.setClass_id(rs.getInt("class_id"));
+                d.setBattlestatName(rs.getString("name"));
                 d.setScale(rs.getInt("scale"));
                 
                 tableData.add(d);                
@@ -58,7 +59,7 @@ public class DBClassBattleStats {
             Koneksi con = new Koneksi();            
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery(  "SELECT COUNT(*) AS jml FROM class_battle_stats WHERE id = '" + nomor + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT COUNT(*) AS jml FROM class_battle_stats WHERE id = '" + nomor + "'");
             
             while (rs.next()) {                
                 val = rs.getInt("jml");            

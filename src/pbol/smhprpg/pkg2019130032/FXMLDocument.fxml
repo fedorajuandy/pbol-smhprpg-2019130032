@@ -27,7 +27,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#inputTraitsClicked" text="Traits" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Data">
+            <Menu mnemonicParsing="false" text="Master">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#displayBasestatsClicked" text="Base Stats" />
                   <MenuItem mnemonicParsing="false" onAction="#displayBattlestatsClicked" text="Battle Stats" />
@@ -36,10 +36,13 @@
                   <MenuItem mnemonicParsing="false" onAction="#displayTraitsClicked" text="Traits" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Level">
+            <Menu mnemonicParsing="false" text="Details">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#manageLevelsClicked" text="Manage" />
-               </items></Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#displayClasses" text="Classes" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayHeroes" text="Heroes" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayRaces" text="Races" />
+               </items>
+            </Menu>
          </menus>
       </MenuBar>
       <Label layoutX="148.0" layoutY="158.0" text="Simulasi Maintenance Hero" textAlignment="CENTER" textFill="WHITE">

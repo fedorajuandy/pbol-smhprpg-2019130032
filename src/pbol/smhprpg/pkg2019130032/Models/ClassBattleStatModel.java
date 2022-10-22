@@ -7,6 +7,7 @@ package pbol.smhprpg.pkg2019130032.Models;
 public class ClassBattleStatModel {
     private int class_id, battle_stat_id;
     private double scale;
+    private String battlestatName;
 
     public int getClass_id() {
         return class_id;
@@ -30,5 +31,13 @@ public class ClassBattleStatModel {
 
     public void setScale(double scale) {
         this.scale = scale;
+    }
+
+    public String getBattlestatName() {
+        return battlestatName;
+    }
+
+    public void setBattlestatName(String battlestatName) {
+        this.battlestatName = battlestatName;
     }
 }

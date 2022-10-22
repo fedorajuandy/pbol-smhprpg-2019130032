@@ -24,7 +24,7 @@ public class DBClassTraits {
         dt = s;
     }
     
-    public ObservableList<ClassTraitModel> load(String kode) {
+    public ObservableList<ClassTraitModel> load(int kode) {
         try {
             ObservableList<ClassTraitModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();

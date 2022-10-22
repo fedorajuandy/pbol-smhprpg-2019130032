@@ -24,13 +24,13 @@ public class DBHeroClasses {
         dt = s;
     }
     
-    public ObservableList<HeroClassModel> load(String kode) {
+    public ObservableList<HeroClassModel> load(int kode) {
         try {
             ObservableList<HeroClassModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();            
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, hc.class_id, c.name, hc.mastery_lv" + "FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) WHERE hc.hero_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) WHERE hc.hero_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {
@@ -38,7 +38,7 @@ public class DBHeroClasses {
                 d.setId(rs.getInt("id"));
                 d.setHero_id(rs.getInt("hero_id"));
                 d.setClass_id(rs.getInt("class_id"));
-                d.setClassName(rs.getString("name"));
+                d.setClassName(rs.getString("className"));
                 d.setMastery_lv(rs.getInt("mastery_lv"));
                 
                 tableData.add(d);                

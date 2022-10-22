@@ -23,17 +23,11 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="search" layoutX="274.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
-      <TableView fx:id="tbv" layoutX="33.0" layoutY="77.0" onMouseClicked="#showDetails" prefHeight="130.0" prefWidth="440.0">
+      <TextField fx:id="search" layoutX="722.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <TableView fx:id="tbv" layoutX="33.0" layoutY="77.0" onMouseClicked="#showDetails" prefHeight="130.0" prefWidth="889.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
-         </columns>
-      </TableView>
-      <TableView fx:id="tbvd" layoutX="483.0" layoutY="77.0" prefHeight="130.0" prefWidth="440.0">
-         <columns>
-            <TableColumn prefWidth="119.99999618530273" text="C1" />
-            <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
          </columns>
       </TableView>
       <Button layoutX="32.0" layoutY="229.0" mnemonicParsing="false" onAction="#firstClicked" prefHeight="24.0" prefWidth="24.0">
@@ -60,7 +54,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="184.0" layoutY="229.0" mnemonicParsing="false" onAction="#addClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="410.0" layoutY="229.0" mnemonicParsing="false" onAction="#addClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -72,7 +66,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="234.0" layoutY="229.0" mnemonicParsing="false" onAction="#updateClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="460.0" layoutY="229.0" mnemonicParsing="false" onAction="#updateClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -84,7 +78,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="284.0" layoutY="229.0" mnemonicParsing="false" onAction="#deleteClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="510.0" layoutY="229.0" mnemonicParsing="false" onAction="#deleteClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -96,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="385.0" layoutY="229.0" mnemonicParsing="false" onAction="#nextClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="836.0" layoutY="222.0" mnemonicParsing="false" onAction="#nextClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -108,7 +102,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="432.0" layoutY="229.0" mnemonicParsing="false" onAction="#lastClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="883.0" layoutY="222.0" mnemonicParsing="false" onAction="#lastClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -132,59 +126,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="483.0" layoutY="229.0" mnemonicParsing="false" onAction="#firstDClicked" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/first.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="533.0" layoutY="229.0" mnemonicParsing="false" onAction="#prevDClicked" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/prev.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="836.0" layoutY="229.0" mnemonicParsing="false" onAction="#nextDClicked" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/next.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="883.0" layoutY="229.0" mnemonicParsing="false" onAction="#lastBtbClicked" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/last.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label layoutX="492.0" layoutY="32.0" text="Race's sub classes" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
       <TableView fx:id="tbvd2" layoutX="504.0" layoutY="325.0" prefHeight="200.0" prefWidth="415.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />

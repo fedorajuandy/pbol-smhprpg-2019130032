@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.FXMLHeroesController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
@@ -281,7 +280,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="tbvd21" layoutX="644.0" layoutY="325.0" prefHeight="200.0" prefWidth="288.0">
+      <TableView fx:id="tbvd4" layoutX="644.0" layoutY="325.0" prefHeight="200.0" prefWidth="288.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
@@ -297,7 +296,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tbvd11" layoutX="492.0" layoutY="77.0" prefHeight="130.0" prefWidth="440.0">
+      <TableView fx:id="tbvd3" layoutX="492.0" layoutY="77.0" prefHeight="130.0" prefWidth="440.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
@@ -344,6 +343,18 @@
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/last.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnQuit" layoutX="460.0" layoutY="538.0" mnemonicParsing="false" onAction="#quitClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/exit.png" />
                </image>
             </ImageView>
          </graphic>

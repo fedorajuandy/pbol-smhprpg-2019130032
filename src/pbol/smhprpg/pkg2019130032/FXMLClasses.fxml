@@ -30,7 +30,7 @@
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
          </columns>
       </TableView>
-      <TableView fx:id="tbvd2" layoutX="254.0" layoutY="325.0" prefHeight="200.0" prefWidth="216.0">
+      <TableView fx:id="tbvd2" layoutX="336.0" layoutY="325.0" prefHeight="200.0" prefWidth="288.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
@@ -120,7 +120,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="491.0" layoutY="229.0" mnemonicParsing="false" onAction="#firstDClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="483.0" layoutY="229.0" mnemonicParsing="false" onAction="#firstDClicked3" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -132,7 +132,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="541.0" layoutY="229.0" mnemonicParsing="false" onAction="#prevDClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="533.0" layoutY="229.0" mnemonicParsing="false" onAction="#prevDClicked3" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -144,7 +144,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="847.0" layoutY="229.0" mnemonicParsing="false" onAction="#nextDClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="835.0" layoutY="229.0" mnemonicParsing="false" onAction="#nextDClicked3" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -156,7 +156,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="894.0" layoutY="229.0" mnemonicParsing="false" onAction="#lastBtbClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="882.0" layoutY="229.0" mnemonicParsing="false" onAction="#lastBtbClicked3" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -168,23 +168,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="492.0" layoutY="32.0" text="Class' sub classes" textFill="WHITE">
+      <Label layoutX="483.0" layoutY="32.0" text="Class' traits" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tbvd4" layoutX="703.0" layoutY="325.0" prefHeight="200.0" prefWidth="216.0">
+      <TableView fx:id="tbvd4" layoutX="631.0" layoutY="325.0" prefHeight="200.0" prefWidth="288.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
          </columns>
       </TableView>
-      <Label layoutX="703.0" layoutY="282.0" text="Class' skills" textFill="WHITE">
+      <Label layoutX="631.0" layoutY="282.0" text="Class' skills" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tbvd1" layoutX="32.0" layoutY="325.0" prefHeight="200.0" prefWidth="216.0">
+      <TableView fx:id="tbvd1" layoutX="32.0" layoutY="325.0" prefHeight="200.0" prefWidth="288.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
@@ -219,7 +219,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="161.0" layoutY="538.0" mnemonicParsing="false" onAction="#nextDClicked1" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="233.0" layoutY="538.0" mnemonicParsing="false" onAction="#nextDClicked1" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -231,7 +231,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="208.0" layoutY="538.0" mnemonicParsing="false" onAction="#lastBtbClicked1" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="280.0" layoutY="538.0" mnemonicParsing="false" onAction="#lastBtbClicked1" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -243,7 +243,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="255.0" layoutY="538.0" mnemonicParsing="false" onAction="#firstDClicked2" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="332.0" layoutY="538.0" mnemonicParsing="false" onAction="#firstDClicked2" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -255,7 +255,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="305.0" layoutY="538.0" mnemonicParsing="false" onAction="#prevDClicked2" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="382.0" layoutY="538.0" mnemonicParsing="false" onAction="#prevDClicked2" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -267,7 +267,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="381.0" layoutY="538.0" mnemonicParsing="false" onAction="#nextDClicked2" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="539.0" layoutY="538.0" mnemonicParsing="false" onAction="#nextDClicked2" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -279,7 +279,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="428.0" layoutY="538.0" mnemonicParsing="false" onAction="#lastBtbClicked2" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="586.0" layoutY="538.0" mnemonicParsing="false" onAction="#lastBtbClicked2" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -291,29 +291,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="tbvd21" layoutX="477.0" layoutY="325.0" prefHeight="200.0" prefWidth="216.0">
+      <Label layoutX="337.0" layoutY="282.0" text="Class' battle stats" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbvd3" layoutX="483.0" layoutY="77.0" prefHeight="130.0" prefWidth="440.0">
          <columns>
             <TableColumn prefWidth="119.99999618530273" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
          </columns>
       </TableView>
-      <Label layoutX="255.0" layoutY="282.0" text="Class' battle stats" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="477.0" layoutY="282.0" text="Class' traits" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tbvd11" layoutX="492.0" layoutY="77.0" prefHeight="130.0" prefWidth="440.0">
-         <columns>
-            <TableColumn prefWidth="119.99999618530273" text="C1" />
-            <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />
-         </columns>
-      </TableView>
-      <Button layoutX="477.0" layoutY="538.0" mnemonicParsing="false" onAction="#firstDClicked3" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="631.0" layoutY="538.0" mnemonicParsing="false" onAction="#firstDClicked4" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -325,55 +314,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="527.0" layoutY="538.0" mnemonicParsing="false" onAction="#prevDClicked3" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/prev.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="603.0" layoutY="538.0" mnemonicParsing="false" onAction="#nextDClicked3" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/next.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="650.0" layoutY="538.0" mnemonicParsing="false" onAction="#lastBtbClicked3" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/last.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="705.0" layoutY="538.0" mnemonicParsing="false" onAction="#firstDClicked4" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imgs/first.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="755.0" layoutY="538.0" mnemonicParsing="false" onAction="#prevDClicked4" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="681.0" layoutY="538.0" mnemonicParsing="false" onAction="#prevDClicked4" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -402,6 +343,18 @@
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/last.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnQuit" layoutX="454.0" layoutY="538.0" mnemonicParsing="false" onAction="#quitClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/exit.png" />
                </image>
             </ImageView>
          </graphic>
