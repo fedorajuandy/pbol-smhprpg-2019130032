@@ -6,8 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -17,21 +20,21 @@ import javafx.scene.control.TextField;
 public class FXMLHeroesInputController implements Initializable {
 
     @FXML
-    private TextField txtAbbrev;
-    @FXML
     private TextField txtName;
     @FXML
     private TextArea txtDes;
     @FXML
-    private TextField txtName1;
-    @FXML
-    private TextField txtName2;
-    @FXML
-    private TextField txtName3;
-    @FXML
     private Button btnExit;
     @FXML
-    private TextField txtName4;
+    private TextField txtExp;
+    @FXML
+    private ComboBox<?> dbGender;
+    @FXML
+    private ComboBox<?> cbRace;
+    @FXML
+    private ComboBox<?> cbCurrentclass;
+    @FXML
+    private Spinner<?> spLv;
 
     /**
      * Initializes the controller class.
@@ -51,6 +54,18 @@ public class FXMLHeroesInputController implements Initializable {
 
     @FXML
     private void exitClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void validateName(KeyEvent event) {
+    }
+
+    @FXML
+    private void validateDes(KeyEvent event) {
+    }
+
+    @FXML
+    private void validateSuccessrate(KeyEvent event) {
     }
     
 }

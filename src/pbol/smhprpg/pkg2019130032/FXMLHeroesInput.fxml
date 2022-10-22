@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.FXMLHeroesInputController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.FXMLHeroesInputController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="42.0" layoutY="109.0" text="Abbreviation" textFill="WHITE">
+      <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/HeroesInput.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="32.0" layoutY="129.0" text="Gender" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAbbrev" layoutX="175.0" layoutY="192.0" promptText="Max 5 characters" />
-      <Label layoutX="42.0" layoutY="42.0" text="Add or edit a base stat data" textFill="WHITE">
+      <Button layoutX="162.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
+      <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
+      <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
+      <Label layoutX="32.0" layoutY="32.0" text="Add or edit a hero" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="42.0" layoutY="148.0" text="Name" textFill="WHITE">
+      <Label layoutX="32.0" layoutY="89.0" text="Name" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="42.0" layoutY="187.0" text="Description" textFill="WHITE">
+      <Label layoutX="30.0" layoutY="243.0" text="Description" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="175.0" layoutY="231.0" promptText="Max 50 characteres" />
-      <TextArea fx:id="txtDes" layoutX="175.0" layoutY="270.0" prefHeight="50.0" prefWidth="293.0" promptText="Max 255 characters" />
-      <TextField fx:id="txtName1" layoutX="174.0" layoutY="150.0" promptText="Max 50 characteres" />
-      <TextField fx:id="txtName2" layoutX="174.0" layoutY="109.0" promptText="Max 50 characteres" />
-      <TextField fx:id="txtName3" layoutX="175.0" layoutY="340.0" promptText="Max 50 characteres" />
-      <Button layoutX="175.0" layoutY="434.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
-      <Button layoutX="236.0" layoutY="434.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
-      <Button fx:id="btnExit" layoutX="298.0" layoutY="434.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
-      <TextField fx:id="txtName4" layoutX="175.0" layoutY="378.0" promptText="Max 50 characteres" />
+      <TextField fx:id="txtName" layoutX="175.0" layoutY="86.0" onKeyTyped="#validateName" />
+      <TextArea fx:id="txtDes" layoutX="177.0" layoutY="243.0" onKeyTyped="#validateDes" prefHeight="50.0" prefWidth="293.0" />
+      <Label layoutX="31.0" layoutY="307.0" text="Level" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="344.0" text="Experience" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtExp" layoutX="177.0" layoutY="341.0" onKeyTyped="#validateSuccessrate" />
+      <ComboBox fx:id="dbGender" layoutX="175.0" layoutY="126.0" prefWidth="150.0" />
+      <Label layoutX="32.0" layoutY="178.0" text="Race" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="214.0" text="Current class" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbRace" layoutX="175.0" layoutY="165.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbCurrentclass" layoutX="176.0" layoutY="203.0" prefWidth="150.0" />
+      <Spinner fx:id="spLv" layoutX="177.0" layoutY="304.0" />
    </children>
 </AnchorPane>
