@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLSkillsInputController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/SkillsInput.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="31.0" layoutY="193.0" text="MP cost" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="162.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
+      <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
+      <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
+      <TextField fx:id="txtMpcost" layoutX="175.0" layoutY="190.0" onKeyTyped="#validateMpcost" />
+      <Label layoutX="32.0" layoutY="32.0" text="Add or edit a skill" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="91.0" text="Name" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="130.0" text="Description" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="175.0" layoutY="88.0" onKeyTyped="#validateName" />
+      <TextArea fx:id="txtDes" layoutX="175.0" layoutY="127.0" onKeyTyped="#validateDes" prefHeight="50.0" prefWidth="293.0" />
+      <Label layoutX="32.0" layoutY="230.0" text="Damage scalling" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDmg" layoutX="176.0" layoutY="227.0" onKeyTyped="#validateDmg" />
+      <Label layoutX="32.0" layoutY="267.0" text="Success rate" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSuccessrate" layoutX="176.0" layoutY="264.0" onKeyTyped="#validateSuccessrate" />
+   </children>
+</AnchorPane>

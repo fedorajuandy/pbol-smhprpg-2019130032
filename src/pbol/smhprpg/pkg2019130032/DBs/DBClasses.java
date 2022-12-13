@@ -38,7 +38,7 @@ public class DBClasses {
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setParentclass_id(rs.getInt("parentclass_id"));
-                if(rs.getInt("parentclass_id") != 0) {
+                if (rs.getInt("parentclass_id") != 0) {
                     d.setParentclassName(rs.getString("parentclassName"));
                 } else {
                     d.setParentclassName("");
@@ -157,7 +157,7 @@ public class DBClasses {
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setParentclass_id(rs.getInt("parentclass_id"));
-                if(rs.getInt("parentclass_id") != 0) {
+                if (rs.getInt("parentclass_id") != 0) {
                     d.setParentclassName(rs.getString("parentclassName"));
                 } else {
                     d.setParentclassName("");

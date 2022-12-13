@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/MainMenu.png" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="25.0" prefWidth="960.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Input">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#inputBasestatsClicked" text="Base Stats" />
+                  <MenuItem mnemonicParsing="false" onAction="#inputBattlestatsClicked" text="Battle Stats" />
+                  <MenuItem mnemonicParsing="false" onAction="#inputEffectsClicked" text="Effects" />
+                  <MenuItem mnemonicParsing="false" onAction="#inputSkillsClicked" text="Skills" />
+                  <MenuItem mnemonicParsing="false" onAction="#inputTraitsClicked" text="Traits" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Master">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#displayBasestatsClicked" text="Base Stats" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayBattlestatsClicked" text="Battle Stats" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayEffectsClicked" text="Effects" />
+                  <MenuItem mnemonicParsing="false" onAction="#displaySkillsClicked" text="Skills" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayTraitsClicked" text="Traits" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Details">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#displayClasses" text="Classes" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayHeroes" text="Heroes" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayRaces" text="Races" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Label layoutX="148.0" layoutY="158.0" text="Simulasi Maintenance Hero" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="56.0" />
+         </font>
+      </Label>
+      <Label layoutX="287.0" layoutY="258.0" text="Permainan RPG" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="56.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="529.0" text="© 2019130032 - Fedora Yoshe Juandy" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

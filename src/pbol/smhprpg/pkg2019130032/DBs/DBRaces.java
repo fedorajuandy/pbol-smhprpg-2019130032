@@ -38,7 +38,7 @@ public class DBRaces {
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setParentrace_id(rs.getInt("parentrace_id"));
-                if(rs.getInt("parentrace_id") != 0) {
+                if (rs.getInt("parentrace_id") != 0) {
                     d.setParentraceName(rs.getString("parentRaceName"));
                 } else {
                     d.setParentraceName("");
@@ -157,7 +157,7 @@ public class DBRaces {
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setParentrace_id(rs.getInt("parentrace_id"));
-                if(rs.getInt("parentrace_id") != 0) {
+                if (rs.getInt("parentrace_id") != 0) {
                     d.setParentraceName(rs.getString("parentRaceName"));
                 } else {
                     d.setParentraceName("");

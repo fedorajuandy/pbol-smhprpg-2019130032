@@ -144,7 +144,7 @@ public class DBTraits {
             ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM traits WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 TraitModel d = new TraitModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));

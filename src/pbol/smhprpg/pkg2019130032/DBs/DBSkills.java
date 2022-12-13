@@ -156,7 +156,7 @@ public class DBSkills {
             ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT id, name, des, mp_cost, dmg, success_rate FROM skills WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%' OR mp_cost LIKE '" + mp + "%' OR dmg LIKE '" + damage + "%' OR success_rate LIKE '" + sr + "%'");
             
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 SkillModel d = new SkillModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));

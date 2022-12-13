@@ -162,7 +162,7 @@ public class DBHeroes {
             ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.lv, h.exp FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) WHERE r.name LIKE '" + ras + "%' OR c.name LIKE '" + kelas + "%' OR h.name LIKE '" + nama + "%' OR h.gender LIKE '" + jk + "%' OR h.des LIKE '" + desk + "%' OR h.lv LIKE '" + lv + "%' OR h.exp LIKE '" + pengalaman + "%'");
             
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 HeroModel d = new HeroModel();
                 d.setId(rs.getInt("id"));
                 d.setRace_id(rs.getInt("race_id"));

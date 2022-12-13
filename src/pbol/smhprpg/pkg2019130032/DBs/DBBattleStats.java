@@ -147,7 +147,7 @@ public class DBBattleStats {
             ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM battle_stats WHERE abbrev LIKE '" + singkatan + "%' OR name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 BattleStatModel d = new BattleStatModel();
                 d.setId(rs.getInt("id"));
                 d.setAbbrev(rs.getString("abbrev"));

@@ -25,9 +25,10 @@
 - Effects photo by <a href="https://unsplash.com/@worldsbetweenlines?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Hendry</a> on <a href="https://unsplash.com/s/photos/fire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Levels photo by <a href="https://unsplash.com/@evgenit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Evgeni Tcherkasski</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Traits photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Simulation photo by <a href="https://unsplash.com/@mavrick?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ricardo Cruz</a> on <a href="https://unsplash.com/s/photos/sword?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 ## Tools
 
 - Database: Laragon (HeidiSQL)
 - IDE: Apache NetBeans IDE 14
-- Images editor : <a href="https://www.canva.com/">Canva</a>
+- Image editor: [Canva](https://www.canva.com/)

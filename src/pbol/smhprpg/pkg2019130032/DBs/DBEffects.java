@@ -144,7 +144,7 @@ public class DBEffects {
             ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM effects WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
             
             int i = 1;
-            while(rs.next()) {
+            while (rs.next()) {
                 EffectModel d = new EffectModel();
                 d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
