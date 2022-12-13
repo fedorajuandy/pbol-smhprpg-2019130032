@@ -128,7 +128,7 @@ public class FXMLBattleStatsController implements Initializable {
     @FXML
     private void addClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLBattleStatsInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLBattleStatsInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -151,7 +151,7 @@ public class FXMLBattleStatsController implements Initializable {
         s = tbv.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLBattleStatsInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLBattleStatsInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLBattleStatsInputController isidt = (FXMLBattleStatsInputController)loader.getController();
             isidt.execute(s);

@@ -189,7 +189,7 @@ public class FXMLRacesController implements Initializable {
     @FXML
     private void addClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRacesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLRacesInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -212,7 +212,7 @@ public class FXMLRacesController implements Initializable {
         s = tbv.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLRacesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLRacesInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLRacesInputController isidt = (FXMLRacesInputController)loader.getController();
             // isidt.execute(s);

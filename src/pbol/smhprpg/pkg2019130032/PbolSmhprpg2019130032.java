@@ -15,7 +15,7 @@ public class PbolSmhprpg2019130032 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Views/FXMLDocument.fxml"));
-        
+        stage.setTitle("SMHRPG");
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

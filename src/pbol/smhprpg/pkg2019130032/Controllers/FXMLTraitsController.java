@@ -155,7 +155,7 @@ public class FXMLTraitsController implements Initializable {
     @FXML
     private void addClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLTraitsInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLTraitsInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -178,7 +178,7 @@ public class FXMLTraitsController implements Initializable {
         s = tbv.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLTraitsInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLTraitsInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLTraitsInputController isidt = (FXMLTraitsInputController)loader.getController();
             isidt.execute(s);

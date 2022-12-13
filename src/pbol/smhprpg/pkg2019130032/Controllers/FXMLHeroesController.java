@@ -271,7 +271,7 @@ public class FXMLHeroesController implements Initializable {
     @FXML
     private void addClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHeroesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLHeroesInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -294,7 +294,7 @@ public class FXMLHeroesController implements Initializable {
         s = tbv.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHeroesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLHeroesInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLHeroesInputController isidt = (FXMLHeroesInputController)loader.getController();
             // isidt.execute(s);
