@@ -24,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -271,7 +270,7 @@ public class FXMLHeroesController implements Initializable {
     @FXML
     private void addClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLHeroesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroesInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -294,7 +293,7 @@ public class FXMLHeroesController implements Initializable {
         s = tbv.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLHeroesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroesInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLHeroesInputController isidt = (FXMLHeroesInputController)loader.getController();
             // isidt.execute(s);
@@ -449,5 +448,11 @@ public class FXMLHeroesController implements Initializable {
     private void lastBtbClicked(ActionEvent event) {
         tbvd3.getSelectionModel().selectLast();
         tbvd3.requestFocus();
+    }
+
+    @FXML
+    private void clearClicked(ActionEvent event) {
+        search.setText("");
+        search.requestFocus();
     }
 }

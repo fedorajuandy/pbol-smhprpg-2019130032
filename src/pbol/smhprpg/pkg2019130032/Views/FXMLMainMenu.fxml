@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLMainMenuController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
@@ -37,16 +36,17 @@
                   <MenuItem mnemonicParsing="false" onAction="#displayTraitsClicked" text="Traits" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Details">
+            <Menu mnemonicParsing="false" text="Detail">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#displayClasses" text="Classes" />
                   <MenuItem mnemonicParsing="false" onAction="#displayHeroes" text="Heroes" />
                   <MenuItem mnemonicParsing="false" onAction="#displayRaces" text="Races" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Simulations">
+            <Menu mnemonicParsing="false" text="Simulation">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#simulateBattle" text="Battle" />
+                  <MenuItem mnemonicParsing="false" onAction="#simulationBattles" text="Battles" />
+                  <MenuItem mnemonicParsing="false" onAction="#simulationHeroes" text="Heroes" />
                </items>
             </Menu>
          </menus>

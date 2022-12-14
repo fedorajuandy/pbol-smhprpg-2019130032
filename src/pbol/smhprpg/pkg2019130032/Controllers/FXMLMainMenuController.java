@@ -68,7 +68,7 @@ public class FXMLMainMenuController implements Initializable {
     
     private void display(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXML" + fxml + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032//pbol/smhprpg/pkg2019130032/Views/FXML" + fxml + ".fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -149,7 +149,12 @@ public class FXMLMainMenuController implements Initializable {
     }
 
     @FXML
-    private void simulateBattle(ActionEvent event) {
-        display("Simulation");
+    private void simulationBattles(ActionEvent event) {
+        display("SimulationBattles");
+    }
+
+    @FXML
+    private void simulationHeroes(ActionEvent event) {
+        display("SimulationHeroes");
     }
 }

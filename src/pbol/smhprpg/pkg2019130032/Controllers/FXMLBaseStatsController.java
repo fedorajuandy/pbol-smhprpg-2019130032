@@ -163,7 +163,7 @@ public class FXMLBaseStatsController implements Initializable {
     @FXML
     private void addBsClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLBaseStatsInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLBaseStatsInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -186,7 +186,7 @@ public class FXMLBaseStatsController implements Initializable {
         s = tbvbs.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLBaseStatsInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLBaseStatsInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLBaseStatsInputController isidt = (FXMLBaseStatsInputController)loader.getController();
             isidt.execute(s);
@@ -267,5 +267,11 @@ public class FXMLBaseStatsController implements Initializable {
     private void lastBtbClicked(ActionEvent event) {
         tbvbtb.getSelectionModel().selectLast();
         tbvbtb.requestFocus();
+    }
+
+    @FXML
+    private void clearClicked(ActionEvent event) {
+        search.setText("");
+        search.requestFocus();
     }
 }

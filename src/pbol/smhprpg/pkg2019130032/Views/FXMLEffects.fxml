@@ -23,7 +23,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="search" layoutX="724.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <TextField fx:id="search" layoutX="677.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
       <TableView fx:id="tbv" layoutX="33.0" layoutY="77.0" prefHeight="400.0" prefWidth="891.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
@@ -126,5 +126,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button layoutX="882.0" layoutY="37.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
    </children>
 </AnchorPane>

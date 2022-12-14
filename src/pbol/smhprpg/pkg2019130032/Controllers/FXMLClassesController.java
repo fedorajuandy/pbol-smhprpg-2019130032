@@ -226,7 +226,7 @@ public class FXMLClassesController implements Initializable {
     @FXML
     private void addClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLClassesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassesInput.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -249,7 +249,7 @@ public class FXMLClassesController implements Initializable {
         s = tbv.getSelectionModel().getSelectedItem();
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/FXMLClassesInput.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassesInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLClassesInputController isidt = (FXMLClassesInputController)loader.getController();
             // isidt.execute(s);
@@ -402,5 +402,11 @@ public class FXMLClassesController implements Initializable {
     @FXML
     private void quitClicked(ActionEvent event) {
         btnQuit.getScene().getWindow().hide();
+    }
+
+    @FXML
+    private void clearClicked(ActionEvent event) {
+        search.setText("");
+        search.requestFocus();
     }
 }
