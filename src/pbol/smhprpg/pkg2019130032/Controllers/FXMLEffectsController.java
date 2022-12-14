@@ -76,7 +76,7 @@ public class FXMLEffectsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<EffectModel> data = FXMLMainMenuController.dte.searchItems(key, key);
+            ObservableList<EffectModel> data = FXMLMainMenuController.dte.searchItems(key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();

@@ -112,7 +112,7 @@ public class FXMLBaseStatsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<BaseStatModel> data = FXMLMainMenuController.dtbs.searchItems(key, key, key);
+            ObservableList<BaseStatModel> data = FXMLMainMenuController.dtbs.searchItems(key, key, key, key);
             if (data != null) {
                 tbvbs.getColumns().clear();
                 tbvbs.getItems().clear();

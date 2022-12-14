@@ -99,7 +99,7 @@ public class DBEffects {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM effects WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM effects WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -118,7 +118,7 @@ public class DBEffects {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE effects SET name = ?, des = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE effects SET name = ?, des = ?  WHERE  id = ?");
             con.preparedStatement.setString(1, getEffectModel().getName());
             con.preparedStatement.setString(2, getEffectModel().getDes());
             con.preparedStatement.setInt(3, getEffectModel().getId());
@@ -134,14 +134,14 @@ public class DBEffects {
         }
     }
     
-    public ObservableList<EffectModel> searchItems(String nama, String desk) {
+    public ObservableList<EffectModel> searchItems(String id, String nama, String desk) {
         try {
             ObservableList<EffectModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM effects WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM effects WHERE id LIKE '%" + id +"%' OR name LIKE '%" + nama + "%' OR des LIKE '%" + desk + "%'");
             
             int i = 1;
             while (rs.next()) {

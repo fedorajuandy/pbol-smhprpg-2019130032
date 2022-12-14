@@ -99,7 +99,7 @@ public class DBTraits {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM traits WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM traits WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -118,7 +118,7 @@ public class DBTraits {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE traits SET name = ?, des = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE traits SET name = ?, des = ?  WHERE  id = ?");
             con.preparedStatement.setString(1, getTraitModel().getName());
             con.preparedStatement.setString(2, getTraitModel().getDes());
             con.preparedStatement.setInt(3, getTraitModel().getId());
@@ -134,14 +134,14 @@ public class DBTraits {
         }
     }
     
-    public ObservableList<TraitModel> searchItems(String nama, String desk) {
+    public ObservableList<TraitModel> searchItems(String id, String nama, String desk) {
         try {
             ObservableList<TraitModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM traits WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM traits WHERE id LIKE '%" + id + "%' OR name LIKE '%" + nama + "%' OR des LIKE '%" + desk + "%'");
             
             int i = 1;
             while (rs.next()) {

@@ -22,7 +22,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -92,7 +91,7 @@ public class FXMLRacesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<RaceModel> data = FXMLMainMenuController.dtr.searchItems(key, key, key);
+            ObservableList<RaceModel> data = FXMLMainMenuController.dtr.searchItems(key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();

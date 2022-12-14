@@ -24,14 +24,14 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="search" layoutX="321.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
-      <TableView fx:id="tbvbs" layoutX="33.0" layoutY="77.0" onMouseClicked="#showDetails" prefHeight="400.0" prefWidth="540.0">
+      <TextField fx:id="search" layoutX="372.0" layoutY="37.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <TableView fx:id="tbvbs" layoutX="33.0" layoutY="77.0" onMouseClicked="#showDetails" prefHeight="400.0" prefWidth="590.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
          </columns>
       </TableView>
-      <TableView fx:id="tbvbtb" layoutX="629.0" layoutY="77.0" prefHeight="400.0" prefWidth="300.0">
+      <TableView fx:id="tbvbtb" layoutX="675.0" layoutY="77.0" prefHeight="400.0" prefWidth="250.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
@@ -97,7 +97,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="482.0" layoutY="493.0" mnemonicParsing="false" onAction="#nextBsClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="536.0" layoutY="493.0" mnemonicParsing="false" onAction="#nextBsClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -109,7 +109,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="529.0" layoutY="493.0" mnemonicParsing="false" onAction="#lastBsClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="583.0" layoutY="493.0" mnemonicParsing="false" onAction="#lastBsClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -133,7 +133,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="629.0" layoutY="493.0" mnemonicParsing="false" onAction="#firstBtbClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="675.0" layoutY="493.0" mnemonicParsing="false" onAction="#firstBtbClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -145,7 +145,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="679.0" layoutY="493.0" mnemonicParsing="false" onAction="#prevBtbClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="725.0" layoutY="493.0" mnemonicParsing="false" onAction="#prevBtbClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -181,12 +181,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="625.0" layoutY="32.0" text="Base stat to battle stats" textFill="WHITE">
+      <Label layoutX="675.0" layoutY="32.0" text="Base stat to battle stats" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="529.0" layoutY="37.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
+      <Button layoutX="580.0" layoutY="37.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
    </children>
    <rotationAxis>
       <Point3D />

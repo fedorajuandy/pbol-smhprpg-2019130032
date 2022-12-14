@@ -112,7 +112,7 @@ public class DBHeroes {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM heroes WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM heroes WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -131,7 +131,7 @@ public class DBHeroes {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE heroes SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, des = ?, lv = ?, exp = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE heroes SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, des = ?, lv = ?, exp = ?  WHERE  id = ?");
             con.preparedStatement.setInt(1, getHeroModel().getRace_id());
             con.preparedStatement.setInt(2, getHeroModel().getCurr_class_id());
             con.preparedStatement.setString(3, getHeroModel().getName());
@@ -152,14 +152,14 @@ public class DBHeroes {
         }
     }
     
-    public ObservableList<HeroModel> searchItems(String ras, String kelas, String nama, String jk, String desk, String lv, String pengalaman) {
+    public ObservableList<HeroModel> searchItems(String id, String ras, String kelas, String nama, String jk, String desk, String lv, String pengalaman) {
         try {
             ObservableList<HeroModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.lv, h.exp FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) WHERE r.name LIKE '" + ras + "%' OR c.name LIKE '" + kelas + "%' OR h.name LIKE '" + nama + "%' OR h.gender LIKE '" + jk + "%' OR h.des LIKE '" + desk + "%' OR h.lv LIKE '" + lv + "%' OR h.exp LIKE '" + pengalaman + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.lv, h.exp FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) WHERE h.id LIKE '%" + id + "%' OR r.name LIKE '%" + ras + "%' OR c.name LIKE '%" + kelas + "%' OR h.name LIKE '%" + nama + "%' OR h.gender LIKE '%" + jk + "%' OR h.des LIKE '%" + desk + "%' OR h.lv LIKE '%" + lv + "%' OR h.exp LIKE '%" + pengalaman + "%'");
             
             int i = 1;
             while (rs.next()) {

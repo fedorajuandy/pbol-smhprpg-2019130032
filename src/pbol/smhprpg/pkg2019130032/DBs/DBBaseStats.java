@@ -101,7 +101,7 @@ public class DBBaseStats {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM base_stats WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM base_stats WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -120,7 +120,7 @@ public class DBBaseStats {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE base_stats SET abbrev = ?, name = ?, des = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE base_stats SET abbrev = ?, name = ?, des = ?  WHERE  id = ?");
             con.preparedStatement.setString(1, getBaseStatModel().getAbbrev());
             con.preparedStatement.setString(2, getBaseStatModel().getName());
             con.preparedStatement.setString(3, getBaseStatModel().getDes());
@@ -137,14 +137,14 @@ public class DBBaseStats {
         }
     }
     
-    public ObservableList<BaseStatModel> searchItems(String singkatan, String nama, String desk) {
+    public ObservableList<BaseStatModel> searchItems(String id, String singkatan, String nama, String desk) {
         try {
             ObservableList<BaseStatModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM base_stats WHERE abbrev LIKE '" + singkatan + "%' OR name LIKE '" + nama + "%' OR des LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM base_stats WHERE id LIKE '%" + id + "%' OR abbrev LIKE '%" + singkatan + "%' OR name LIKE '%" + nama + "%' OR des LIKE '%" + desk + "%'");
             
             int i = 1;
             while (rs.next()) {

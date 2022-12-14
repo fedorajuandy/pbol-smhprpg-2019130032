@@ -106,7 +106,7 @@ public class DBClasses {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM classes WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM classes WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -125,7 +125,7 @@ public class DBClasses {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE classes SET parentclass_id = ?, name = ?, des = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE classes SET parentclass_id = ?, name = ?, des = ?  WHERE  id = ?");
             con.preparedStatement.setInt(1, getClassModel().getParentclass_id());
             con.preparedStatement.setString(2, getClassModel().getName());
             con.preparedStatement.setString(3, getClassModel().getDes());
@@ -142,14 +142,14 @@ public class DBClasses {
         }
     }
     
-    public ObservableList<ClassModel> searchItems(String parent, String nama, String desk) {
+    public ObservableList<ClassModel> searchItems(String id, String parent, String nama, String desk) {
         try {
             ObservableList<ClassModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT c.id, c.parentclass_id, p.name AS parentclassName, c.name, c.des FROM classes c LEFT JOIN classes p ON(c.parentclass_id = p.id) WHERE c.parentclass_id LIKE '" + parent + "%' OR c.name LIKE '" + nama + "%' OR p.name LIKE '" + nama + "%' OR c.des LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT c.id, c.parentclass_id, p.name AS parentclassName, c.name, c.des FROM classes c LEFT JOIN classes p ON(c.parentclass_id = p.id) WHERE c.id LIKE '%" + id + "%' OR c.parentclass_id LIKE '%" + parent + "%' OR c.name LIKE '%" + nama + "%' OR p.name LIKE '%" + nama + "%' OR c.des LIKE '%" + desk + "%'");
                         
             int i = 1;
             while (rs.next()) {

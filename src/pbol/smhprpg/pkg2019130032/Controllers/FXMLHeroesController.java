@@ -113,7 +113,7 @@ public class FXMLHeroesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<HeroModel> data = FXMLMainMenuController.dth.searchItems(key, key, key, key, key, key, key);
+            ObservableList<HeroModel> data = FXMLMainMenuController.dth.searchItems(key, key, key, key, key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();

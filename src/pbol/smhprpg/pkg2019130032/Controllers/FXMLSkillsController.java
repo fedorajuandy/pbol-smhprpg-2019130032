@@ -88,7 +88,7 @@ public class FXMLSkillsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<SkillModel> data = FXMLMainMenuController.dts.searchItems(key, key, key, key, key);
+            ObservableList<SkillModel> data = FXMLMainMenuController.dts.searchItems(key, key, key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();

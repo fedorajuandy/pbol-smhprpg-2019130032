@@ -80,7 +80,7 @@ public class FXMLTraitsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<TraitModel> data = FXMLMainMenuController.dtt.searchItems(key, key);
+            ObservableList<TraitModel> data = FXMLMainMenuController.dtt.searchItems(key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();

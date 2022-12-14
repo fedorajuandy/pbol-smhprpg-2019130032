@@ -125,7 +125,7 @@ public class DBRaces {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE races SET parentrace_id = ?, name = ?, des = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE races SET parentrace_id = ?, name = ?, des = ?  WHERE  id = ?");
             con.preparedStatement.setInt(1, getRaceModel().getParentrace_id());
             con.preparedStatement.setString(2, getRaceModel().getName());
             con.preparedStatement.setString(3, getRaceModel().getDes());
@@ -142,14 +142,14 @@ public class DBRaces {
         }
     }
     
-    public ObservableList<RaceModel> searchItems(String parent, String nama, String desk) {
+    public ObservableList<RaceModel> searchItems(String id, String parent, String nama, String desk) {
         try {
             ObservableList<RaceModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT r.id, r.parentrace_id, p.name AS parentraceName, r.name, r.des FROM races r LEFT JOIN races p ON(r.parentrace_id = p.id) WHERE r.parentrace_id LIKE '" + parent + "%' OR r.name LIKE '" + nama + "%' OR p.name LIKE '" + nama + "%' OR r.des LIKE '" + desk + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT r.id, r.parentrace_id, p.name AS parentraceName, r.name, r.des FROM races r LEFT JOIN races p ON(r.parentrace_id = p.id) WHERE r.idLIKE '%" + id + "%' OR c.name LIKE '%" + parent + "%' OR r.name LIKE '%" + nama + "%' OR p.name LIKE '%" + nama + "%' OR r.des LIKE '%" + desk + "%'");
                         
             int i = 1;
             while (rs.next()) {

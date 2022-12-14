@@ -107,7 +107,7 @@ public class DBSkills {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM skills WHERE id  = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM skills WHERE id  = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.executeUpdate();
             
@@ -126,7 +126,7 @@ public class DBSkills {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE skills SET name = ?, des = ?, mp_cost = ?, dmg = ?, success_rate = ?  WHERE  id = ? ");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE skills SET name = ?, des = ?, mp_cost = ?, dmg = ?, success_rate = ?  WHERE  id = ?");
             con.preparedStatement.setString(1, getSkillModel().getName());
             con.preparedStatement.setString(2, getSkillModel().getDes());
             con.preparedStatement.setInt(3, getSkillModel().getMp_cost());
@@ -146,14 +146,14 @@ public class DBSkills {
         }
     }
     
-    public ObservableList<SkillModel> searchItems(String nama, String desk, String mp, String damage, String sr) {
+    public ObservableList<SkillModel> searchItems(String id, String nama, String desk, String mp, String damage, String sr) {
         try {
             ObservableList<SkillModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT id, name, des, mp_cost, dmg, success_rate FROM skills WHERE name LIKE '" + nama + "%' OR des LIKE '" + desk + "%' OR mp_cost LIKE '" + mp + "%' OR dmg LIKE '" + damage + "%' OR success_rate LIKE '" + sr + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT id, name, des, mp_cost, dmg, success_rate FROM skills WHERE id LIKE '%" + id + "%' OR name LIKE '%" + nama + "%' OR des LIKE '%" + desk + "%' OR mp_cost LIKE '%" + mp + "%' OR dmg LIKE '%" + damage + "%' OR success_rate LIKE '%" + sr + "%'");
             
             int i = 1;
             while (rs.next()) {

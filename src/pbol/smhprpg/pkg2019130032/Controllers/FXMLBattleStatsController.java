@@ -80,7 +80,7 @@ public class FXMLBattleStatsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<BattleStatModel> data = FXMLMainMenuController.dtbt.searchItems(key, key, key);
+            ObservableList<BattleStatModel> data = FXMLMainMenuController.dtbt.searchItems(key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();

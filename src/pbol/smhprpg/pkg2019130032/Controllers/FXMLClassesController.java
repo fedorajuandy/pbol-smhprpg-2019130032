@@ -97,7 +97,7 @@ public class FXMLClassesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<ClassModel> data = FXMLMainMenuController.dtc.searchItems(key, key, key);
+            ObservableList<ClassModel> data = FXMLMainMenuController.dtc.searchItems(key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
