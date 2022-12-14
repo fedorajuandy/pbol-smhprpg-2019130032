@@ -16,8 +16,8 @@ public class PbolSmhprpg2019130032 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLDocument.fxml"));
-        stage.setTitle("SMHRPG");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("imgs/smhrpg.png")));
+        stage.setTitle("SMHPRPG");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("imgs/smhprpg.png")));
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
