@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -16,6 +17,7 @@ public class PbolSmhprpg2019130032 extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Views/FXMLDocument.fxml"));
         stage.setTitle("SMHRPG");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("imgs/smhrpg.png")));
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

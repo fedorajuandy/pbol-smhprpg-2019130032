@@ -57,17 +57,17 @@ public class FXMLBattleStatsInputController implements Initializable {
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
         
-        FXMLDocumentController.dtbt.setBattleStatModel(n);
+        FXMLMainMenuController.dtbt.setBattleStatModel(n);
         if (edited) {
-            if (FXMLDocumentController.dtbt.update()) {
+            if (FXMLMainMenuController.dtbt.update()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed..", ButtonType.OK);
                 a.showAndWait(); 
             }
-        } else if (FXMLDocumentController.dtbt.validasi(n.getId()) <= 0) {
-            if (FXMLDocumentController.dtbt.insert()) {
+        } else if (FXMLMainMenuController.dtbt.validasi(n.getId()) <= 0) {
+            if (FXMLMainMenuController.dtbt.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
                clearClicked(event);

@@ -1,19 +1,19 @@
-# PBOL
+# UAS PBOL - Sistem Maintenance Hero Permainan RPG
 
 2019130032 - Fedora Yoshe Juandy
 
-## Sistem Maintenance Hero Permainan RPG
+## References
 
-## Codes references
+### Codes
 
 - IMK notes and past projects
 - PBOL notes and past projects
+- [To manage paths](https://stackoverflow.com/questions/61531317/how-do-i-determine-the-correct-path-for-fxml-files-css-files-images-and-other)
+- [To change tittle](https://www.tabnine.com/code/java/methods/javafx.stage.Stage/setTitle)
+- [To change icon](https://stackoverflow.com/questions/10121991/javafx-application-icon)
+- 
 
-## Ideas references
-
-- Located at DB tables' comments
-
-## Images references
+## Images
 
 - Main menu photo by <a href="https://unsplash.com/@sebastian_unrau?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sebastian Unrau</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Heroes photo by <a href="https://unsplash.com/@betno?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dominik Bednarz</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -26,6 +26,11 @@
 - Levels photo by <a href="https://unsplash.com/@evgenit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Evgeni Tcherkasski</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Traits photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Simulation photo by <a href="https://unsplash.com/@mavrick?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ricardo Cruz</a> on <a href="https://unsplash.com/s/photos/sword?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Icon is made by <a href="https://express.adobe.com/express-apps/logo-maker">Adobe Express</a>
+
+### Ideas
+
+- Located at DB tables' comments
 
 ## Tools
 

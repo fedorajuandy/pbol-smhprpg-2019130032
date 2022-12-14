@@ -57,7 +57,7 @@ public class FXMLClassesController implements Initializable {
     }    
 
     public void showData() {
-        ObservableList<ClassModel> data = FXMLDocumentController.dtc.load();
+        ObservableList<ClassModel> data = FXMLMainMenuController.dtc.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -97,7 +97,7 @@ public class FXMLClassesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<ClassModel> data = FXMLDocumentController.dtc.searchItems(key, key, key);
+            ObservableList<ClassModel> data = FXMLMainMenuController.dtc.searchItems(key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -137,10 +137,10 @@ public class FXMLClassesController implements Initializable {
 
     @FXML
     private void showDetails() {
-        ObservableList<ClassBaseStatModel> data1 = FXMLDocumentController.dtcbs.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<ClassBattleStatModel> data2 = FXMLDocumentController.dtcbt.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<ClassTraitModel> data3= FXMLDocumentController.dtct.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<ClassSkillModel> data4 = FXMLDocumentController.dtcs.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<ClassBaseStatModel> data1 = FXMLMainMenuController.dtcbs.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<ClassBattleStatModel> data2 = FXMLMainMenuController.dtcbt.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<ClassTraitModel> data3= FXMLMainMenuController.dtct.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<ClassSkillModel> data4 = FXMLMainMenuController.dtcs.load(tbv.getSelectionModel().getSelectedItem().getId());
         
         if (data1 != null && data2 != null && data3 != null && data4 != null) {
             tbvd1.getColumns().clear();
@@ -276,7 +276,7 @@ public class FXMLClassesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLDocumentController.dtc.delete(s.getId())) {
+           if (FXMLMainMenuController.dtc.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {

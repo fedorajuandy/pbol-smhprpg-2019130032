@@ -54,17 +54,17 @@ public class FXMLTraitsInputController implements Initializable {
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
         
-        FXMLDocumentController.dtt.setTraitModel(n);
+        FXMLMainMenuController.dtt.setTraitModel(n);
         if (edited) {
-            if (FXMLDocumentController.dtt.update()) {
+            if (FXMLMainMenuController.dtt.update()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed.", ButtonType.OK);
                 a.showAndWait(); 
             }
-        } else if (FXMLDocumentController.dtt.validasi(n.getId()) <= 0) {
-            if (FXMLDocumentController.dtt.insert()) {
+        } else if (FXMLMainMenuController.dtt.validasi(n.getId()) <= 0) {
+            if (FXMLMainMenuController.dtt.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
                clearClicked(event);

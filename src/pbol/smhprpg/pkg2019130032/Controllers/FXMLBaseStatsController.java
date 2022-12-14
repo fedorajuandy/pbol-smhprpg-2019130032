@@ -48,7 +48,7 @@ public class FXMLBaseStatsController implements Initializable {
     }
     
     public void showData() {
-        ObservableList<BaseStatModel> data = FXMLDocumentController.dtbs.load();
+        ObservableList<BaseStatModel> data = FXMLMainMenuController.dtbs.load();
         
         if (data != null) {
             tbvbs.getColumns().clear();
@@ -80,7 +80,7 @@ public class FXMLBaseStatsController implements Initializable {
     
     @FXML
     public void showDetails() {
-        ObservableList<BaseToBattleStatModel> data = FXMLDocumentController.dtbtb.load(tbvbs.getSelectionModel().getSelectedItem().getId());
+        ObservableList<BaseToBattleStatModel> data = FXMLMainMenuController.dtbtb.load(tbvbs.getSelectionModel().getSelectedItem().getId());
         
         if (data != null) {
             tbvbtb.getColumns().clear();
@@ -112,7 +112,7 @@ public class FXMLBaseStatsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<BaseStatModel> data = FXMLDocumentController.dtbs.searchItems(key, key, key);
+            ObservableList<BaseStatModel> data = FXMLMainMenuController.dtbs.searchItems(key, key, key);
             if (data != null) {
                 tbvbs.getColumns().clear();
                 tbvbs.getItems().clear();
@@ -213,7 +213,7 @@ public class FXMLBaseStatsController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLDocumentController.dtbs.delete(s.getId())) {
+           if (FXMLMainMenuController.dtbs.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {

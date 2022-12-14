@@ -52,7 +52,7 @@ public class FXMLRacesController implements Initializable {
     }
     
     public void showData() {
-        ObservableList<RaceModel> data = FXMLDocumentController.dtr.load();
+        ObservableList<RaceModel> data = FXMLMainMenuController.dtr.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -92,7 +92,7 @@ public class FXMLRacesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<RaceModel> data = FXMLDocumentController.dtr.searchItems(key, key, key);
+            ObservableList<RaceModel> data = FXMLMainMenuController.dtr.searchItems(key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -132,8 +132,8 @@ public class FXMLRacesController implements Initializable {
 
     @FXML
     private void showDetails() {
-        ObservableList<RaceTraitModel> data1 = FXMLDocumentController.dtrt.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<RaceBaseStatModel> data2 = FXMLDocumentController.dtrbs.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<RaceTraitModel> data1 = FXMLMainMenuController.dtrt.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<RaceBaseStatModel> data2 = FXMLMainMenuController.dtrbs.load(tbv.getSelectionModel().getSelectedItem().getId());
         
         if (data1 != null && data2 != null) {
             tbvd1.getColumns().clear();
@@ -239,7 +239,7 @@ public class FXMLRacesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLDocumentController.dtr.delete(s.getId())) {
+           if (FXMLMainMenuController.dtr.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {
