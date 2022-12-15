@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLUserMenuController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/MainMenu.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="40.0" layoutY="40.0" text="Welcome back," textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="56.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbUsername" layoutX="424.0" layoutY="40.0" text="xxxxxxxxxx" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="56.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="529.0" text="© 2019130032 - Fedora Yoshe Juandy" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnQuit" layoutX="460.0" layoutY="425.0" mnemonicParsing="false" onAction="#quitClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="208.0" layoutY="185.0" mnemonicParsing="false" onAction="#displayHeroes">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/characters.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="580.0" layoutY="185.0" mnemonicParsing="false" onAction="#displayBattle">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/battles.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="265.0" layoutY="366.0" text="HEROES" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="635.0" layoutY="366.0" text="BATTLES" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
