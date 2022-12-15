@@ -31,6 +31,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -38,7 +39,7 @@ import javafx.stage.Stage;
  *
  * @author 2019130032 - Fedora Yoshe Juandy
  */
-public class FXMLMainMenuController implements Initializable {
+public class FXMLAdminMenuController implements Initializable {
     public static DBBaseStats dtbs = new DBBaseStats();
     public static DBBaseToBattleStats dtbtb = new DBBaseToBattleStats();
     public static DBBattleStats dtbt = new DBBattleStats();
@@ -73,6 +74,8 @@ public class FXMLMainMenuController implements Initializable {
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setTitle("SMHPRPG");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("imgs/smhprpg.png")));
             stg.setResizable(false);
             stg.setIconified(false);
             stg.setScene(scene);

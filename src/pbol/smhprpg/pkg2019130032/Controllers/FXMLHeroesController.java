@@ -57,7 +57,7 @@ public class FXMLHeroesController implements Initializable {
     }    
 
     public void showData() {
-        ObservableList<HeroModel> data = FXMLMainMenuController.dth.load();
+        ObservableList<HeroModel> data = FXMLAdminMenuController.dth.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -113,7 +113,7 @@ public class FXMLHeroesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<HeroModel> data = FXMLMainMenuController.dth.searchItems(key, key, key, key, key, key, key, key);
+            ObservableList<HeroModel> data = FXMLAdminMenuController.dth.searchItems(key, key, key, key, key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -169,10 +169,10 @@ public class FXMLHeroesController implements Initializable {
 
     @FXML
     private void showDetails() {
-        ObservableList<HeroBaseStatModel> data1 = FXMLMainMenuController.dthbs.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<HeroClassModel> data2 = FXMLMainMenuController.dthc.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<HeroEffectModel> data3= FXMLMainMenuController.dthe.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<HeroSkillModel> data4 = FXMLMainMenuController.dths.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<HeroBaseStatModel> data1 = FXMLAdminMenuController.dthbs.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<HeroClassModel> data2 = FXMLAdminMenuController.dthc.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<HeroEffectModel> data3= FXMLAdminMenuController.dthe.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<HeroSkillModel> data4 = FXMLAdminMenuController.dths.load(tbv.getSelectionModel().getSelectedItem().getId());
         
         if (data1 != null && data2 != null && data3 != null && data4 != null) {
             tbvd1.getColumns().clear();
@@ -320,7 +320,7 @@ public class FXMLHeroesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dth.delete(s.getId())) {
+           if (FXMLAdminMenuController.dth.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {

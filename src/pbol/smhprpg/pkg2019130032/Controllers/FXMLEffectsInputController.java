@@ -54,17 +54,17 @@ public class FXMLEffectsInputController implements Initializable {
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
         
-        FXMLMainMenuController.dte.setEffectModel(n);
+        FXMLAdminMenuController.dte.setEffectModel(n);
         if (edited) {
-            if (FXMLMainMenuController.dte.update()) {
+            if (FXMLAdminMenuController.dte.update()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed..", ButtonType.OK);
                 a.showAndWait(); 
             }
-        } else if (FXMLMainMenuController.dte.validasi(n.getId()) <= 0) {
-            if (FXMLMainMenuController.dte.insert()) {
+        } else if (FXMLAdminMenuController.dte.validasi(n.getId()) <= 0) {
+            if (FXMLAdminMenuController.dte.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
                clearClicked(event);

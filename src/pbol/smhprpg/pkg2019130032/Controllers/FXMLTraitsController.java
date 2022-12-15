@@ -48,7 +48,7 @@ public class FXMLTraitsController implements Initializable {
     }
     
     public void showData() {
-        ObservableList<TraitModel> data = FXMLMainMenuController.dtt.load();
+        ObservableList<TraitModel> data = FXMLAdminMenuController.dtt.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -80,7 +80,7 @@ public class FXMLTraitsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<TraitModel> data = FXMLMainMenuController.dtt.searchItems(key, key, key);
+            ObservableList<TraitModel> data = FXMLAdminMenuController.dtt.searchItems(key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -112,7 +112,7 @@ public class FXMLTraitsController implements Initializable {
 
     @FXML
     public void showDetails() {
-        ObservableList<TraitBaseStatModel> data = FXMLMainMenuController.dttbs.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<TraitBaseStatModel> data = FXMLAdminMenuController.dttbs.load(tbv.getSelectionModel().getSelectedItem().getId());
         
         if (data != null) {
             tbvd.getColumns().clear();
@@ -205,7 +205,7 @@ public class FXMLTraitsController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dtt.delete(s.getId())) {
+           if (FXMLAdminMenuController.dtt.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {

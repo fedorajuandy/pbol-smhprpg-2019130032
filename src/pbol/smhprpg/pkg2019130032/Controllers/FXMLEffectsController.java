@@ -44,7 +44,7 @@ public class FXMLEffectsController implements Initializable {
     }    
 
     public void showData() {
-        ObservableList<EffectModel> data = FXMLMainMenuController.dte.load();
+        ObservableList<EffectModel> data = FXMLAdminMenuController.dte.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -76,7 +76,7 @@ public class FXMLEffectsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<EffectModel> data = FXMLMainMenuController.dte.searchItems(key, key, key);
+            ObservableList<EffectModel> data = FXMLAdminMenuController.dte.searchItems(key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -170,7 +170,7 @@ public class FXMLEffectsController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dte.delete(s.getId())) {
+           if (FXMLAdminMenuController.dte.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {

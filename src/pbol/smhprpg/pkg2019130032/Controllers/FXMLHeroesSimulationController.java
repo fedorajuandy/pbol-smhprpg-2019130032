@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
  *
  * @author 2019130032 - Fedora Yoshe Juandy
  */
-public class FXMLSimulationHeroesController implements Initializable {
+public class FXMLHeroesSimulationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

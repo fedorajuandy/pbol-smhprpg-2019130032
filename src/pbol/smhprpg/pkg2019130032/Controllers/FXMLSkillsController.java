@@ -44,7 +44,7 @@ public class FXMLSkillsController implements Initializable {
     }    
 
     public void showData() {
-        ObservableList<SkillModel> data = FXMLMainMenuController.dts.load();
+        ObservableList<SkillModel> data = FXMLAdminMenuController.dts.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -88,7 +88,7 @@ public class FXMLSkillsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<SkillModel> data = FXMLMainMenuController.dts.searchItems(key, key, key, key, key, key);
+            ObservableList<SkillModel> data = FXMLAdminMenuController.dts.searchItems(key, key, key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -194,7 +194,7 @@ public class FXMLSkillsController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dts.delete(s.getId())) {
+           if (FXMLAdminMenuController.dts.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {
