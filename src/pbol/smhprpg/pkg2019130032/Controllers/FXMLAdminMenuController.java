@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,10 +20,15 @@ import javafx.stage.Stage;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class FXMLAdminMenuController implements Initializable {
+
+    @FXML
+    private Label lbUsername;
+    @FXML
+    private Button btnQuit;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lbUsername.setText(FXMLLoginController.getUsername());
     }
     
     private void display(String fxml) {
@@ -43,27 +50,22 @@ public class FXMLAdminMenuController implements Initializable {
         }
     }
 
-    @FXML
     private void inputBasestatsClicked(ActionEvent event) {
         display("BaseStatsInput");
     }
 
-    @FXML
     private void inputBattlestatsClicked(ActionEvent event) {
         display("BattleStatsInput");
     }
 
-    @FXML
     private void inputEffectsClicked(ActionEvent event) {
         display("EffectsInput");
     }
 
-    @FXML
     private void inputSkillsClicked(ActionEvent event) {
         display("SkillsInput");
     }
 
-    @FXML
     private void inputTraitsClicked(ActionEvent event) {
         display("TraitsInput");
     }
@@ -116,5 +118,20 @@ public class FXMLAdminMenuController implements Initializable {
     @FXML
     private void simulationHeroes(ActionEvent event) {
         display("SimulationHeroes");
+    }
+
+    @FXML
+    private void displayUser(ActionEvent event) {
+        display("Users");
+    }
+
+    @FXML
+    private void manageLevel(ActionEvent event) {
+        display("Level");
+    }
+
+    @FXML
+    private void quitClicked(ActionEvent event) {
+        btnQuit.getScene().getWindow().hide();
     }
 }

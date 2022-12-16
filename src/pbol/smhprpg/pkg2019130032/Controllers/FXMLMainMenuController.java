@@ -1,17 +1,5 @@
 package pbol.smhprpg.pkg2019130032.Controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import pbol.smhprpg.pkg2019130032.DBs.DBBaseStats;
 import pbol.smhprpg.pkg2019130032.DBs.DBBaseToBattleStats;
 import pbol.smhprpg.pkg2019130032.DBs.DBBattleStats;
@@ -27,12 +15,27 @@ import pbol.smhprpg.pkg2019130032.DBs.DBHeroEffects;
 import pbol.smhprpg.pkg2019130032.DBs.DBHeroSkills;
 import pbol.smhprpg.pkg2019130032.DBs.DBHeroTraits;
 import pbol.smhprpg.pkg2019130032.DBs.DBHeroes;
+import pbol.smhprpg.pkg2019130032.DBs.DBLevel;
 import pbol.smhprpg.pkg2019130032.DBs.DBRaceBaseStats;
 import pbol.smhprpg.pkg2019130032.DBs.DBRaceTraits;
 import pbol.smhprpg.pkg2019130032.DBs.DBRaces;
 import pbol.smhprpg.pkg2019130032.DBs.DBSkills;
 import pbol.smhprpg.pkg2019130032.DBs.DBTraitBaseStats;
 import pbol.smhprpg.pkg2019130032.DBs.DBTraits;
+import pbol.smhprpg.pkg2019130032.DBs.DBUsers;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -40,7 +43,6 @@ import pbol.smhprpg.pkg2019130032.DBs.DBTraits;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class FXMLMainMenuController implements Initializable {
-    
     public static DBBaseStats dtbs = new DBBaseStats();
     public static DBBaseToBattleStats dtbtb = new DBBaseToBattleStats();
     public static DBBattleStats dtbt = new DBBattleStats();
@@ -56,12 +58,14 @@ public class FXMLMainMenuController implements Initializable {
     public static DBHeroSkills dths = new DBHeroSkills();
     public static DBHeroTraits dtht = new DBHeroTraits();
     public static DBHeroes dth = new DBHeroes();
+    public static DBLevel dtl = new DBLevel();
     public static DBRaceBaseStats dtrbs = new DBRaceBaseStats();
     public static DBRaceTraits dtrt = new DBRaceTraits();
     public static DBRaces dtr = new DBRaces();
     public static DBSkills dts = new DBSkills();
     public static DBTraitBaseStats dttbs = new DBTraitBaseStats();
     public static DBTraits dtt = new DBTraits();
+    public static DBUsers dtu = new DBUsers();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package pbol.smhprpg.pkg2019130032.Controllers;
 
 import java.net.URL;
@@ -7,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -17,14 +20,12 @@ import javafx.scene.input.KeyEvent;
  *
  * @author 2019130032 - Fedora Yoshe Juandy
  */
-public class FXMLHeroesInputController implements Initializable {
+public class FXMLHeroesCreateController implements Initializable {
 
     @FXML
     private TextField txtName;
     @FXML
     private TextArea txtDes;
-    @FXML
-    private Button btnExit;
     @FXML
     private ComboBox<?> dbGender;
     @FXML
@@ -32,23 +33,13 @@ public class FXMLHeroesInputController implements Initializable {
     @FXML
     private ComboBox<?> cbCurrentclass;
     @FXML
-    private Spinner<?> spLv;
-    @FXML
     private TextField txtRace;
     @FXML
     private TextField txtCurrclass;
     @FXML
     private TextField txtImage;
     @FXML
-    private TextField txtUser;
-    @FXML
-    private ComboBox<?> cbUser;
-    @FXML
-    private Spinner<?> spStatooints;
-    @FXML
-    private Spinner<?> spSkillpoints;
-    @FXML
-    private Spinner<?> spExp;
+    private Button btnExit;
 
     /**
      * Initializes the controller class.
@@ -57,18 +48,6 @@ public class FXMLHeroesInputController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void saveClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void clearClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void exitClicked(ActionEvent event) {
-    }
 
     @FXML
     private void validateName(KeyEvent event) {
@@ -80,6 +59,18 @@ public class FXMLHeroesInputController implements Initializable {
 
     @FXML
     private void validateSuccessrate(KeyEvent event) {
+    }
+
+    @FXML
+    private void saveClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void clearClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void exitClicked(ActionEvent event) {
     }
     
 }

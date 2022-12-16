@@ -64,7 +64,7 @@ public class FXMLBaseStatsInputController implements Initializable {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
             } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed..", ButtonType.OK);
+                Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed.", ButtonType.OK);
                 a.showAndWait(); 
             }
         } else if (FXMLAdminMenuController.dtbs.validasi(n.getId()) <= 0) {

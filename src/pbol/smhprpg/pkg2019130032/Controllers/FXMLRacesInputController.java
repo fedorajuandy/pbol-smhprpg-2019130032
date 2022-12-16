@@ -26,6 +26,8 @@ public class FXMLRacesInputController implements Initializable {
     private TextArea txtDes;
     @FXML
     private ComboBox<?> spParentrace;
+    @FXML
+    private TextField txtParentrace;
 
     /**
      * Initializes the controller class.
