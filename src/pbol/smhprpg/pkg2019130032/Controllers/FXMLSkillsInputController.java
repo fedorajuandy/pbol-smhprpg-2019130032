@@ -66,17 +66,17 @@ public class FXMLSkillsInputController implements Initializable {
         n.setDmg(Double.parseDouble(txtDmg.getText()));
         n.setSuccess_rate(Double.parseDouble(txtSuccessrate.getText()));
         
-        FXMLAdminMenuController.dts.setSkillModel(n);
+        FXMLMainMenuController.dts.setSkillModel(n);
         if (edited) {
-            if (FXMLAdminMenuController.dts.update()) {
+            if (FXMLMainMenuController.dts.update()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed.", ButtonType.OK);
                 a.showAndWait(); 
             }
-        } else if (FXMLAdminMenuController.dts.validasi(n.getId()) <= 0) {
-            if (FXMLAdminMenuController.dts.insert()) {
+        } else if (FXMLMainMenuController.dts.validasi(n.getId()) <= 0) {
+            if (FXMLMainMenuController.dts.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
                clearClicked(event);

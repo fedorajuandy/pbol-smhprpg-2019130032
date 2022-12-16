@@ -44,7 +44,7 @@ public class FXMLBattleStatsController implements Initializable {
     }    
 
     public void showData() {
-        ObservableList<BattleStatModel> data = FXMLAdminMenuController.dtbt.load();
+        ObservableList<BattleStatModel> data = FXMLMainMenuController.dtbt.load();
         
         if (data != null) {
             tbv.getColumns().clear();
@@ -80,7 +80,7 @@ public class FXMLBattleStatsController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<BattleStatModel> data = FXMLAdminMenuController.dtbt.searchItems(key, key, key, key);
+            ObservableList<BattleStatModel> data = FXMLMainMenuController.dtbt.searchItems(key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
@@ -178,7 +178,7 @@ public class FXMLBattleStatsController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLAdminMenuController.dtbt.delete(s.getId())) {
+           if (FXMLMainMenuController.dtbt.delete(s.getId())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {

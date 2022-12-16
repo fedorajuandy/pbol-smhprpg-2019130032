@@ -58,17 +58,17 @@ public class FXMLBaseStatsInputController implements Initializable {
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
         
-        FXMLAdminMenuController.dtbs.setBaseStatModel(n);
+        FXMLMainMenuController.dtbs.setBaseStatModel(n);
         if (edited) {
-            if (FXMLAdminMenuController.dtbs.update()) {
+            if (FXMLMainMenuController.dtbs.update()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
                a.showAndWait();
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data changes failed.", ButtonType.OK);
                 a.showAndWait(); 
             }
-        } else if (FXMLAdminMenuController.dtbs.validasi(n.getId()) <= 0) {
-            if (FXMLAdminMenuController.dtbs.insert()) {
+        } else if (FXMLMainMenuController.dtbs.validasi(n.getId()) <= 0) {
+            if (FXMLMainMenuController.dtbs.insert()) {
                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                a.showAndWait();
                clearClicked(event);
