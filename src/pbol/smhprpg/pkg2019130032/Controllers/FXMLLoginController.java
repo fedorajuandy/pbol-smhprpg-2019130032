@@ -58,7 +58,6 @@ public class FXMLLoginController implements Initializable {
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery("SELECT password FROM users where username = " + username);
 
-            int i = 1;
             while (rs.next()) {
                 if (txtPassword.getText().equals(rs.getString("password"))) {
                     try {
@@ -80,8 +79,6 @@ public class FXMLLoginController implements Initializable {
                     Alert a = new Alert(Alert.AlertType.ERROR, "Wrong username and/or password.", ButtonType.OK);
                     a.showAndWait(); 
                 }
-
-                i++;
             }
             
             con.tutupKoneksi();

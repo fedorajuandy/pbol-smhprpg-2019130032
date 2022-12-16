@@ -5,9 +5,41 @@ package pbol.smhprpg.pkg2019130032.Models;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class HeroModel {
-    private int id, race_id, curr_class_id, lv, exp;
-    private String name, des, raceName, className;
+    private int id, race_id, curr_class_id, exp, stat_points, skill_points, user_id;
+    private String name, des, raceName, className, image;
     private char gender;
+
+    public int getStat_points() {
+        return stat_points;
+    }
+
+    public void setStat_points(int stat_points) {
+        this.stat_points = stat_points;
+    }
+
+    public int getSkill_points() {
+        return skill_points;
+    }
+
+    public void setSkill_points(int skill_points) {
+        this.skill_points = skill_points;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public int getId() {
         return id;
@@ -31,14 +63,6 @@ public class HeroModel {
 
     public void setCurr_class_id(int curr_class_id) {
         this.curr_class_id = curr_class_id;
-    }
-
-    public int getLv() {
-        return lv;
-    }
-
-    public void setLv(int lv) {
-        this.lv = lv;
     }
 
     public int getExp() {

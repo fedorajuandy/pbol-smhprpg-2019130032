@@ -12,6 +12,8 @@
 - [To change tittle](https://www.tabnine.com/code/java/methods/javafx.stage.Stage/setTitle)
 - [To change icon](https://stackoverflow.com/questions/10121991/javafx-application-icon)
 - [To iterate combobox database](https://stackoverflow.com/questions/39539838/javafx-populating-a-combobox-with-data-from-a-mysql-database-stringconverter-b)
+- [To change combobox value/index](https://stackoverflow.com/questions/18146712/combo-box-select-item-in-javafx-2)
+- [To set spinner's value](https://stackoverflow.com/questions/38810846/how-to-set-the-value-of-a-javafx-spinner)
 - 
 
 ## Images

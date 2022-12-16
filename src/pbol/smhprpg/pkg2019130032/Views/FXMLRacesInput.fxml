@@ -42,7 +42,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="spParentrace" layoutX="177.0" layoutY="190.0" prefHeight="25.0" prefWidth="71.0" />
+      <ComboBox fx:id="cbParentrace" layoutX="177.0" layoutY="190.0" onAction="#showParentrace" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="txtParentrace" editable="false" layoutX="257.0" layoutY="190.0" onKeyTyped="#validateName" />
    </children>
 </AnchorPane>

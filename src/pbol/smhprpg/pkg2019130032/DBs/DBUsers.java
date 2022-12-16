@@ -52,14 +52,14 @@ public class DBUsers {
         }
     }
     
-    public int validasi(int nomor) {
+    public int validasi(String username) {
         int val = 0;
         
         try {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery( "SELECT COUNT(*) AS jml FROM users WHERE id = '" + nomor + "'");
+            ResultSet rs = con.statement.executeQuery( "SELECT COUNT(*) AS jml FROM users WHERE username = '" + username + "'");
             
             while (rs.next()) {
                 val = rs.getInt("jml");

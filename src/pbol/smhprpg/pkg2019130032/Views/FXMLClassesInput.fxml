@@ -37,12 +37,12 @@
       </Label>
       <TextField fx:id="txtName" layoutX="177.0" layoutY="86.0" onKeyTyped="#validateName" />
       <TextArea fx:id="txtDes" layoutX="177.0" layoutY="126.0" onKeyTyped="#validateDes" prefHeight="50.0" prefWidth="293.0" />
-      <Label layoutX="32.0" layoutY="201.0" text="Parent class" textFill="WHITE">
+      <Label layoutX="32.0" layoutY="193.0" text="Parent class" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="spParentclass" layoutX="177.0" layoutY="190.0" prefHeight="25.0" prefWidth="73.0" />
-      <TextField fx:id="txtParentclass" editable="false" layoutX="260.0" layoutY="190.0" prefHeight="25.0" prefWidth="149.0" />
+      <ComboBox fx:id="cbParentclass" layoutX="177.0" layoutY="190.0" onAction="#showParentname" prefHeight="25.0" prefWidth="80.0" promptText="Select" />
+      <TextField fx:id="txtParentclass" editable="false" layoutX="264.0" layoutY="190.0" prefHeight="25.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

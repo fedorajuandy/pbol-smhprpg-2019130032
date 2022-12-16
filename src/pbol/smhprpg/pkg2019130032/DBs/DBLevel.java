@@ -29,14 +29,17 @@ public class DBLevel {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT id, base_exp, scale FROM level");
+            ResultSet rs = con.statement.executeQuery("SELECT id, max_lv, base_exp, scale, stat_points, skill_points FROM level");
 
             int i = 1;
             while (rs.next()) {
                 LevelModel d = new LevelModel();
                 d.setId(rs.getInt("id"));
+                d.setScale(rs.getInt("max_lv"));
                 d.setBase_exp(rs.getInt("base_exp"));
                 d.setScale(rs.getDouble("scale"));
+                d.setScale(rs.getInt("stat_points"));
+                d.setScale(rs.getInt("skill_poitns"));
                 
                 tableData.add(d);
                 i++;
@@ -77,10 +80,13 @@ public class DBLevel {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE level SET base_exp = ?, scale = ? WHERE  id = ?");
-            con.preparedStatement.setInt(1, getLevelModel().getBase_exp());
-            con.preparedStatement.setDouble(2, getLevelModel().getScale());
-            con.preparedStatement.setInt(3, getLevelModel().getId());
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE level SET max_lv = ?, base_exp = ?, scale = ? stat_points = ?, skill_points = ? WHERE  id = ?");
+            con.preparedStatement.setInt(1, getLevelModel().getMax_lv());
+            con.preparedStatement.setInt(2, getLevelModel().getBase_exp());
+            con.preparedStatement.setDouble(3, getLevelModel().getScale());
+            con.preparedStatement.setInt(4, getLevelModel().getStat_points());
+            con.preparedStatement.setInt(5, getLevelModel().getSkill_points());
+            con.preparedStatement.setInt(6, getLevelModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
