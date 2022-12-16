@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLUserMenuController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLUserMenuController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -78,7 +77,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="635.0" layoutY="366.0" text="BATTLES" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="640.0" layoutY="366.0" text="BATTLE" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

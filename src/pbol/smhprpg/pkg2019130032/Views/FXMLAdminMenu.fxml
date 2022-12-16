@@ -50,12 +50,12 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Label layoutX="298.0" layoutY="210.0" text="Welcome back," textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="298.0" layoutY="179.0" text="Welcome back," textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="System Italic" size="56.0" />
+            <Font size="56.0" />
          </font>
       </Label>
-      <Label fx:id="lbUsername" layoutX="352.0" layoutY="300.0" text="xxxxxxxxxx" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="lbUsername" layoutX="352.0" layoutY="269.0" text="xxxxxxxxxx" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Italic" size="56.0" />
          </font>

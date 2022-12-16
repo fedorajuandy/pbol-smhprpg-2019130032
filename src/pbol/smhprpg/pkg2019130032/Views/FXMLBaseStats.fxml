@@ -61,7 +61,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="231.0" layoutY="493.0" mnemonicParsing="false" onAction="#addBsClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="258.0" layoutY="493.0" mnemonicParsing="false" onAction="#addBsClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -73,7 +73,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="281.0" layoutY="493.0" mnemonicParsing="false" onAction="#updateBsClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="308.0" layoutY="493.0" mnemonicParsing="false" onAction="#updateBsClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -85,7 +85,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="331.0" layoutY="493.0" mnemonicParsing="false" onAction="#deleteBsClicked" prefHeight="24.0" prefWidth="24.0">
+      <Button layoutX="358.0" layoutY="493.0" mnemonicParsing="false" onAction="#deleteBsClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
