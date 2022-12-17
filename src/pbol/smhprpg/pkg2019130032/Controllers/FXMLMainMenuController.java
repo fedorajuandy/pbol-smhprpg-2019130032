@@ -74,13 +74,13 @@ public class FXMLMainMenuController implements Initializable {
     
     private void display(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032//pbol/smhprpg/pkg2019130032/Views/FXML" + fxml + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXML" + fxml + ".fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setTitle("SMHPRPG");
-            stg.getIcons().add(new Image(getClass().getResourceAsStream("imgs/smhprpg.png")));
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.setResizable(false);
             stg.setIconified(false);
             stg.setScene(scene);
@@ -100,5 +100,4 @@ public class FXMLMainMenuController implements Initializable {
     private void displayRegister(ActionEvent event) {
         display("Register");
     }
-    
 }

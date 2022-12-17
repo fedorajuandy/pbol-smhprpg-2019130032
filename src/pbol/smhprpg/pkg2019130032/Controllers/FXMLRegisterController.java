@@ -54,11 +54,12 @@ public class FXMLRegisterController implements Initializable {
             UserModel n = new UserModel();
             n.setUsername(txtUsername.getText()); 
             n.setPassword(txtPassword.getText());
+            n.setRole(1);
 
             FXMLMainMenuController.dtu.setUserModel(n);
             
             if (FXMLMainMenuController.dtu.validasi(n.getUsername()) <= 0) {
-                if (FXMLMainMenuController.dts.insert()) {
+                if (FXMLMainMenuController.dtu.insert()) {
                    Alert a = new Alert(Alert.AlertType.INFORMATION, "Data saved.", ButtonType.OK);
                    a.showAndWait();
                    clearClicked(event);
@@ -89,5 +90,4 @@ public class FXMLRegisterController implements Initializable {
         int batas = 128;
         if (txtPassword.getText().length() >= batas) event.consume();
     }
-    
 }

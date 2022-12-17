@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -16,9 +17,18 @@
             <Image url="@../imgs/LoginRegister.png" />
          </image>
       </ImageView>
-      <Button layoutX="144.0" layoutY="432.0" mnemonicParsing="false" onAction="#registerClicked" prefHeight="25.0" prefWidth="65.0" text="Register" />
-      <Button layoutX="217.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="65.0" text="Clear" />
-      <Button fx:id="btnExit" layoutX="290.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="65.0" text="Exit" />
+      <Button layoutX="144.0" layoutY="432.0" mnemonicParsing="false" onAction="#registerClicked" prefHeight="25.0" prefWidth="65.0" text="Register">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="217.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="65.0" text="Clear">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnExit" layoutX="290.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="65.0" text="Exit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label layoutX="32.0" layoutY="32.0" text="Register" textFill="WHITE">
          <font>
             <Font size="24.0" />

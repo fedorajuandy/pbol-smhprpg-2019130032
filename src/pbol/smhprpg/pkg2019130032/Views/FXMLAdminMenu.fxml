@@ -55,7 +55,7 @@
             <Font size="56.0" />
          </font>
       </Label>
-      <Label fx:id="lbUsername" layoutX="352.0" layoutY="269.0" text="xxxxxxxxxx" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="lbUsername" alignment="CENTER" layoutX="310.0" layoutY="274.0" prefHeight="83.0" prefWidth="350.0" text="xxxxxxxxxx" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Italic" size="56.0" />
          </font>
