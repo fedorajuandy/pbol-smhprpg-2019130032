@@ -8,8 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import pbol.smhprpg.pkg2019130032.Models.LevelModel;
 
 /**
@@ -18,35 +18,42 @@ import pbol.smhprpg.pkg2019130032.Models.LevelModel;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class FXMLLevelController implements Initializable {
-    private int id;
+    LevelModel n = FXMLMainMenuController.dtl.load();
+    private int id = 1;
 
     @FXML
     private Button btnExit;
     @FXML
     private TextField txtScale;
     @FXML
-    private Spinner<Integer> spMaxlv;
+    private TextField txtMaxlv;
     @FXML
-    private Spinner<Integer> spBaseexp;
+    private TextField txtBaseexp;
     @FXML
-    private Spinner<Integer> spStatpoints;
+    private TextField txtStatpoints;
     @FXML
-    private Spinner<Integer> spSkillpoints;
+    private TextField txtSkillpoints;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        txtMaxlv.setText(Integer.toString(n.getMax_lv()));
+        txtBaseexp.setText(Integer.toString(n.getBase_exp()));
+        txtScale.setText(Double.toString(n.getScale()));
+        txtStatpoints.setText(Integer.toString(n.getStat_points()));
+        txtSkillpoints.setText(Integer.toString(n.getSkill_points()));
+          
+       FXMLMainMenuController.dtl.setLevelModel(n);
+        txtMaxlv.requestFocus();
     }    
 
     @FXML
     private void saveClicked(ActionEvent event) {
-        LevelModel n = new LevelModel();
         n.setId(id);
-        n.setMax_lv(spMaxlv.getValue());
-        n.setBase_exp(spBaseexp.getValue());
+        n.setMax_lv(Integer.parseInt(txtMaxlv.getText()));
+        n.setBase_exp(Integer.parseInt(txtBaseexp.getText()));
         n.setScale(Double.parseDouble(txtScale.getText()));
-        n.setStat_points(spStatpoints.getValue());
-        n.setSkill_points(spSkillpoints.getValue());
+        n.setStat_points(Integer.parseInt(txtStatpoints.getText()));
+        n.setSkill_points(Integer.parseInt(txtSkillpoints.getText()));
         
         if (FXMLMainMenuController.dtl.update()) {
            Alert a = new Alert(Alert.AlertType.INFORMATION, "Data successfully changed." , ButtonType.OK);
@@ -59,16 +66,50 @@ public class FXMLLevelController implements Initializable {
 
     @FXML
     private void clearClicked(ActionEvent event) {
-        spMaxlv.getValueFactory().setValue(100);
-        spBaseexp.getValueFactory().setValue(100);
-        txtScale.setText("");
-        spStatpoints.getValueFactory().setValue(5);
-        spSkillpoints.getValueFactory().setValue(1);
-        spMaxlv.requestFocus();
+        txtMaxlv.setText("100");
+        txtBaseexp.setText("1000");
+        txtScale.setText("1.25");
+        txtStatpoints.setText("0");
+        txtSkillpoints.setText("0");
+        txtMaxlv.requestFocus();
     }
 
     @FXML
     private void exitClicked(ActionEvent event) {
         btnExit.getScene().getWindow().hide();
+    }
+
+    @FXML
+    private void validateScale(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        if(!Character.isDigit(test) && test != '.') event.consume();
+    }
+
+    @FXML
+    private void validateMaxlv(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 5;
+        if(!Character.isDigit(test) || txtStatpoints.getText().length() >= batas) event.consume();
+    }
+
+    @FXML
+    private void validateBaseexp(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 10;
+        if(!Character.isDigit(test) || txtStatpoints.getText().length() >= batas) event.consume();
+    }
+
+    @FXML
+    private void validateStatpoints(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 2;
+        if(!Character.isDigit(test) || txtStatpoints.getText().length() >= batas) event.consume();
+    }
+
+    @FXML
+    private void validateSkillpoints(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 1;
+        if(!Character.isDigit(test) || txtSkillpoints.getText().length() >= batas) event.consume();
     }
 }

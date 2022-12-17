@@ -31,7 +31,7 @@ public class FXMLRegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        txtUsername.requestFocus();
     }    
 
 

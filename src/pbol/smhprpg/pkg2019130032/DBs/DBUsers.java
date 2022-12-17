@@ -32,7 +32,6 @@ public class DBUsers {
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery("SELECT id, username, password, role FROM users");
 
-            int i = 1;
             while (rs.next()) {
                 UserModel d = new UserModel();
                 d.setId(rs.getInt("id"));
@@ -41,7 +40,6 @@ public class DBUsers {
                 d.setRole(rs.getInt("role"));
                 
                 tableData.add(d);
-                i++;
             }
             
             con.tutupKoneksi();

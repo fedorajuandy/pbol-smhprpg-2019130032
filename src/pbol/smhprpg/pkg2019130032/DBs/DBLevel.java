@@ -4,9 +4,6 @@ import pbol.smhprpg.pkg2019130032.Koneksi;
 import pbol.smhprpg.pkg2019130032.Models.LevelModel;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -23,55 +20,29 @@ public class DBLevel {
         this.dt = dt;
     }
     
-    public ObservableList<LevelModel> load() {
+    public LevelModel load() {
         try {
-            ObservableList<LevelModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery("SELECT id, max_lv, base_exp, scale, stat_points, skill_points FROM level");
-
-            int i = 1;
+            
+            LevelModel d = new LevelModel();
             while (rs.next()) {
-                LevelModel d = new LevelModel();
                 d.setId(rs.getInt("id"));
-                d.setScale(rs.getInt("max_lv"));
+                d.setMax_lv(rs.getInt("max_lv"));
                 d.setBase_exp(rs.getInt("base_exp"));
                 d.setScale(rs.getDouble("scale"));
-                d.setScale(rs.getInt("stat_points"));
-                d.setScale(rs.getInt("skill_poitns"));
-                
-                tableData.add(d);
-                i++;
+                d.setStat_points(rs.getInt("stat_points"));
+                d.setSkill_points(rs.getInt("skill_points"));
             }
             
             con.tutupKoneksi();
-            return tableData;
+            return d;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-    }
-    
-    public int validasi(int nomor) {
-        int val = 0;
-        
-        try {
-            Koneksi con = new Koneksi();
-            con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery( "SELECT COUNT(*) AS jml FROM level WHERE id = '" + nomor + "'");
-            
-            while (rs.next()) {
-                val = rs.getInt("jml");
-            }
-            
-            con.tutupKoneksi();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        return val;
     }
 
     public boolean update() {
@@ -80,7 +51,7 @@ public class DBLevel {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE level SET max_lv = ?, base_exp = ?, scale = ? stat_points = ?, skill_points = ? WHERE  id = ?");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE level SET max_lv = ?, base_exp = ?, scale = ?, stat_points = ?, skill_points = ? WHERE  id = ?");
             con.preparedStatement.setInt(1, getLevelModel().getMax_lv());
             con.preparedStatement.setInt(2, getLevelModel().getBase_exp());
             con.preparedStatement.setDouble(3, getLevelModel().getScale());

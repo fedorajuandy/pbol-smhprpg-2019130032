@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,9 +16,18 @@
             <Image url="@../imgs/LevelsInput.png" />
          </image>
       </ImageView>
-      <Button layoutX="162.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
-      <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
-      <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
+      <Button layoutX="162.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label layoutX="32.0" layoutY="32.0" text="Level up bases" textFill="WHITE">
          <font>
             <Font size="24.0" />
@@ -34,7 +43,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtScale" layoutX="175.0" layoutY="165.0" />
+      <TextField fx:id="txtScale" layoutX="175.0" layoutY="165.0" onKeyTyped="#validateScale" />
       <Label layoutX="31.0" layoutY="207.0" text="Stat points added" textFill="WHITE">
          <font>
             <Font size="14.0" />
@@ -50,9 +59,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="spMaxlv" layoutX="176.0" layoutY="87.0" />
-      <Spinner fx:id="spBaseexp" layoutX="175.0" layoutY="126.0" />
-      <Spinner fx:id="spStatpoints" layoutX="175.0" layoutY="204.0" />
-      <Spinner fx:id="spSkillpoints" layoutX="175.0" layoutY="243.0" />
+      <TextField fx:id="txtMaxlv" layoutX="175.0" layoutY="87.0" onKeyTyped="#validateMaxlv" />
+      <TextField fx:id="txtBaseexp" layoutX="175.0" layoutY="126.0" onKeyTyped="#validateBaseexp" />
+      <TextField fx:id="txtStatpoints" layoutX="175.0" layoutY="204.0" onKeyTyped="#validateStatpoints" />
+      <TextField fx:id="txtSkillpoints" layoutX="175.0" layoutY="243.0" onKeyTyped="#validateSkillpoints" />
    </children>
 </AnchorPane>
