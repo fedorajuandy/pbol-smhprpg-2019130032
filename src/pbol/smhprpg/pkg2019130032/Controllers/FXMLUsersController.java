@@ -1,5 +1,7 @@
 package pbol.smhprpg.pkg2019130032.Controllers;
 
+import pbol.smhprpg.pkg2019130032.Models.UserModel;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,10 +19,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import pbol.smhprpg.pkg2019130032.Models.UserModel;
 
 /**
  * FXML Controller class
@@ -131,6 +133,8 @@ public class FXMLUsersController implements Initializable {
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
+            stg.setTitle("Add");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
@@ -156,6 +160,8 @@ public class FXMLUsersController implements Initializable {
             isidt.execute(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
+            stg.setTitle("Edit");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
@@ -210,6 +216,7 @@ public class FXMLUsersController implements Initializable {
     @FXML
     private void clearClicked(ActionEvent event) {
         search.setText("");
+        showData();
         search.requestFocus();
     }
 }

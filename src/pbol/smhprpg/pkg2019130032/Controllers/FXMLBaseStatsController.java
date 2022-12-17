@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -167,6 +168,8 @@ public class FXMLBaseStatsController implements Initializable {
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
+            stg.setTitle("SMHPRPG");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
@@ -192,6 +195,8 @@ public class FXMLBaseStatsController implements Initializable {
             isidt.execute(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
+            stg.setTitle("SMHPRPG");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
@@ -272,6 +277,8 @@ public class FXMLBaseStatsController implements Initializable {
     @FXML
     private void clearClicked(ActionEvent event) {
         search.setText("");
+        showData();
+        showDetails();
         search.requestFocus();
     }
 }

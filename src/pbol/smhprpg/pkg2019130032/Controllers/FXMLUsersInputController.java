@@ -1,7 +1,8 @@
 package pbol.smhprpg.pkg2019130032.Controllers;
 
+import pbol.smhprpg.pkg2019130032.Models.UserModel;
+
 import java.net.URL;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import pbol.smhprpg.pkg2019130032.Koneksi;
-import pbol.smhprpg.pkg2019130032.Models.UserModel;
 
 /**
  * FXML Controller class
@@ -28,9 +27,7 @@ public class FXMLUsersInputController implements Initializable {
     @FXML
     private Button btnExit;
     @FXML
-    private ComboBox<Integer> cbRole;
-    @FXML
-    private TextField txtRole;
+    private ComboBox<String> cbRole;
     @FXML
     private TextField txtUsername;
     @FXML
@@ -38,7 +35,8 @@ public class FXMLUsersInputController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbRole.getItems().addAll(0, 1); 
+        cbRole.getItems().addAll("Admin", "User"); 
+        cbRole.getSelectionModel().selectFirst();
     }
     
     public void execute(UserModel d) {
@@ -48,18 +46,9 @@ public class FXMLUsersInputController implements Initializable {
           id = d.getId();
           txtUsername.setText(d.getUsername());
           txtPassword.setText(d.getPassword());
-          cbRole.setValue(d.getRole());
-          viewRoles();
+          cbRole.getSelectionModel().select(d.getRole());
           
           txtUsername.requestFocus();
-        }
-    }
-    
-    public void viewRoles() {
-        if (cbRole.getValue() == 0) {
-            txtRole.setText("Admin");
-        } else {
-            txtRole.setText("User");
         }
     }
 
@@ -69,7 +58,7 @@ public class FXMLUsersInputController implements Initializable {
         n.setId(id);
         n.setUsername(txtUsername.getText()); 
         n.setPassword(txtPassword.getText());
-        n.setRole(cbRole.getValue());
+        n.setRole(cbRole.getSelectionModel().getSelectedIndex());
         
         FXMLMainMenuController.dtu.setUserModel(n);
         if (edited) {
@@ -100,7 +89,7 @@ public class FXMLUsersInputController implements Initializable {
     private void clearClicked(ActionEvent event) {
         txtUsername.setText("");
         txtPassword.setText("");
-        cbRole.getSelectionModel().select(0);
+        cbRole.getSelectionModel().selectFirst();
         txtUsername.requestFocus();
     }
 
