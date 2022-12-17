@@ -181,12 +181,48 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="675.0" layoutY="32.0" text="Base stat to battle stats" textFill="WHITE">
+      <Label layoutX="675.0" layoutY="32.0" text="Base stats to battle stats" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <Button layoutX="580.0" layoutY="37.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
+      <Button layoutX="730.0" layoutY="538.0" mnemonicParsing="false" onAction="#addBsBtsClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="780.0" layoutY="538.0" mnemonicParsing="false" onAction="#updateBsBtsClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="830.0" layoutY="538.0" mnemonicParsing="false" onAction="#deleteBsBtsClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
    <rotationAxis>
       <Point3D />
