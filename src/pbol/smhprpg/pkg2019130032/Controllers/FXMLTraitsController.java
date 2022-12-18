@@ -24,7 +24,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import pbol.smhprpg.pkg2019130032.Models.TraitBaseStatModel;
 
 /**
  * FXML Controller class
@@ -309,7 +308,7 @@ public class FXMLTraitsController implements Initializable {
             isidt.execute(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("SMHPRPG");
+            stg.setTitle("Trait Base Stats");
             stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);

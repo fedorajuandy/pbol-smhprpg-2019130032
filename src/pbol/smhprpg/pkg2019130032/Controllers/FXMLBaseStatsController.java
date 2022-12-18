@@ -319,7 +319,7 @@ public class FXMLBaseStatsController implements Initializable {
             isidt.execute(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("SMHPRPG");
+            stg.setTitle("Base to Battle Stats");
             stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
