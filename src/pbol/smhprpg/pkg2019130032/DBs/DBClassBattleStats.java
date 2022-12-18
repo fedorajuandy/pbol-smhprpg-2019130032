@@ -1,15 +1,15 @@
 package pbol.smhprpg.pkg2019130032.DBs;
 
-import pbol.smhprpg.pkg2019130032.Models.ClassBattleStatModel;
 import pbol.smhprpg.pkg2019130032.Koneksi;
+import pbol.smhprpg.pkg2019130032.Models.ClassBattleStatModel;
+import pbol.smhprpg.pkg2019130032.Models.BattleStatModel;
+import pbol.smhprpg.pkg2019130032.Models.ClassModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pbol.smhprpg.pkg2019130032.Models.BattleStatModel;
-import pbol.smhprpg.pkg2019130032.Models.ClassModel;
 
 /**
  *

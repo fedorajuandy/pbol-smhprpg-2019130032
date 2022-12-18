@@ -1,7 +1,7 @@
 package pbol.smhprpg.pkg2019130032.DBs;
 
-import pbol.smhprpg.pkg2019130032.Models.HeroBaseStatModel;
 import pbol.smhprpg.pkg2019130032.Koneksi;
+import pbol.smhprpg.pkg2019130032.Models.HeroBaseStatModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

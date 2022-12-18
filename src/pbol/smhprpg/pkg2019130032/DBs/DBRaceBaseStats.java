@@ -1,16 +1,16 @@
 package pbol.smhprpg.pkg2019130032.DBs;
 
-import pbol.smhprpg.pkg2019130032.Models.RaceBaseStatModel;
 import pbol.smhprpg.pkg2019130032.Koneksi;
+import pbol.smhprpg.pkg2019130032.Models.RaceBaseStatModel;
+import pbol.smhprpg.pkg2019130032.Models.BaseStatModel;
+import pbol.smhprpg.pkg2019130032.Models.ClassModel;
+import pbol.smhprpg.pkg2019130032.Models.RaceModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pbol.smhprpg.pkg2019130032.Models.BaseStatModel;
-import pbol.smhprpg.pkg2019130032.Models.ClassModel;
-import pbol.smhprpg.pkg2019130032.Models.RaceModel;
 
 /**
  *
