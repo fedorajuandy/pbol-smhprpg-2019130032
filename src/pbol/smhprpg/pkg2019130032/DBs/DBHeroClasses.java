@@ -52,14 +52,14 @@ public class DBHeroClasses {
         }
     }
     
-     public int validasi(int nomor) {
+    public int validasi(int nomor, int nomor1) {
         int val = 0;
         
         try {         
             Koneksi con = new Koneksi();            
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery(  "SELECT COUNT(*) AS jml FROM hero_classes WHERE id = '" + nomor + "'");
+            ResultSet rs = con.statement.executeQuery(  "SELECT COUNT(*) AS jml FROM hero_classes WHERE hero_id = '" + nomor + "' AND class_id = '" + nomor1 + "'");
             
             while (rs.next()) {                
                 val = rs.getInt("jml");            
@@ -71,5 +71,69 @@ public class DBHeroClasses {
         }
         
         return val;
+    }
+     
+    public boolean insert() {
+        boolean berhasil = false;
+        Koneksi con = new Koneksi();
+        
+        try {
+            con.bukaKoneksi();
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO hero_classes (hero_id, class_id, mastery_lv) VALUES (?, ?, ?)");
+            con.preparedStatement.setInt(1, getHeroClassModel().getHero_id());
+            con.preparedStatement.setInt(2, getHeroClassModel().getClass_id());
+            con.preparedStatement.setInt(3, getHeroClassModel().getMastery_lv());
+            con.preparedStatement.executeUpdate();
+            
+            berhasil = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            berhasil = false;
+        } finally {
+            con.tutupKoneksi();
+            return berhasil;
+        }
+    }
+     
+    public boolean delete(int nomor, int nomor1) {
+        boolean berhasil = false;
+        Koneksi con = new Koneksi();
+        
+        try {
+            con.bukaKoneksi();;
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM hero_classes WHERE hero_id  = ? AND class_id = ?");
+            con.preparedStatement.setInt(1, nomor);
+            con.preparedStatement.setInt(2, nomor1);
+            con.preparedStatement.executeUpdate();
+            
+            berhasil = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            con.tutupKoneksi();
+            return berhasil;
+        }
+    }
+
+    public boolean update() {
+        boolean berhasil = false;
+        Koneksi con = new Koneksi();
+        
+        try {
+            con.bukaKoneksi();
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE hero_classes SET mastery_lv = ?  WHERE hero_id  = ? AND class_id = ?");
+            con.preparedStatement.setInt(1, getHeroClassModel().getMastery_lv());
+            con.preparedStatement.setInt(2, getHeroClassModel().getHero_id());
+            con.preparedStatement.setInt(3, getHeroClassModel().getClass_id());
+            con.preparedStatement.executeUpdate();
+            
+            berhasil = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            berhasil = false;
+        } finally {
+            con.tutupKoneksi();
+            return berhasil;
+        }
     }
 }
