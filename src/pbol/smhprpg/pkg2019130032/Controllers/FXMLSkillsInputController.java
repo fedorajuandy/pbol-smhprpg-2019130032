@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -35,7 +34,7 @@ public class FXMLSkillsInputController implements Initializable {
     @FXML
     private TextField txtSuccessrate;
     @FXML
-    private Spinner<Integer> spMpcost;
+    private TextField txtMpcost;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,7 +48,7 @@ public class FXMLSkillsInputController implements Initializable {
           id = d.getId();
           txtName.setText(d.getName());
           txtDes.setText(d.getDes());
-          spMpcost.getValueFactory().setValue(d.getMp_cost());
+          txtMpcost.setText(Integer.toString(d.getMp_cost()));
           txtDmg.setText(Double.toString(d.getDmg()));
           txtSuccessrate.setText(Double.toString(d.getSuccess_rate()));
           
@@ -63,7 +62,7 @@ public class FXMLSkillsInputController implements Initializable {
         n.setId(id);
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
-        n.setMp_cost(spMpcost.getValue());
+        n.setMp_cost(Integer.parseInt(txtMpcost.getText()));
         n.setDmg(Double.parseDouble(txtDmg.getText()));
         n.setSuccess_rate(Double.parseDouble(txtSuccessrate.getText()));
         
@@ -96,7 +95,7 @@ public class FXMLSkillsInputController implements Initializable {
     private void clearClicked(ActionEvent event) {
         txtName.setText("");
         txtDes.setText("");
-        spMpcost.getValueFactory().setValue(0);
+        txtMpcost.setText("");
         txtDmg.setText("");
         txtSuccessrate.setText("");
         txtName.requestFocus();
@@ -107,6 +106,7 @@ public class FXMLSkillsInputController implements Initializable {
         btnExit.getScene().getWindow().hide();
     }
 
+    @FXML
     private void validateMpcost(KeyEvent event) {
         char test = event.getCharacter().charAt(0);
         if (!Character.isDigit(test)) event.consume();

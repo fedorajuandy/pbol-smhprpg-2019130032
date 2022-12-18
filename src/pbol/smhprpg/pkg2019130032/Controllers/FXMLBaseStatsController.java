@@ -281,4 +281,16 @@ public class FXMLBaseStatsController implements Initializable {
         showDetails();
         search.requestFocus();
     }
+
+    @FXML
+    private void addBsBtsClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateBsBtsClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteBsBtsClicked(ActionEvent event) {
+    }
 }
