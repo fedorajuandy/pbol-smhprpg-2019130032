@@ -66,12 +66,12 @@ public class FXMLRacesController implements Initializable {
             col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("name"));
             tbv.getColumns().addAll(col);
             
-            col = new TableColumn("Parent Race Name");
-            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentraceName"));
-            tbv.getColumns().addAll(col);
-            
             col = new TableColumn("Parent Race Id");
             col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentrace_id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Race Name");
+            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentraceName"));
             tbv.getColumns().addAll(col);
             
             col = new TableColumn("Des");
@@ -100,13 +100,9 @@ public class FXMLRacesController implements Initializable {
                 TableColumn col = new TableColumn("Id");
                 col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("id"));
                 tbv.getColumns().addAll(col);
-
+                
                 col = new TableColumn("Name");
                 col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("name"));
-                tbv.getColumns().addAll(col);
-
-                col = new TableColumn("Des");
-                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("des"));
                 tbv.getColumns().addAll(col);
                 
                 col = new TableColumn("Parent Race Id");
@@ -115,6 +111,10 @@ public class FXMLRacesController implements Initializable {
                 
                 col = new TableColumn("Parent Race Name");
                 col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentraceName"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Des");
+                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("des"));
                 tbv.getColumns().addAll(col);
                 
                 tbv.setItems(data);
@@ -132,6 +132,7 @@ public class FXMLRacesController implements Initializable {
 
     @FXML
     private void showDetails() {
+        tbv.getSelectionModel().selectFirst();
         ObservableList<RaceTraitModel> data1 = FXMLMainMenuController.dtrt.load(tbv.getSelectionModel().getSelectedItem().getId());
         ObservableList<RaceBaseStatModel> data2 = FXMLMainMenuController.dtrbs.load(tbv.getSelectionModel().getSelectedItem().getId());
         
@@ -217,7 +218,7 @@ public class FXMLRacesController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLRacesInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLRacesInputController isidt = (FXMLRacesInputController)loader.getController();
-            // isidt.execute(s);
+            isidt.execute(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.setTitle("SMHPRPG");
@@ -329,5 +330,146 @@ public class FXMLRacesController implements Initializable {
         showData();
         showDetails();
         search.requestFocus();
+    }
+
+    @FXML
+    private void addRTClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLRaceTraits.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Race Traits");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
+    }
+
+    @FXML
+    private void updateRTClicked(ActionEvent event) {
+        RaceTraitModel s = new RaceTraitModel();
+        s = tbvd1.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLRaceTraits.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLRaceTraitsController isidt = (FXMLRaceTraitsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Race Traits");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstClicked(event);
+    }
+
+    @FXML
+    private void deleteRTClicked(ActionEvent event) {
+        RaceTraitModel s = new RaceTraitModel();
+        s = tbvd1.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtrt.delete(s.getRace_id(), s.getTrait_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+        }
+    }
+
+    @FXML
+    private void addRBSClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLRaceBaseStats.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Race Base Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstDClicked2(event);
+    }
+
+    @FXML
+    private void updateRBSClicked(ActionEvent event) {
+        RaceBaseStatModel s = new RaceBaseStatModel();
+        s = tbvd2.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLRaceBaseStats.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLRaceBaseStatsController isidt = (FXMLRaceBaseStatsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Race Base Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstDClicked2(event);
+    }
+
+    @FXML
+    private void deleteRBSClicked(ActionEvent event) {
+        RaceBaseStatModel s = new RaceBaseStatModel();
+        s = tbvd2.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtrbs.delete(s.getRace_id(), s.getBase_stat_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstDClicked2(event);
+           showDetails();
+        }
     }
 }

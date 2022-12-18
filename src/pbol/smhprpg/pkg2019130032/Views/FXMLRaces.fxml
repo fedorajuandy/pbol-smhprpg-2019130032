@@ -245,5 +245,77 @@
          </cursor>
       </Button>
       <Button layoutX="879.0" layoutY="37.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
+      <Button layoutX="171.0" layoutY="538.0" mnemonicParsing="false" onAction="#addRTClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="221.0" layoutY="538.0" mnemonicParsing="false" onAction="#updateRTClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="271.0" layoutY="538.0" mnemonicParsing="false" onAction="#deleteRTClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="642.0" layoutY="538.0" mnemonicParsing="false" onAction="#addRBSClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="692.0" layoutY="538.0" mnemonicParsing="false" onAction="#updateRBSClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="742.0" layoutY="538.0" mnemonicParsing="false" onAction="#deleteRBSClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
