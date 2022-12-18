@@ -1,7 +1,6 @@
 package pbol.smhprpg.pkg2019130032.Controllers;
 
 import pbol.smhprpg.pkg2019130032.Models.BaseStatModel;
-import pbol.smhprpg.pkg2019130032.Models.BaseToBattleStatModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import pbol.smhprpg.pkg2019130032.Models.BaseToBattleStatModel;
 
 /**
  * FXML Controller class
@@ -181,6 +181,7 @@ public class FXMLBaseStatsController implements Initializable {
         
         showData(); 
         firstBsClicked(event);
+        showDetails();
     }
 
     @FXML
@@ -208,6 +209,7 @@ public class FXMLBaseStatsController implements Initializable {
         
         showData();
         firstBsClicked(event);
+        showDetails();
     }
 
     @FXML
@@ -228,6 +230,7 @@ public class FXMLBaseStatsController implements Initializable {
            
            showData();
            firstBsClicked(event);
+           showDetails();
         }
     }
 
@@ -284,13 +287,72 @@ public class FXMLBaseStatsController implements Initializable {
 
     @FXML
     private void addBsBtsClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLBaseToBattleStats.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Base to Battle Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstBtbClicked(event);
     }
 
     @FXML
     private void updateBsBtsClicked(ActionEvent event) {
+        BaseToBattleStatModel s = new BaseToBattleStatModel();
+        s = tbvbtb.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLBaseToBattleStats.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLBaseToBattleStatsController isidt = (FXMLBaseToBattleStatsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("SMHPRPG");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstBtbClicked(event);
     }
 
     @FXML
     private void deleteBsBtsClicked(ActionEvent event) {
+        BaseToBattleStatModel s = new BaseToBattleStatModel();
+        s = tbvbtb.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtbtb.delete(s.getBase_stat_id(), s.getBattle_stat_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstBtbClicked(event);
+           showDetails();
+        }
     }
 }

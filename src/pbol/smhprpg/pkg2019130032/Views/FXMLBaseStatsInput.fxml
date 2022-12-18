@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -21,9 +22,18 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="162.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
-      <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
-      <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
+      <Button layoutX="162.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="223.0" layoutY="432.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnExit" layoutX="285.0" layoutY="432.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TextField fx:id="txtAbbrev" layoutX="176.0" layoutY="96.0" onKeyTyped="#validateAbbrev" />
       <Label layoutX="32.0" layoutY="32.0" text="Add or edit a base stat" textFill="WHITE">
          <font>

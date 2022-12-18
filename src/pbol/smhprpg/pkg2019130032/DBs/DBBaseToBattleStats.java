@@ -81,7 +81,7 @@ public class DBBaseToBattleStats {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO base_to_battle_stats (base_stat_id, battle_stat_id, val) VALUES (?, ?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO base_to_battle_stats (base_stat_id, battle_stat_id, scale) VALUES (?, ?, ?)");
             con.preparedStatement.setInt(1, getBaseToBattleStatModel().getBase_stat_id());
             con.preparedStatement.setInt(2, getBaseToBattleStatModel().getBattle_stat_id());
             con.preparedStatement.setDouble(3, getBaseToBattleStatModel().getScale());
@@ -103,7 +103,7 @@ public class DBBaseToBattleStats {
         
         try {
             con.bukaKoneksi();;
-            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM trait_base_stats WHERE base_stat_id  = ? AND battle_stat_id = ?");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("DELETE FROM base_to_battle_stats WHERE base_stat_id  = ? AND battle_stat_id = ?");
             con.preparedStatement.setInt(1, nomor);
             con.preparedStatement.setInt(2, nomor1);
             con.preparedStatement.executeUpdate();

@@ -13,7 +13,8 @@
 - [To change icon](https://stackoverflow.com/questions/10121991/javafx-application-icon)
 - [To iterate combobox database](https://stackoverflow.com/questions/39539838/javafx-populating-a-combobox-with-data-from-a-mysql-database-stringconverter-b)
 - [To change combobox value/index](https://stackoverflow.com/questions/18146712/combo-box-select-item-in-javafx-2)
-- [To set spinner's value](https://stackoverflow.com/questions/38810846/how-to-set-the-value-of-a-javafx-spinner)
+- [To get table's size](https://stackoverflow.com/questions/26528231/javafx-8-how-to-get-the-row-count-of-a-tableview)
+- [To disable table view](https://stackoverflow.com/questions/43391402/javafx-tableview-enable-and-disable-row-selection)
 - 
 
 ## Images

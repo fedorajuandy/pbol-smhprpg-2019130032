@@ -186,5 +186,41 @@
          </font>
       </Label>
       <Button layoutX="580.0" layoutY="37.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear" />
+      <Button layoutX="729.0" layoutY="538.0" mnemonicParsing="false" onAction="#addTBsClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="779.0" layoutY="538.0" mnemonicParsing="false" onAction="#updateTBsClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="829.0" layoutY="538.0" mnemonicParsing="false" onAction="#deleteTBsClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

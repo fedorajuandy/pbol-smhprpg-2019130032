@@ -49,7 +49,7 @@ public class FXMLBattlesSimulationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
-            public void run() {
+           public void run() {
              Platform.runLater(() -> {
                     // label.setText(sdf.format(new java.util.Date()));
                 });
