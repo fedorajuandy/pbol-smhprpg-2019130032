@@ -257,18 +257,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="221.0" layoutY="538.0" mnemonicParsing="false" onAction="#updateRTClicked" prefHeight="24.0" prefWidth="24.0">
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/edit.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button layoutX="271.0" layoutY="538.0" mnemonicParsing="false" onAction="#deleteRTClicked" prefHeight="24.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">

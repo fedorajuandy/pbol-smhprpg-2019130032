@@ -25,7 +25,6 @@ import pbol.smhprpg.pkg2019130032.Models.TraitModel;
  * @author 2019130032 - Fedora Yoshe Juandy
  */
 public class FXMLRaceTraitsController implements Initializable {
-    private int id, id1;
     
     @FXML
     private TextField search1;
@@ -46,11 +45,6 @@ public class FXMLRaceTraitsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         showData();
         showData1();
-    }
-    
-    public void execute(RaceTraitModel d) {
-        id = d.getRace_id();
-        id1 = d.getTrait_id();
     }
     
     public void showData() {

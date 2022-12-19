@@ -355,33 +355,6 @@ public class FXMLRacesController implements Initializable {
     }
 
     @FXML
-    private void updateRTClicked(ActionEvent event) {
-        RaceTraitModel s = new RaceTraitModel();
-        s = tbvd1.getSelectionModel().getSelectedItem();
-        
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLRaceTraits.fxml"));
-            Parent root = (Parent)loader.load();
-            FXMLRaceTraitsController isidt = (FXMLRaceTraitsController)loader.getController();
-            isidt.execute(s);
-            Scene scene = new Scene(root);
-            Stage stg = new Stage();
-            stg.setTitle("Race Traits");
-            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
-            stg.initModality(Modality.APPLICATION_MODAL);
-            stg.setResizable(false);
-            stg.setIconified(false);
-            stg.setScene(scene);
-            stg.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        showData();
-        firstClicked(event);
-    }
-
-    @FXML
     private void deleteRTClicked(ActionEvent event) {
         RaceTraitModel s = new RaceTraitModel();
         s = tbvd1.getSelectionModel().getSelectedItem();
