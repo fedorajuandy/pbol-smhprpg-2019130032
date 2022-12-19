@@ -32,6 +32,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import pbol.smhprpg.pkg2019130032.Models.HeroSkillModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroEffectModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroTraitModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroBaseStatModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroTraitModel;
 
 /**
  * FXML Controller class
@@ -230,81 +236,81 @@ public class FXMLHeroesController implements Initializable {
         ObservableList<HeroSkillModel> data4 = FXMLMainMenuController.dths.load(tbv.getSelectionModel().getSelectedItem().getId());
         
         if (data1 != null && data2 != null && data3 != null && data4 != null) {
-            tbvd1.getColumns().clear();
-            tbvd1.getItems().clear();
+            tbvHBS.getColumns().clear();
+            tbvHBS.getItems().clear();
             
             TableColumn col = new TableColumn("Base Stat Id");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("base_stat_id"));
-            tbvd1.getColumns().addAll(col);
+            tbvHBS.getColumns().addAll(col);
             
             col = new TableColumn("Name");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("basestatName"));
-            tbvd1.getColumns().addAll(col);
+            tbvHBS.getColumns().addAll(col);
             
             col = new TableColumn("Value");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("val"));
-            tbvd1.getColumns().addAll(col);
+            tbvHBS.getColumns().addAll(col);
             
-            tbvd1.setItems(data1);
+            tbvHBS.setItems(data1);
             
-            tbvd2.getColumns().clear();
-            tbvd2.getItems().clear();
+            tbvHC.getColumns().clear();
+            tbvHC.getItems().clear();
             
             col = new TableColumn("Id");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("id"));
-            tbvd2.getColumns().addAll(col);
+            tbvHC.getColumns().addAll(col);
             
             col = new TableColumn("Class Id");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("class_id"));
-            tbvd2.getColumns().addAll(col);
+            tbvHC.getColumns().addAll(col);
             
             col = new TableColumn("Class Name");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("className"));
-            tbvd2.getColumns().addAll(col);
+            tbvHC.getColumns().addAll(col);
             
             col = new TableColumn("Mastery Lv");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("mastery_lv"));
-            tbvd2.getColumns().addAll(col);
+            tbvHC.getColumns().addAll(col);
             
-            tbvd2.setItems(data2);
+            tbvHC.setItems(data2);
             
-            tbvd3.getColumns().clear();
-            tbvd3.getItems().clear();
+            tbvHE.getColumns().clear();
+            tbvHE.getItems().clear();
             
             col = new TableColumn("Effect Id");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("effect_id"));
-            tbvd3.getColumns().addAll(col);
+            tbvHE.getColumns().addAll(col);
             
             col = new TableColumn("Effect Name");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("effectName"));
-            tbvd3.getColumns().addAll(col);
+            tbvHE.getColumns().addAll(col);
             
             col = new TableColumn("Duration Left");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("duration_left"));
-            tbvd3.getColumns().addAll(col);
+            tbvHE.getColumns().addAll(col);
             
-            tbvd3.setItems(data3);
+            tbvHE.setItems(data3);
             
-            tbvd4.getColumns().clear();
-            tbvd4.getItems().clear();
+            tbvHCS.getColumns().clear();
+            tbvHCS.getItems().clear();
             
             col = new TableColumn("Skill Id");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("skill_id"));
-            tbvd4.getColumns().addAll(col);
+            tbvHCS.getColumns().addAll(col);
             
             col = new TableColumn("Skill Name");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("skillName"));
-            tbvd4.getColumns().addAll(col);
+            tbvHCS.getColumns().addAll(col);
             
             col = new TableColumn("Lv");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("lv"));
-            tbvd4.getColumns().addAll(col);
+            tbvHCS.getColumns().addAll(col);
             
-            tbvd4.setItems(data4);
+            tbvHCS.setItems(data4);
          } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
             a.showAndWait();
-            tbvd1.getScene().getWindow().hide();;
+            tbvHBS.getScene().getWindow().hide();;
         }
     }
 
@@ -409,90 +415,10 @@ public class FXMLHeroesController implements Initializable {
         showDetails();
         showImage();
     }
-
-    private void firstDClicked1(ActionEvent event) {
-        tbvd1.getSelectionModel().selectFirst();
-        tbvd1.requestFocus();
-    }
-
-    private void prevDClicked1(ActionEvent event) {
-        tbvd1.getSelectionModel().selectAboveCell();
-        tbvd1.requestFocus();
-    }
-
-    private void nextDClicked1(ActionEvent event) {
-        tbvd1.getSelectionModel().selectBelowCell();
-        tbvd1.requestFocus();
-    }
-
-    private void lastBtbClicked1(ActionEvent event) {
-        tbvd1.getSelectionModel().selectLast();
-        tbvd1.requestFocus();
-    }
-
-    private void firstDClicked2(ActionEvent event) {
-        tbvd2.getSelectionModel().selectFirst();
-        tbvd2.requestFocus();
-    }
-
-    private void prevDClicked2(ActionEvent event) {
-        tbvd2.getSelectionModel().selectAboveCell();
-        tbvd2.requestFocus();
-    }
-
-    private void nextDClicked2(ActionEvent event) {
-        tbvd2.getSelectionModel().selectBelowCell();
-        tbvd2.requestFocus();
-    }
     
-    private void lastBtbClicked2(ActionEvent event) {
-        tbvd2.getSelectionModel().selectLast();
-        tbvd2.requestFocus();
-    }
-
-    private void firstDClicked3(ActionEvent event) {
-        tbvd4.getSelectionModel().selectFirst();
-        tbvd4.requestFocus();
-    }
-
-    private void prevDClicked3(ActionEvent event) {
-        tbvd4.getSelectionModel().selectAboveCell();
-        tbvd4.requestFocus();
-    }
-
-    private void nextDClicked3(ActionEvent event) {
-        tbvd4.getSelectionModel().selectBelowCell();
-        tbvd4.requestFocus();
-    }
-    
-    private void lastBtbClicked3(ActionEvent event) {
-        tbvd4.getSelectionModel().selectLast();
-        tbvd4.requestFocus();
-    }
-
-    private void prevDClicked4(ActionEvent event) {
-        tbvd4.getSelectionModel().selectAboveCell();
-        tbvd4.requestFocus();
-    }
     @FXML
     private void quitClicked(ActionEvent event) {
         btnQuit.getScene().getWindow().hide();
-    }
-
-    private void firstDClicked(ActionEvent event) {
-        tbvd3.getSelectionModel().selectFirst();
-        tbvd3.requestFocus();
-    }
-
-
-    private void nextDClicked(ActionEvent event) {
-        tbvd3.getSelectionModel().selectBelowCell();
-        tbvd3.requestFocus();
-    }
-
-    private void lastBtbClicked(ActionEvent event) {
-        tbvd3.getSelectionModel().selectLast();
-        tbvd3.requestFocus();
     }
 
     @FXML
@@ -506,137 +432,447 @@ public class FXMLHeroesController implements Initializable {
 
     @FXML
     private void addHEClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroEffects.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Effects");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
     }
 
     @FXML
     private void updateHEClicked(ActionEvent event) {
+        HeroEffectModel s = new HeroEffectModel();
+        s = tbvHE.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroEffects.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLHeroEffectsController isidt = (FXMLHeroEffectsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Effects");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstClicked(event);
     }
 
     @FXML
     private void deleteHEClicked(ActionEvent event) {
+        HeroEffectModel s = new HeroEffectModel();
+        s = tbvHE.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dthe.delete(s.getHero_id(), s.getEffect_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+           showDetails();
+        }
     }
 
     @FXML
     private void addHBSClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroBaseStats.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Base Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
     }
 
     @FXML
     private void updateHBSClicked(ActionEvent event) {
+        HeroBaseStatModel s = new HeroBaseStatModel();
+        s = tbvHBS.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroBaseStats.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLHeroBaseStatsController isidt = (FXMLHeroBaseStatsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Base Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstClicked(event);
     }
 
     @FXML
     private void deleteHBSClicked(ActionEvent event) {
+        HeroBaseStatModel s = new HeroBaseStatModel();
+        s = tbvHBS.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dthbs.delete(s.getHero_id(), s.getBase_stat_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+        }
     }
 
     @FXML
     private void addHCClicked(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroClasses.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Classes");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
     }
 
     @FXML
     private void updateHCClicked(ActionEvent event) {
+        HeroClassModel s = new HeroClassModel();
+        s = tbvHC.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroClasses.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLHeroClassesController isidt = (FXMLHeroClassesController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Classes");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstClicked(event);
     }
 
     @FXML
     private void deleteHCClicked(ActionEvent event) {
+        HeroClassModel s = new HeroClassModel();
+        s = tbvHC.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dthc.delete(s.getHero_id(), s.getClass_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+           showDetails();
+        }
     }
 
     @FXML
     private void addHCSClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroSkills.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("HeroSkills");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
     }
 
     @FXML
     private void updateHCSClicked(ActionEvent event) {
+        HeroSkillModel s = new HeroSkillModel();
+        s = tbvHCS.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroSkills.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLHeroSkillsController isidt = (FXMLHeroSkillsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Hero Skills");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstClicked(event);
     }
 
     @FXML
     private void deleteHCSClicked(ActionEvent event) {
+        HeroSkillModel s = new HeroSkillModel();
+        s = tbvHCS.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dths.delete(s.getHero_class_id(), s.getSkill_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+           showDetails();
+        }
     }
 
     @FXML
     private void firstHEClicked(ActionEvent event) {
+        tbvHE.getSelectionModel().selectFirst();
+        tbvHE.requestFocus();
     }
 
     @FXML
     private void prevHEClicked(ActionEvent event) {
+        tbvHE.getSelectionModel().selectAboveCell();
+        tbvHE.requestFocus();
     }
 
     @FXML
     private void nextHEClicked(ActionEvent event) {
+        tbvHE.getSelectionModel().selectBelowCell();
+        tbvHE.requestFocus();
     }
 
     @FXML
     private void lastHEClicked(ActionEvent event) {
+        tbvHE.getSelectionModel().selectLast();
+        tbvHE.requestFocus();
     }
 
     @FXML
     private void firstHBSClicked(ActionEvent event) {
+        tbvHBS.getSelectionModel().selectFirst();
+        tbvHBS.requestFocus();
     }
 
     @FXML
     private void prevHBSClicked(ActionEvent event) {
+        tbvHBS.getSelectionModel().selectAboveCell();
+        tbvHBS.requestFocus();
     }
 
     @FXML
     private void nextHBSClicked(ActionEvent event) {
+        tbvHBS.getSelectionModel().selectBelowCell();
+        tbvHBS.requestFocus();
     }
 
     @FXML
     private void lastHBSClicked(ActionEvent event) {
+        tbvHBS.getSelectionModel().selectLast();
+        tbvHBS.requestFocus();
     }
 
     @FXML
     private void firstHCClicked(ActionEvent event) {
+        tbvHC.getSelectionModel().selectFirst();
+        tbvHC.requestFocus();
     }
 
     @FXML
     private void prev(ActionEvent event) {
+        tbvHC.getSelectionModel().selectAboveCell();
+        tbvHC.requestFocus();
     }
 
     @FXML
     private void nextHCClicked(ActionEvent event) {
+        tbvHC.getSelectionModel().selectBelowCell();
+        tbvHC.requestFocus();
     }
 
     @FXML
     private void lastHCClicked(ActionEvent event) {
+        tbvHC.getSelectionModel().selectLast();
+        tbvHC.requestFocus();
     }
 
     @FXML
     private void firstHCSClicked(ActionEvent event) {
+        tbvHCS.getSelectionModel().selectFirst();
+        tbvHCS.requestFocus();
     }
 
     @FXML
     private void prevHCSClicked(ActionEvent event) {
+        tbvHCS.getSelectionModel().selectAboveCell();
+        tbvHCS.requestFocus();
     }
 
     @FXML
     private void nextHCSClicked(ActionEvent event) {
+        tbvHCS.getSelectionModel().selectBelowCell();
+        tbvHCS.requestFocus();
     }
 
     @FXML
     private void lastHCSClicked(ActionEvent event) {
+        tbvHCS.getSelectionModel().selectLast();
+        tbvHCS.requestFocus();
     }
 
     @FXML
     private void firstHTClicked(ActionEvent event) {
+        tbvHT.getSelectionModel().selectFirst();
+        tbvHT.requestFocus();
     }
 
     @FXML
     private void prevHTClicked(ActionEvent event) {
+        tbvHT.getSelectionModel().selectAboveCell();
+        tbvHT.requestFocus();
     }
 
     @FXML
     private void nextHTClicked(ActionEvent event) {
+        tbvHT.getSelectionModel().selectBelowCell();
+        tbvHT.requestFocus();
     }
 
     @FXML
     private void lastHTClicked(ActionEvent event) {
+        tbvHT.getSelectionModel().selectLast();
+        tbvHT.requestFocus();
     }
 
     @FXML
     private void addHTClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroTraits.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Race Traits");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
     }
 
     @FXML
     private void deleteHTClicked(ActionEvent event) {
+        HeroTraitModel s = new HeroTraitModel();
+        s = tbvHT.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtht.delete(s.getHero_id(), s.getTrait_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+        }
     }
 }

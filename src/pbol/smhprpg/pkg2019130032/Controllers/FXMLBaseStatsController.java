@@ -304,7 +304,7 @@ public class FXMLBaseStatsController implements Initializable {
         }
         
         showData(); 
-        firstBtbClicked(event);
+        firstBsClicked(event);
     }
 
     @FXML
@@ -331,7 +331,7 @@ public class FXMLBaseStatsController implements Initializable {
         }
         
         showData();
-        firstBtbClicked(event);
+        firstBsClicked(event);
     }
 
     @FXML

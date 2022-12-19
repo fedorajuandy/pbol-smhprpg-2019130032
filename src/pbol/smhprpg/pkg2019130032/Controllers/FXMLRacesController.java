@@ -394,7 +394,7 @@ public class FXMLRacesController implements Initializable {
         }
         
         showData(); 
-        firstDClicked2(event);
+        firstClicked(event);
     }
 
     @FXML
@@ -421,7 +421,7 @@ public class FXMLRacesController implements Initializable {
         }
         
         showData();
-        firstDClicked2(event);
+        firstClicked(event);
     }
 
     @FXML

@@ -281,7 +281,7 @@ public class FXMLTraitsController implements Initializable {
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("Base to Battle Stats");
+            stg.setTitle("Trait Base Stats");
             stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);

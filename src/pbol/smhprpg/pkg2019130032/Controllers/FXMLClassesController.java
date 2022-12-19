@@ -479,7 +479,7 @@ public class FXMLClassesController implements Initializable {
         }
         
         showData(); 
-        firstDClicked4(event);
+        firstClicked(event);
     }
 
     @FXML
@@ -523,7 +523,7 @@ public class FXMLClassesController implements Initializable {
         }
         
         showData(); 
-        firstDClicked4(event);
+        firstClicked(event);
     }
 
     @FXML
@@ -550,7 +550,7 @@ public class FXMLClassesController implements Initializable {
         }
         
         showData();
-        firstDClicked2(event);
+        firstClicked(event);
     }
 
     @FXML
@@ -594,7 +594,7 @@ public class FXMLClassesController implements Initializable {
         }
         
         showData(); 
-        firstDClicked1(event);
+        firstClicked(event);
     }
 
     @FXML
@@ -621,7 +621,7 @@ public class FXMLClassesController implements Initializable {
         }
         
         showData();
-        firstDClicked4(event);
+        firstClicked(event);
     }
 
     @FXML
