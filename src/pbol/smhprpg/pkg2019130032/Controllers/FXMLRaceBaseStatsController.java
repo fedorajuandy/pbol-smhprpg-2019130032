@@ -16,7 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import pbol.smhprpg.pkg2019130032.Models.BaseStatModel;
-import pbol.smhprpg.pkg2019130032.Models.RaceBaseStatModel;
 import pbol.smhprpg.pkg2019130032.Models.RaceModel;
 import pbol.smhprpg.pkg2019130032.Models.RaceBaseStatModel;
 

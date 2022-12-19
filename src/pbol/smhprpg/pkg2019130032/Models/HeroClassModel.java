@@ -6,7 +6,15 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class HeroClassModel {
     private int id, hero_id, class_id, mastery_lv;
-    private String className;
+    private String className, heroName;
+
+    public String getHeroName() {
+        return heroName;
+    }
+
+    public void setHeroName(String heroName) {
+        this.heroName = heroName;
+    }
 
     public int getId() {
         return id;

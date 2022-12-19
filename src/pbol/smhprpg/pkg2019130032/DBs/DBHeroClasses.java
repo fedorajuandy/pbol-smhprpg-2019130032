@@ -5,8 +5,10 @@ import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
 
 /**
  *
@@ -23,19 +25,50 @@ public class DBHeroClasses {
         dt = s;
     }
     
-    public ObservableList<HeroClassModel> load(int kode) {
+    public ObservableList<HeroClassModel> load1() {
         try {
             ObservableList<HeroClassModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();            
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) WHERE hc.hero_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, h.hero_name, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) JOIN heroes h ON(hc.hero_id = h.id)");
             
             int i = 1;
             while (rs.next()) {
                 HeroClassModel d = new HeroClassModel();
                 d.setId(rs.getInt("id"));
                 d.setHero_id(rs.getInt("hero_id"));
+                d.setHeroName(rs.getString("heroName"));
+                d.setClass_id(rs.getInt("class_id"));
+                d.setClassName(rs.getString("className"));
+                d.setMastery_lv(rs.getInt("mastery_lv"));
+                
+                tableData.add(d);                
+                i++;            
+            }
+            
+            con.tutupKoneksi();            
+            return tableData;
+        } catch (Exception e) {            
+            e.printStackTrace();            
+            return null;        
+        }
+    }
+    
+    public ObservableList<HeroClassModel> load(int kode) {
+        try {
+            ObservableList<HeroClassModel> tableData = FXCollections.observableArrayList();
+            Koneksi con = new Koneksi();            
+            con.bukaKoneksi();
+            con.statement = con.dbKoneksi.createStatement();
+            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, h.hero_name, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) JOIN heroes h ON(hc.hero_id = h.id) WHERE hc.hero_id LIKE '" + kode + "'");
+            
+            int i = 1;
+            while (rs.next()) {
+                HeroClassModel d = new HeroClassModel();
+                d.setId(rs.getInt("id"));
+                d.setHero_id(rs.getInt("hero_id"));
+                d.setHeroName(rs.getString("heroName"));
                 d.setClass_id(rs.getInt("class_id"));
                 d.setClassName(rs.getString("className"));
                 d.setMastery_lv(rs.getInt("mastery_lv"));
@@ -134,6 +167,37 @@ public class DBHeroClasses {
         } finally {
             con.tutupKoneksi();
             return berhasil;
+        }
+    }
+    
+    public ObservableList<HeroClassModel> searchItems(String id, String hero_id, String pahlawan, String class_id, String kelas, String level) {
+        try {
+            ObservableList<HeroClassModel> tableData;
+            tableData = FXCollections.observableArrayList();
+            Koneksi con = new Koneksi(); 
+            con.bukaKoneksi();
+            con.statement = (Statement) con.dbKoneksi.createStatement();
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT hc.id, hc.hero_id, h.hero_name, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) JOIN heroes h ON(hc.hero_id = h.id) WHERE id LIKE '%" + id + "%' OR class_id LIKE '%" + class_id + "%' OR className LIKE '%" + kelas + "%' OR hero_id LIKE '%" + hero_id  + "%' OR heroName LIKE '%" + pahlawan + "%' OR mastery_lv LIKE '%" + level + "%'");
+            
+            int i = 1;
+            while (rs.next()) {
+                HeroClassModel d = new HeroClassModel();
+                d.setId(rs.getInt("id"));
+                d.setHero_id(rs.getInt("hero_id"));
+                d.setHeroName(rs.getString("heroName"));
+                d.setClass_id(rs.getInt("class_id"));
+                d.setClassName(rs.getString("className"));
+                d.setMastery_lv(rs.getInt("mastery_lv"));
+                
+                tableData.add(d);
+                i++;
+            }
+            
+            con.tutupKoneksi();
+            return tableData;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

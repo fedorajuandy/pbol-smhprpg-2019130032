@@ -44,24 +44,20 @@ public class FXMLHeroesController implements Initializable {
     private TextField search;
     @FXML
     private TableView<HeroModel> tbv;
-    private TableView<HeroEffectModel> tbvd3;
-    private TableView<HeroBaseStatModel> tbvd1;
     @FXML
     private Button btnQuit;
-    private TableView<HeroSkillModel> tbvd4;
-    private TableView<HeroClassModel> tbvd2;
     @FXML
     private ImageView img;
     @FXML
-    private TableView<?> tbvHC;
+    private TableView<HeroClassModel> tbvHC;
     @FXML
-    private TableView<?> tbvHBS;
+    private TableView<HeroBaseStatModel> tbvHBS;
     @FXML
-    private TableView<?> tbvHCS;
+    private TableView<HeroSkillModel> tbvHCS;
     @FXML
-    private TableView<?> tbvHE;
+    private TableView<HeroEffectModel> tbvHE;
     @FXML
-    private TableView<?> tbvHT;
+    private TableView<HeroTraitModel> tbvHT;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
