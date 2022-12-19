@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLClassesController">
    <content>
       <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="960.0">
@@ -379,18 +378,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="802.0" layoutY="282.0" mnemonicParsing="false" onAction="#updateCTClicked" prefHeight="24.0" prefWidth="24.0">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/edit.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Button layoutX="852.0" layoutY="282.0" mnemonicParsing="false" onAction="#deleteCTClicked" prefHeight="24.0" prefWidth="24.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -408,18 +395,6 @@
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/add.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="804.0" layoutY="635.0" mnemonicParsing="false" onAction="#updateCSClicked" prefHeight="24.0" prefWidth="24.0">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/edit.png" />
                      </image>
                   </ImageView>
                </graphic>

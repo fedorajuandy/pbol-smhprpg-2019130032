@@ -419,49 +419,230 @@ public class FXMLClassesController implements Initializable {
 
     @FXML
     private void addCTClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void updateCTClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassTraits.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Class Traits");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstClicked(event);
     }
 
     @FXML
     private void deleteCTClicked(ActionEvent event) {
+        ClassTraitModel s = new ClassTraitModel();
+        s = tbvd3.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtrt.delete(s.getClass_id(), s.getTrait_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstClicked(event);
+        }
     }
 
     @FXML
     private void addCSClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void updateCSClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassSkills.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Class Skills");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstDClicked4(event);
     }
 
     @FXML
     private void deleteCSClicked(ActionEvent event) {
+        ClassSkillModel s = new ClassSkillModel();
+        s = tbvd4.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtbtb.delete(s.getClass_id(), s.getSkill_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstDClicked4(event);
+           showDetails();
+        }
     }
 
     @FXML
     private void addCBTSClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassBattleStats.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Class Battle Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstDClicked4(event);
     }
 
     @FXML
     private void updateCBTSClicked(ActionEvent event) {
+        ClassBattleStatModel s = new ClassBattleStatModel();
+        s = tbvd2.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassBattleStats.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLClassBattleStatsController isidt = (FXMLClassBattleStatsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Class Battle Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstDClicked2(event);
     }
 
     @FXML
     private void deleteCBTSClicked(ActionEvent event) {
+        ClassBattleStatModel s = new ClassBattleStatModel();
+        s = tbvd2.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtbtb.delete(s.getClass_id(), s.getBattle_stat_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstDClicked2(event);
+           showDetails();
+        }
     }
 
     @FXML
     private void addCBSClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassBaseStatsl.fxml"));
+            Parent root = (Parent)loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Class Base Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData(); 
+        firstDClicked1(event);
     }
 
     @FXML
     private void updateCBSClicked(ActionEvent event) {
+        ClassBaseStatModel s = new ClassBaseStatModel();
+        s = tbvd1.getSelectionModel().getSelectedItem();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassBaseStats.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLClassBaseStatsController isidt = (FXMLClassBaseStatsController)loader.getController();
+            isidt.execute(s);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Class Base Stats");
+            stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        showData();
+        firstDClicked4(event);
     }
 
     @FXML
     private void deleteCBSClicked(ActionEvent event) {
+        ClassBaseStatModel s = new ClassBaseStatModel();
+        s = tbvd1.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete item?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        
+        if (a.getResult() == ButtonType.YES) {
+           if (FXMLMainMenuController.dtbtb.delete(s.getClass_id(), s.getBase_stat_id())) {
+               Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
+               b.showAndWait();
+           } else {
+               Alert b = new Alert(Alert.AlertType.ERROR,"Failed to delete item.", ButtonType.OK);
+               b.showAndWait();
+           }
+           
+           showData();
+           firstDClicked1(event);
+           showDetails();
+        }
     }
 }
