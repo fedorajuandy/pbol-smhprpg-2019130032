@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="830.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLClassBaseStatsController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLClassBaseStatsController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -148,8 +147,8 @@
       <Button layoutX="361.0" layoutY="72.0" mnemonicParsing="false" onAction="#clear1Clicked" text="Clear" />
       <TextField fx:id="txtId" editable="false" layoutX="143.0" layoutY="367.0" />
       <TextField fx:id="txtId1" editable="false" layoutX="540.0" layoutY="366.0" />
-      <TextField fx:id="txtInput" layoutX="361.0" layoutY="410.0" onKeyTyped="#validateInput" />
-      <Label layoutX="319.0" layoutY="413.0" text="Value" textFill="WHITE">
+      <TextField fx:id="txtInput" layoutX="388.0" layoutY="409.0" onKeyTyped="#validateInput" />
+      <Label layoutX="292.0" layoutY="412.0" text="Level up value" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

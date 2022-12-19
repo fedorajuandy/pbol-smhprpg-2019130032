@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="830.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLClassBattleStatsController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLClassBattleStatsController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -148,13 +147,14 @@
       <Button layoutX="361.0" layoutY="72.0" mnemonicParsing="false" onAction="#clear1Clicked" text="Clear" />
       <TextField fx:id="txtId" editable="false" layoutX="143.0" layoutY="367.0" />
       <TextField fx:id="txtId1" editable="false" layoutX="540.0" layoutY="366.0" />
-      <Button layoutX="357.0" layoutY="449.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
-      <Button fx:id="btnExit" layoutX="420.0" layoutY="449.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
       <TextField fx:id="txtInput" layoutX="362.0" layoutY="410.0" onKeyTyped="#validateInput" />
       <Label layoutX="320.0" layoutY="413.0" text="Scale" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Button layoutX="327.0" layoutY="449.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
+      <Button layoutX="388.0" layoutY="449.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
+      <Button fx:id="btnExit" layoutX="450.0" layoutY="449.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
    </children>
 </AnchorPane>

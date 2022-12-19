@@ -54,7 +54,7 @@ public class DBClassBaseStats {
         }
     }
     
-    public int levelup_validasi(int nomor, int nomor1) {
+    public int validasi(int nomor, int nomor1) {
         int val = 0;
         
         try {
