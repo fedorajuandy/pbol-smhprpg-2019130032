@@ -95,6 +95,28 @@ public class DBHeroSkills {
             return berhasil;
         }
     }
+    
+    public boolean update() {
+        boolean berhasil = false;
+        Koneksi con = new Koneksi();
+        
+        try {
+            con.bukaKoneksi();
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE hero_skills SET lv = ?  WHERE hero_class_id  = ? AND skill_id = ?");
+            con.preparedStatement.setInt(1, getHeroSkillModel().getLv());
+            con.preparedStatement.setInt(2, getHeroSkillModel().getHero_class_id());
+            con.preparedStatement.setInt(3, getHeroSkillModel().getSkill_id());
+            con.preparedStatement.executeUpdate();
+            
+            berhasil = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            berhasil = false;
+        } finally {
+            con.tutupKoneksi();
+            return berhasil;
+        }
+    }
      
     public boolean delete(int nomor, int nomor1) {
         boolean berhasil = false;

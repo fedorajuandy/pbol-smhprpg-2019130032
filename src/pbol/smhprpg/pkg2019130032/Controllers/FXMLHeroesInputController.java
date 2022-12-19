@@ -68,6 +68,7 @@ public class FXMLHeroesInputController implements Initializable {
         showData();
         showData1();
         cbGender.getItems().addAll("female", "male", "other"); 
+        cbGender.getSelectionModel().select(0);
         
         try {
             Koneksi con = new Koneksi();

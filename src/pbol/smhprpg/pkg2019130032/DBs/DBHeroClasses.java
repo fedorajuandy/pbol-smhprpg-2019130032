@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
 
 /**
  *
@@ -61,14 +60,14 @@ public class DBHeroClasses {
             Koneksi con = new Koneksi();            
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, h.hero_name, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) JOIN heroes h ON(hc.hero_id = h.id) WHERE hc.hero_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT hc.id, hc.hero_id, h.name, hc.class_id, c.name as className, hc.mastery_lv FROM hero_classes hc JOIN classes c ON(hc.class_id = c.id) JOIN heroes h ON(hc.hero_id = h.id) WHERE hc.hero_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {
                 HeroClassModel d = new HeroClassModel();
                 d.setId(rs.getInt("id"));
                 d.setHero_id(rs.getInt("hero_id"));
-                d.setHeroName(rs.getString("heroName"));
+                d.setHeroName(rs.getString("name"));
                 d.setClass_id(rs.getInt("class_id"));
                 d.setClassName(rs.getString("className"));
                 d.setMastery_lv(rs.getInt("mastery_lv"));

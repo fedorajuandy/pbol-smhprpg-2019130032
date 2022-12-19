@@ -26,20 +26,20 @@ public class DBHeroTraits {
         dt = s;
     }
     
-    public ObservableList<HeroTraitModel> load(String kode) {
+    public ObservableList<HeroTraitModel> load(int kode) {
         try {
             ObservableList<HeroTraitModel> tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT ht.hero_id, ht.trait_id, t.name FROM hero_traits ht JOIN traits t ON (ht.trait_id = t.id) WHERE ht.hero_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT ht.hero_id, ht.trait_id, t.name AS traitName FROM hero_traits ht JOIN traits t ON (ht.trait_id = t.id) WHERE ht.hero_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {
                 HeroTraitModel d = new HeroTraitModel();
                 d.setHero_id(rs.getInt("hero_id"));
                 d.setTrait_id(rs.getInt("trait_id"));
-                d.setTraitName(rs.getString("t.name"));
+                d.setTraitName(rs.getString("traitName"));
                 
                 tableData.add(d);
                 i++;

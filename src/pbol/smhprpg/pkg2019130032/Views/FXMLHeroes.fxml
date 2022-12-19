@@ -283,7 +283,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TableView fx:id="tbvHCS" layoutX="490.0" layoutY="708.0" prefHeight="200.0" prefWidth="430.0">
+            <TableView fx:id="tbvHCS" layoutX="490.0" layoutY="708.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="430.0">
                <columns>
                   <TableColumn prefWidth="119.99999618530273" text="C1" />
                   <TableColumn minWidth="5.999969482421875" prefWidth="120.00001525878906" text="C2" />

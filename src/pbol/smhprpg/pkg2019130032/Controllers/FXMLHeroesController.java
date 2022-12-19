@@ -3,10 +3,11 @@ package pbol.smhprpg.pkg2019130032.Controllers;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import pbol.smhprpg.pkg2019130032.Models.HeroModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroSkillModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
 import pbol.smhprpg.pkg2019130032.Models.HeroEffectModel;
 import pbol.smhprpg.pkg2019130032.Models.HeroBaseStatModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroSkillModel;
+import pbol.smhprpg.pkg2019130032.Models.HeroTraitModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,12 +33,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import pbol.smhprpg.pkg2019130032.Models.HeroSkillModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroClassModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroEffectModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroTraitModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroBaseStatModel;
-import pbol.smhprpg.pkg2019130032.Models.HeroTraitModel;
 
 /**
  * FXML Controller class
@@ -144,7 +139,11 @@ public class FXMLHeroesController implements Initializable {
         Image gambar = null;
         
         try {
-            gambar = new Image(new FileInputStream(tbv.getSelectionModel().getSelectedItem().getImage()));
+            String temp = tbv.getSelectionModel().getSelectedItem().getImage();
+            if (temp == "") {
+                temp = "imgs/placeholder.png";
+            }
+            gambar = new Image(new FileInputStream(temp));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FXMLHeroesController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -224,7 +223,9 @@ public class FXMLHeroesController implements Initializable {
                 tbv.getScene().getWindow().hide();;
             }            
         } else {
-           showData();
+            showData();
+            tbv.getSelectionModel().selectFirst();
+            showDetails();
         }
     }
 
@@ -233,9 +234,9 @@ public class FXMLHeroesController implements Initializable {
         ObservableList<HeroBaseStatModel> data1 = FXMLMainMenuController.dthbs.load(tbv.getSelectionModel().getSelectedItem().getId());
         ObservableList<HeroClassModel> data2 = FXMLMainMenuController.dthc.load(tbv.getSelectionModel().getSelectedItem().getId());
         ObservableList<HeroEffectModel> data3= FXMLMainMenuController.dthe.load(tbv.getSelectionModel().getSelectedItem().getId());
-        ObservableList<HeroSkillModel> data4 = FXMLMainMenuController.dths.load(tbv.getSelectionModel().getSelectedItem().getId());
+        ObservableList<HeroTraitModel> data5= FXMLMainMenuController.dtht.load(tbv.getSelectionModel().getSelectedItem().getId());
         
-        if (data1 != null && data2 != null && data3 != null && data4 != null) {
+        if (data1 != null && data2 != null && data3 != null && data5 != null) {
             tbvHBS.getColumns().clear();
             tbvHBS.getItems().clear();
             
@@ -291,10 +292,32 @@ public class FXMLHeroesController implements Initializable {
             
             tbvHE.setItems(data3);
             
+            tbvHT.getColumns().clear();
+            tbvHT.getItems().clear();
+            
+            col = new TableColumn("Trait id");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("trait_id"));
+            tbvHT.getColumns().addAll(col);
+            
+            col = new TableColumn("Trait Name");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("traitName"));
+            tbvHT.getColumns().addAll(col);
+            
+            tbvHT.setItems(data5);
+         } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+            a.showAndWait();
+            tbvHBS.getScene().getWindow().hide();;
+        }
+        
+        tbvHC.getSelectionModel().selectFirst();
+        ObservableList<HeroSkillModel> data4 = FXMLMainMenuController.dths.load(tbvHC.getSelectionModel().getSelectedItem().getId());
+        
+        if (data4 != null) {
             tbvHCS.getColumns().clear();
             tbvHCS.getItems().clear();
             
-            col = new TableColumn("Skill Id");
+            TableColumn col = new TableColumn("Skill Id");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("skill_id"));
             tbvHCS.getColumns().addAll(col);
             
@@ -644,9 +667,14 @@ public class FXMLHeroesController implements Initializable {
 
     @FXML
     private void addHCSClicked(ActionEvent event) {
+        HeroClassModel s = new HeroClassModel();
+        s = tbvHC.getSelectionModel().getSelectedItem();
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroSkills.fxml"));
             Parent root = (Parent)loader.load();
+            FXMLHeroSkillsController isidt = (FXMLHeroSkillsController)loader.getController();
+            isidt.exe(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.setTitle("HeroSkills");
@@ -840,7 +868,7 @@ public class FXMLHeroesController implements Initializable {
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("Race Traits");
+            stg.setTitle("Hero Traits");
             stg.getIcons().add(new Image(getClass().getResourceAsStream("/pbol/smhprpg/pkg2019130032/imgs/smhprpg.png")));
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);

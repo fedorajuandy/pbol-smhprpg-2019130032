@@ -109,7 +109,7 @@ public class FXMLRacesInputController implements Initializable {
         n.setId(id);
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
-        n.setParentrace_id(Integer.parseInt(txtParentrace.getText()));
+        if (!txtParentrace.getText().equals("")) n.setParentrace_id(Integer.parseInt(txtParentrace.getText()));
         
         FXMLMainMenuController.dtr.setRaceModel(n);
         if (edited) {

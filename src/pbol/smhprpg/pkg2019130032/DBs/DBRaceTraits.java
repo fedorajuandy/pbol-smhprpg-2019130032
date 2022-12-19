@@ -60,7 +60,7 @@ public class DBRaceTraits {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT COUNT(*) AS jml FROM race_traits WHERE id = '" + nomor + "' AND trait_id = '" + nomor1 + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT COUNT(*) AS jml FROM race_traits WHERE race_id = '" + nomor + "' AND trait_id = '" + nomor1 + "'");
             
             while (rs.next()) {
                 val = rs.getInt("jml");

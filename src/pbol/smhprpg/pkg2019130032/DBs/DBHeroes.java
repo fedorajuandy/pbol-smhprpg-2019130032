@@ -31,7 +31,7 @@ public class DBHeroes {
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             
-            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image, h.user_id, u.username FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) JOIN users u ON(h.user_id = u.id)");
+            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image, h.user_id, u.username FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) LEFT JOIN users u ON(h.user_id = u.id)");
 
             int i = 1;
             while (rs.next()) {

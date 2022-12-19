@@ -132,7 +132,6 @@ public class FXMLRacesController implements Initializable {
 
     @FXML
     private void showDetails() {
-        tbv.getSelectionModel().selectFirst();
         ObservableList<RaceTraitModel> data1 = FXMLMainMenuController.dtrt.load(tbv.getSelectionModel().getSelectedItem().getId());
         ObservableList<RaceBaseStatModel> data2 = FXMLMainMenuController.dtrbs.load(tbv.getSelectionModel().getSelectedItem().getId());
         

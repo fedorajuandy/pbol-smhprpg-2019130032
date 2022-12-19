@@ -60,6 +60,7 @@ public class FXMLHeroesCreateController implements Initializable {
         showData();
         showData1();
         cbGender.getItems().addAll("female", "male", "other"); 
+        cbGender.getSelectionModel().select(0);
     }
     
     public void execute(HeroModel d) {
