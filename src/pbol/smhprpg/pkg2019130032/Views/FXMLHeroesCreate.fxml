@@ -58,7 +58,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtImage" layoutX="177.0" layoutY="719.0" onAction="#insertImg" />
+      <TextField fx:id="txtImage" layoutX="177.0" layoutY="719.0" />
       <TextField fx:id="txtRace" editable="false" layoutX="175.0" layoutY="367.0" prefHeight="25.0" prefWidth="149.0" />
       <TableView fx:id="tbv" layoutX="31.0" layoutY="203.0" onMouseClicked="#select" prefHeight="150.0" prefWidth="435.0">
          <columns>
@@ -117,7 +117,7 @@
       <TextField fx:id="search" layoutX="215.0" layoutY="169.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
       <Button layoutX="424.0" layoutY="168.0" mnemonicParsing="false" onAction="#clear1Clicked" text="Clear" />
       <TextField fx:id="txtClass" editable="false" layoutX="174.0" layoutY="610.0" prefHeight="25.0" prefWidth="149.0" />
-      <TableView fx:id="tbv1" layoutX="30.0" layoutY="446.0" onMouseClicked="#select" prefHeight="150.0" prefWidth="435.0">
+      <TableView fx:id="tbv1" layoutX="30.0" layoutY="446.0" onMouseClicked="#select1" prefHeight="150.0" prefWidth="435.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
@@ -171,7 +171,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="search1" layoutX="214.0" layoutY="412.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <TextField fx:id="search1" layoutX="214.0" layoutY="412.0" onKeyReleased="#searchData1" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
       <Button layoutX="423.0" layoutY="411.0" mnemonicParsing="false" onAction="#clear2Clicked" text="Clear" />
       <Button layoutX="159.0" layoutY="914.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save">
          <cursor>

@@ -36,6 +36,9 @@
 - Traits photo by <a href="https://unsplash.com/@alicealinari?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alice Alinari</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Simulation photo by <a href="https://unsplash.com/@mavrick?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ricardo Cruz</a> on <a href="https://unsplash.com/s/photos/sword?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Users photo by <a href="https://unsplash.com/@kylejglenn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kyle Glenn</a> on <a href="https://unsplash.com/s/photos/adventurers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Elf photo by <a href="https://unsplash.com/@cassianokw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Cassiano K. Wehr</a> on <a href="https://unsplash.com/s/photos/elf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Sihouette photo by <a href="https://unsplash.com/@fortyozsteak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joe Shields</a> on <a href="https://unsplash.com/s/photos/silhouette?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- 
 
 ### Ideas
 

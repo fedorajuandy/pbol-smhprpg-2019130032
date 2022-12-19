@@ -157,7 +157,7 @@ public class DBHeroEffects {
                 d.setCurr_class_id(rs.getInt("curr_class_id"));
                 d.setClassName(rs.getString("className"));
                 d.setName(rs.getString("name"));
-                d.setGender(rs.getString("gender").charAt(0));
+                d.setGender(rs.getString("gender"));
                 d.setDes(rs.getString("des"));
                 d.setStat_points(rs.getInt("stat_points"));
                 d.setSkill_points(rs.getInt("skill_points"));

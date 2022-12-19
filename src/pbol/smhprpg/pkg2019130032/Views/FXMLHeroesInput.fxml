@@ -153,7 +153,7 @@
       <TextField fx:id="search" layoutX="217.0" layoutY="165.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
       <Button layoutX="426.0" layoutY="164.0" mnemonicParsing="false" onAction="#clear1Clicked" text="Clear" />
       <TextField fx:id="txtClass" editable="false" layoutX="176.0" layoutY="606.0" prefHeight="25.0" prefWidth="149.0" />
-      <TableView fx:id="tbv1" layoutX="32.0" layoutY="442.0" onMouseClicked="#select" prefHeight="150.0" prefWidth="435.0">
+      <TableView fx:id="tbv1" layoutX="32.0" layoutY="442.0" onMouseClicked="#select1" prefHeight="150.0" prefWidth="435.0">
          <columns>
             <TableColumn prefWidth="120.0" text="C1" />
             <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
@@ -207,7 +207,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="search2" layoutX="216.0" layoutY="408.0" onKeyReleased="#searchData1" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <TextField fx:id="search1" layoutX="216.0" layoutY="408.0" onKeyReleased="#searchData1" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
       <Button layoutX="425.0" layoutY="407.0" mnemonicParsing="false" onAction="#clear2Clicked" text="Clear" />
    </children>
 </AnchorPane>

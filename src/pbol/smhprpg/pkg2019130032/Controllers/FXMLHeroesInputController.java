@@ -3,6 +3,7 @@ package pbol.smhprpg.pkg2019130032.Controllers;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,14 +11,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import pbol.smhprpg.pkg2019130032.Koneksi;
+import pbol.smhprpg.pkg2019130032.Models.ClassModel;
 import pbol.smhprpg.pkg2019130032.Models.HeroModel;
+import pbol.smhprpg.pkg2019130032.Models.RaceModel;
 
 /**
  * FXML Controller class
@@ -26,7 +30,7 @@ import pbol.smhprpg.pkg2019130032.Models.HeroModel;
  */
 public class FXMLHeroesInputController implements Initializable {
     private boolean edited = false;
-    private int id;
+    private int id, id1, id2;
 
     @FXML
     private TextField txtName;
@@ -34,21 +38,14 @@ public class FXMLHeroesInputController implements Initializable {
     private TextArea txtDes;
     @FXML
     private Button btnExit;
-    private ComboBox<Integer> cbRace;
-    private ComboBox<Integer> cbCurrentclass;
     @FXML
     private TextField txtRace;
-    private TextField txtCurrclass;
     @FXML
     private TextField txtImage;
-    private TextField txtUser;
     @FXML
-    private ComboBox<Integer> cbUser;
-    private Spinner<Integer> spSkillpoints;
-    private Spinner<Integer> spExp;
-    private Spinner<Integer> spStatpoints;
+    private ComboBox<String> cbUser;
     @FXML
-    private ComboBox<Character> cbGender;
+    private ComboBox<String> cbGender;
     @FXML
     private TextField txtSkillpoints;
     @FXML
@@ -56,38 +53,30 @@ public class FXMLHeroesInputController implements Initializable {
     @FXML
     private TextField txtExp;
     @FXML
-    private TableView<?> tbv;
+    private TableView<RaceModel> tbv;
     @FXML
     private TextField search;
     @FXML
     private TextField txtClass;
     @FXML
-    private TableView<?> tbv1;
+    private TableView<ClassModel> tbv1;
     @FXML
-    private TextField search2;
+    private TextField search1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbGender.getItems().addAll('m', 'f'); 
+        showData();
+        showData1();
+        cbGender.getItems().addAll("female", "male", "other"); 
         
         try {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             
-            ResultSet rs = con.statement.executeQuery("SELECT id FROM races");
+            ResultSet rs = con.statement.executeQuery("SELECT username FROM users");
             while (rs.next()) {
-                cbRace.getItems().addAll(rs.getInt("id")); 
-            }
-            
-            rs = con.statement.executeQuery("SELECT id FROM classes");
-            while (rs.next()) {
-                cbCurrentclass.getItems().addAll(rs.getInt("id")); 
-            }
-            
-            rs = con.statement.executeQuery("SELECT id FROM users");
-            while (rs.next()) {
-                cbUser.getItems().addAll(rs.getInt("id")); 
+                cbUser.getItems().addAll(rs.getString("username")); 
             }
             
             con.tutupKoneksi();
@@ -97,75 +86,108 @@ public class FXMLHeroesInputController implements Initializable {
     }
     
     public void execute(HeroModel d) {
-        if (d.getId() != 0) {
-          edited = true;
-          
-          id = d.getId();
-          txtName.setText(d.getName());
-          cbGender.setValue(d.getGender());
-          cbRace.setValue(d.getRace_id());
-          txtDes.setText(d.getDes());
-          cbCurrentclass.setValue(d.getCurr_class_id());
-          spExp.getValueFactory().setValue(d.getExp());
-          spStatpoints.getValueFactory().setValue(d.getStat_points());
-          spSkillpoints.getValueFactory().setValue(d.getSkill_points());
-          txtImage.setText(d.getImage());
-          cbUser.setValue(d.getUser_id());
-          viewRacename();
-          viewClassname();
-          
-          txtName.requestFocus();
+        id = d.getRace_id();
+        id1 = d.getCurr_class_id();
+        
+        if (d.getId() != 0 && id1 != 0 && id2 != 0) {
+            edited = true;
+
+            id = d.getId();
+            txtName.setText(d.getName());
+            cbGender.setValue(d.getGender());
+            txtDes.setText(d.getDes());
+            for (int i = 0; i < tbv.getItems().size(); i++) {
+                tbv.getSelectionModel().select(i);
+                if (tbv.getSelectionModel().getSelectedItem().getId() == id1) {
+                    break;
+                }
+            }
+            for (int i = 0; i < tbv1.getItems().size(); i++) {
+                tbv1.getSelectionModel().select(i);
+                if (tbv1.getSelectionModel().getSelectedItem().getId() == id2) {
+                    break;
+                }
+            }
+            txtRace.setText(Integer.toString(id));
+            txtClass.setText(Integer.toString(id1));
+            txtExp.setText(Integer.toString(d.getExp()));
+            txtStatpoints.setText(Integer.toString(d.getStat_points()));
+            txtSkillpoints.setText(Integer.toString(d.getSkill_points()));
+            cbUser.setValue(d.getUsername());
+
+            txtImage.setText(d.getImage());
+
+            txtName.requestFocus();
         }
     }
     
-    public void viewRacename() {
-        try {
-            Koneksi con = new Koneksi();
-            con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT name FROM races where id = " + cbRace.getSelectionModel().getSelectedItem());
-
-            while (rs.next()) {
-                txtCurrclass.setText(rs.getString("name"));
-            }
+    public void showData() {
+        ObservableList<RaceModel> data = FXMLMainMenuController.dtr.load();
+        
+        if (data != null) {
+            tbv.getColumns().clear();
+            tbv.getItems().clear();
             
-            con.tutupKoneksi();
-        } catch (Exception e) {
-            e.printStackTrace();
+            TableColumn col = new TableColumn("Id");
+            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Name");
+            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("name"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Race Id");
+            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentrace_id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Race Name");
+            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentraceName"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Des");
+            col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("des"));
+            tbv.getColumns().addAll(col);
+            
+            tbv.setItems(data);
+         } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+            a.showAndWait();
+            tbv.getScene().getWindow().hide();;
         }
     }
     
-    public void viewClassname() {
-        try {
-            Koneksi con = new Koneksi();
-            con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT name FROM classes where id = " + cbCurrentclass.getSelectionModel().getSelectedItem());
-
-            while (rs.next()) {
-                txtCurrclass.setText(rs.getString("name"));
-            }
+    public void showData1() {
+        ObservableList<ClassModel> data = FXMLMainMenuController.dtc.load();
+        
+        if (data != null) {
+            tbv1.getColumns().clear();
+            tbv1.getItems().clear();
             
-            con.tutupKoneksi();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void viewUsername() {
-        try {
-            Koneksi con = new Koneksi();
-            con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT name FROM users where id = " + cbUser.getSelectionModel().getSelectedItem());
-
-            while (rs.next()) {
-                txtUser.setText(rs.getString("name"));
-            }
+            TableColumn col = new TableColumn("Id");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("id"));
+            tbv1.getColumns().addAll(col);
             
-            con.tutupKoneksi();
-        } catch (Exception e) {
-            e.printStackTrace();
+            col = new TableColumn("Name");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("name"));
+            tbv1.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Class Id");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclass_id"));
+            tbv1.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Class Name");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
+            tbv1.getColumns().addAll(col);
+            
+            col = new TableColumn("Des");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("des"));
+            tbv1.getColumns().addAll(col);
+            
+            tbv1.setItems(data);
+         } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+            a.showAndWait();
+            tbv1.getScene().getWindow().hide();;
         }
     }
 
@@ -174,15 +196,29 @@ public class FXMLHeroesInputController implements Initializable {
         HeroModel n = new HeroModel();
         n.setId(id);
         n.setName(txtName.getText()); 
-        n.setGender(cbGender.getValue());
-        n.setRace_id(cbRace.getValue());
+        n.setGender(cbGender.getSelectionModel().getSelectedItem());
         n.setDes(txtDes.getText());
-        n.setCurr_class_id(cbCurrentclass.getValue());
-        n.setExp(spExp.getValue());
-        n.setStat_points(spStatpoints.getValue());
-        n.setSkill_points(spSkillpoints.getValue());
-        n.setImage(txtImage.getText());
-        n.setUser_id(cbUser.getValue());
+        n.setRace_id(Integer.parseInt(txtRace.getText()));
+        n.setCurr_class_id(Integer.parseInt(txtClass.getText()));
+        n.setStat_points(Integer.parseInt(txtStatpoints.getText()));
+        n.setSkill_points(Integer.parseInt(txtSkillpoints.getText()));
+        n.setExp(Integer.parseInt(txtExp.getText()));
+        n.setUsername(cbUser.getValue());
+        try {
+            Koneksi con = new Koneksi();
+            con.bukaKoneksi();
+            con.statement = con.dbKoneksi.createStatement();
+            
+            ResultSet rs = con.statement.executeQuery("SELECT id FROM users WHERE username = '" + n.getUsername() + "'");
+            while (rs.next()) {
+                n.setUser_id(rs.getInt("id"));
+            }
+            
+            con.tutupKoneksi();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        n.setImage(txtImage.getText()); 
         
         FXMLMainMenuController.dth.setHeroModel(n);
         if (edited) {
@@ -208,22 +244,19 @@ public class FXMLHeroesInputController implements Initializable {
             txtName.requestFocus();
         }
     }
-
+    
     @FXML
     private void clearClicked(ActionEvent event) {
         txtName.setText("");
         txtDes.setText("");
         cbGender.getSelectionModel().select(0);
-        cbRace.getSelectionModel().select(0);
-        viewRacename();
-        cbCurrentclass.getSelectionModel().select(0);
-        viewClassname();
-        spExp.getValueFactory().setValue(0);
-        spSkillpoints.getValueFactory().setValue(0);
-        spStatpoints.getValueFactory().setValue(0);
+        firstClicked(event);
+        firstClicked1(event);
+        txtStatpoints.setText("");
+        txtSkillpoints.setText("");
+        txtExp.setText("");
         txtImage.setText("");
         cbUser.getSelectionModel().select(0);
-        viewUsername();
         txtName.requestFocus();
     }
 
@@ -246,65 +279,190 @@ public class FXMLHeroesInputController implements Initializable {
 
     @FXML
     private void validateSkill(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 10;
+        if(!Character.isDigit(test) || txtSkillpoints.getText().length() >= batas) event.consume();
     }
 
     @FXML
     private void validateStat(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 10;
+        if(!Character.isDigit(test) || txtStatpoints.getText().length() >= batas) event.consume();
     }
 
     @FXML
     private void validateExp(KeyEvent event) {
+        char test = event.getCharacter().charAt(0);
+        int batas = 10;
+        if(!Character.isDigit(test) || txtExp.getText().length() >= batas) event.consume();
     }
 
     @FXML
     private void select(MouseEvent event) {
+        txtRace.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
+    }
+    
+    @FXML
+    private void select1(MouseEvent event) {
+        txtClass.setText(Integer.toString(tbv1.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void firstClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectFirst();
+        tbv.requestFocus();
+        txtRace.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void prevClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectAboveCell();
+        tbv.requestFocus();
+        txtRace.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void nextClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectBelowCell();
+        tbv.requestFocus();
+        txtRace.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void lastClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectLast();
+        tbv.requestFocus();
+        txtRace.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void searchData(KeyEvent event) {
+        RaceModel s = new RaceModel();
+        String key = search.getText();
+        
+        if (key != "") {
+            ObservableList<RaceModel> data = FXMLMainMenuController.dtr.searchItems(key, key, key, key);
+            if (data != null) {
+                tbv.getColumns().clear();
+                tbv.getItems().clear();
+                
+                TableColumn col = new TableColumn("Id");
+                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("id"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Name");
+                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("name"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Parent Race Id");
+                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentrace_id"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Parent Race Name");
+                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("parentraceName"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Des");
+                col.setCellValueFactory(new PropertyValueFactory<RaceModel, String>("des"));
+                tbv.getColumns().addAll(col);
+                
+                tbv.setItems(data);
+                tbv.getSelectionModel().selectFirst();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+                a.showAndWait();
+                tbv.getScene().getWindow().hide();;
+            }            
+        } else {
+           showData();
+        }
     }
 
     @FXML
     private void clear1Clicked(ActionEvent event) {
+        search.setText("");
+        txtRace.setText("");
+        showData();
+        search.requestFocus();
     }
 
     @FXML
     private void firstClicked1(ActionEvent event) {
+        tbv1.getSelectionModel().selectFirst();
+        tbv1.requestFocus();
+        txtClass.setText(Integer.toString(tbv1.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void prevClicked1(ActionEvent event) {
+        tbv1.getSelectionModel().selectAboveCell();
+        tbv1.requestFocus();
+        txtClass.setText(Integer.toString(tbv1.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void nextClicked1(ActionEvent event) {
+        tbv1.getSelectionModel().selectBelowCell();
+        tbv1.requestFocus();
+        txtClass.setText(Integer.toString(tbv1.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void lastClicked1(ActionEvent event) {
+        tbv1.getSelectionModel().selectLast();
+        tbv1.requestFocus();
+        txtClass.setText(Integer.toString(tbv1.getSelectionModel().getSelectedItem().getId()));
     }
 
     @FXML
     private void searchData1(KeyEvent event) {
+        ClassModel s = new ClassModel();
+        String key = search.getText();
+        
+        if (key != "") {
+            ObservableList<ClassModel> data = FXMLMainMenuController.dtc.searchItems(key, key, key, key);
+            if (data != null) {
+                tbv1.getColumns().clear();
+                tbv1.getItems().clear();
+                
+                TableColumn col = new TableColumn("Id");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("id"));
+                tbv1.getColumns().addAll(col);
+
+                col = new TableColumn("Name");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("name"));
+                tbv1.getColumns().addAll(col);
+
+                col = new TableColumn("Parent Class Id");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclass_id"));
+                tbv1.getColumns().addAll(col);
+                
+                col = new TableColumn("Parent Class Name");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Des");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("des"));
+                tbv1.getColumns().addAll(col);
+                
+                tbv1.setItems(data);
+                tbv1.getSelectionModel().selectFirst();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+                a.showAndWait();
+                tbv1.getScene().getWindow().hide();;
+            }            
+        } else {
+           showData1();
+        }
     }
 
     @FXML
     private void clear2Clicked(ActionEvent event) {
+        search1.setText("");
+        txtClass.setText("");
+        showData1();
+        search1.requestFocus();
     }
 }

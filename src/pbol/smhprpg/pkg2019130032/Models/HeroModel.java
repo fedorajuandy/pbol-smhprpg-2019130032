@@ -6,8 +6,7 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class HeroModel {
     private int id, race_id, curr_class_id, exp, stat_points, skill_points, user_id;
-    private String name, des, raceName, className, image, username;
-    private char gender;
+    private String name, des, gender, raceName, className, image, username;
 
     public String getUsername() {
         return username;
@@ -97,11 +96,11 @@ public class HeroModel {
         this.des = des;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
