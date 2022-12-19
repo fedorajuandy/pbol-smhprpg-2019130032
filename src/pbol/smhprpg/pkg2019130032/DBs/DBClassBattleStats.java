@@ -81,7 +81,7 @@ public class DBClassBattleStats {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO class_battle_stats (class_id, battle_stat_id, val) VALUES (?, ?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO class_battle_stats (class_id, battle_stat_id, scale) VALUES (?, ?, ?)");
             con.preparedStatement.setInt(1, getClassBattleStatModel().getClass_id());
             con.preparedStatement.setInt(2, getClassBattleStatModel().getBattle_stat_id());
             con.preparedStatement.setDouble(3, getClassBattleStatModel().getScale());

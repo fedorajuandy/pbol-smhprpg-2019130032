@@ -132,7 +132,6 @@ public class FXMLHeroesController implements Initializable {
         }
     }
     
-    @FXML
     public void showImage(){
         Image gambar = null;
         

@@ -32,7 +32,7 @@ public class DBClassBaseStats {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT cbs.class_id, cbs.base_stat_id, bs.name, cbs.levelup_levelup_val FROM class_base_stats cbs JOIN base_stats bs ON(cbs.base_stat_id = bs.id) WHERE cbs.class_id LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("SELECT cbs.class_id, cbs.base_stat_id, bs.name, cbs.levelup_val FROM class_base_stats cbs JOIN base_stats bs ON(cbs.base_stat_id = bs.id) WHERE cbs.class_id LIKE '" + kode + "'");
             
             int i = 1;
             while (rs.next()) {
@@ -40,7 +40,7 @@ public class DBClassBaseStats {
                 d.setBase_stat_id(rs.getInt("base_stat_id"));
                 d.setClass_id(rs.getInt("class_id"));
                 d.setBasestatName(rs.getString("name"));
-                d.setLevelup_val(rs.getInt("levelup_levelup_val"));
+                d.setLevelup_val(rs.getInt("levelup_val"));
                 
                 tableData.add(d);
                 i++;

@@ -447,7 +447,7 @@ public class FXMLClassesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dtrt.delete(s.getClass_id(), s.getTrait_id())) {
+           if (FXMLMainMenuController.dtct.delete(s.getClass_id(), s.getTrait_id())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {
@@ -490,7 +490,7 @@ public class FXMLClassesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dtbtb.delete(s.getClass_id(), s.getSkill_id())) {
+           if (FXMLMainMenuController.dtcs.delete(s.getClass_id(), s.getSkill_id())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {
@@ -561,7 +561,7 @@ public class FXMLClassesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dtbtb.delete(s.getClass_id(), s.getBattle_stat_id())) {
+           if (FXMLMainMenuController.dtcbt.delete(s.getClass_id(), s.getBattle_stat_id())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {
@@ -578,7 +578,7 @@ public class FXMLClassesController implements Initializable {
     @FXML
     private void addCBSClicked(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassBaseStatsl.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLClassBaseStats.fxml"));
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -632,7 +632,7 @@ public class FXMLClassesController implements Initializable {
         a.showAndWait();
         
         if (a.getResult() == ButtonType.YES) {
-           if (FXMLMainMenuController.dtbtb.delete(s.getClass_id(), s.getBase_stat_id())) {
+           if (FXMLMainMenuController.dtcbs.delete(s.getClass_id(), s.getBase_stat_id())) {
                Alert b = new Alert(Alert.AlertType.INFORMATION,"Item deleted.", ButtonType.OK);
                b.showAndWait();
            } else {
