@@ -3,6 +3,7 @@ package pbol.smhprpg.pkg2019130032.Controllers;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,9 +11,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import pbol.smhprpg.pkg2019130032.Koneksi;
 import pbol.smhprpg.pkg2019130032.Models.ClassModel;
 
@@ -34,24 +39,13 @@ public class FXMLClassesInputController implements Initializable {
     @FXML
     private TextField txtParentclass;
     @FXML
-    private ComboBox<Integer> cbParentclass;
+    private TableView<ClassModel> tbv;
+    @FXML
+    private TextField search;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            Koneksi con = new Koneksi();
-            con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT id FROM classes");
-
-            while (rs.next()) {
-                cbParentclass.getItems().addAll(rs.getInt("id")); 
-            }
-            
-            con.tutupKoneksi();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        showData();
     }
     
     public void execute(ClassModel d) {
@@ -61,27 +55,51 @@ public class FXMLClassesInputController implements Initializable {
           id = d.getId();
           txtName.setText(d.getName());
           txtDes.setText(d.getDes());
-          cbParentclass.setValue(d.getParentclass_id());
-          viewParentname();
+          
+          for (int i = 0; i < tbv.getItems().size(); i++) {
+              tbv.getSelectionModel().select(i);
+              if (tbv.getSelectionModel().getSelectedItem().getId() == id) {
+                  break;
+              }
+          }
+          txtParentclass.setText(Integer.toString(id));
           
           txtName.requestFocus();
         }
     }
     
-    public void viewParentname() {
-        try {
-            Koneksi con = new Koneksi();
-            con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("SELECT name FROM classes where id = " + cbParentclass.getSelectionModel().getSelectedItem());
-
-            while (rs.next()) {
-                txtParentclass.setText(rs.getString("name"));
-            }
+    public void showData() {
+        ObservableList<ClassModel> data = FXMLMainMenuController.dtc.load();
+        
+        if (data != null) {
+            tbv.getColumns().clear();
+            tbv.getItems().clear();
             
-            con.tutupKoneksi();
-        } catch (Exception e) {
-            e.printStackTrace();
+            TableColumn col = new TableColumn("Id");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Name");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("name"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Class Id");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclass_id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Class Name");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Des");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("des"));
+            tbv.getColumns().addAll(col);
+            
+            tbv.setItems(data);
+         } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+            a.showAndWait();
+            tbv.getScene().getWindow().hide();;
         }
     }
 
@@ -91,6 +109,7 @@ public class FXMLClassesInputController implements Initializable {
         n.setId(id);
         n.setName(txtName.getText()); 
         n.setDes(txtDes.getText());
+        n.setParentclass_id(Integer.parseInt(txtParentclass.getText()));
         
         FXMLMainMenuController.dtc.setClassModel(n);
         if (edited) {
@@ -121,7 +140,7 @@ public class FXMLClassesInputController implements Initializable {
     private void clearClicked(ActionEvent event) {
         txtName.setText("");
         txtDes.setText("");
-        cbParentclass.getSelectionModel().select(0);
+        txtParentclass.setText("");
         txtName.requestFocus();
     }
 
@@ -142,8 +161,87 @@ public class FXMLClassesInputController implements Initializable {
         if (txtDes.getText().length() >= batas) event.consume();
     }
 
+   @FXML
+    private void select(MouseEvent event) {
+        txtParentclass.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
+    }
+
     @FXML
-    private void showParentname(ActionEvent event) {
-        viewParentname();
+    private void firstClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectFirst();
+        tbv.requestFocus();
+        txtParentclass.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
+    }
+
+    @FXML
+    private void prevClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectAboveCell();
+        tbv.requestFocus();
+        txtParentclass.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
+    }
+
+    @FXML
+    private void nextClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectBelowCell();
+        tbv.requestFocus();
+        txtParentclass.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
+    }
+
+    @FXML
+    private void lastClicked(ActionEvent event) {
+        tbv.getSelectionModel().selectLast();
+        tbv.requestFocus();
+        txtParentclass.setText(Integer.toString(tbv.getSelectionModel().getSelectedItem().getId()));
+    }
+
+    @FXML
+    private void clear1Clicked(ActionEvent event) {
+        search.setText("");
+        txtParentclass.setText("");
+        showData();
+        search.requestFocus();
+    }
+
+    @FXML
+    private void searchData(KeyEvent event) {
+        ClassModel s = new ClassModel();
+        String key = search.getText();
+        
+        if (key != "") {
+            ObservableList<ClassModel> data = FXMLMainMenuController.dtc.searchItems(key, key, key, key);
+            if (data != null) {
+                tbv.getColumns().clear();
+                tbv.getItems().clear();
+                
+                TableColumn col = new TableColumn("Id");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("id"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Name");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("name"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Parent Class Id");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclass_id"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Parent Class Name");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Des");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("des"));
+                tbv.getColumns().addAll(col);
+                
+                tbv.setItems(data);
+                tbv.getSelectionModel().selectFirst();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
+                a.showAndWait();
+                tbv.getScene().getWindow().hide();;
+            }            
+        } else {
+           showData();
+        }
     }
 }
