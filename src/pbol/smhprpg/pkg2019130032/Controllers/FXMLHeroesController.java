@@ -44,18 +44,24 @@ public class FXMLHeroesController implements Initializable {
     private TextField search;
     @FXML
     private TableView<HeroModel> tbv;
-    @FXML
     private TableView<HeroEffectModel> tbvd3;
-    @FXML
     private TableView<HeroBaseStatModel> tbvd1;
     @FXML
     private Button btnQuit;
-    @FXML
     private TableView<HeroSkillModel> tbvd4;
-    @FXML
     private TableView<HeroClassModel> tbvd2;
     @FXML
     private ImageView img;
+    @FXML
+    private TableView<?> tbvHC;
+    @FXML
+    private TableView<?> tbvHBS;
+    @FXML
+    private TableView<?> tbvHCS;
+    @FXML
+    private TableView<?> tbvHE;
+    @FXML
+    private TableView<?> tbvHT;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -353,7 +359,7 @@ public class FXMLHeroesController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pbol/smhprpg/pkg2019130032/Views/FXMLHeroesInput.fxml"));
             Parent root = (Parent)loader.load();
             FXMLHeroesInputController isidt = (FXMLHeroesInputController)loader.getController();
-            // isidt.execute(s);
+            isidt.execute(s);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.setTitle("SMHPRPG");
@@ -408,73 +414,61 @@ public class FXMLHeroesController implements Initializable {
         showImage();
     }
 
-    @FXML
     private void firstDClicked1(ActionEvent event) {
         tbvd1.getSelectionModel().selectFirst();
         tbvd1.requestFocus();
     }
 
-    @FXML
     private void prevDClicked1(ActionEvent event) {
         tbvd1.getSelectionModel().selectAboveCell();
         tbvd1.requestFocus();
     }
 
-    @FXML
     private void nextDClicked1(ActionEvent event) {
         tbvd1.getSelectionModel().selectBelowCell();
         tbvd1.requestFocus();
     }
 
-    @FXML
     private void lastBtbClicked1(ActionEvent event) {
         tbvd1.getSelectionModel().selectLast();
         tbvd1.requestFocus();
     }
 
-    @FXML
     private void firstDClicked2(ActionEvent event) {
         tbvd2.getSelectionModel().selectFirst();
         tbvd2.requestFocus();
     }
 
-    @FXML
     private void prevDClicked2(ActionEvent event) {
         tbvd2.getSelectionModel().selectAboveCell();
         tbvd2.requestFocus();
     }
 
-    @FXML
     private void nextDClicked2(ActionEvent event) {
         tbvd2.getSelectionModel().selectBelowCell();
         tbvd2.requestFocus();
     }
     
-    @FXML
     private void lastBtbClicked2(ActionEvent event) {
         tbvd2.getSelectionModel().selectLast();
         tbvd2.requestFocus();
     }
 
-    @FXML
     private void firstDClicked3(ActionEvent event) {
         tbvd4.getSelectionModel().selectFirst();
         tbvd4.requestFocus();
     }
 
-    @FXML
     private void prevDClicked3(ActionEvent event) {
         tbvd4.getSelectionModel().selectAboveCell();
         tbvd4.requestFocus();
     }
 
-    @FXML
     private void nextDClicked3(ActionEvent event) {
         tbvd4.getSelectionModel().selectBelowCell();
         tbvd4.requestFocus();
     }
     
-    @FXML
     private void lastBtbClicked3(ActionEvent event) {
         tbvd4.getSelectionModel().selectLast();
         tbvd4.requestFocus();
@@ -489,23 +483,17 @@ public class FXMLHeroesController implements Initializable {
         btnQuit.getScene().getWindow().hide();
     }
 
-    @FXML
     private void firstDClicked(ActionEvent event) {
         tbvd3.getSelectionModel().selectFirst();
         tbvd3.requestFocus();
     }
 
-    @FXML
-    private void prevDClicked(ActionEvent event) {
-    }
 
-    @FXML
     private void nextDClicked(ActionEvent event) {
         tbvd3.getSelectionModel().selectBelowCell();
         tbvd3.requestFocus();
     }
 
-    @FXML
     private void lastBtbClicked(ActionEvent event) {
         tbvd3.getSelectionModel().selectLast();
         tbvd3.requestFocus();
@@ -566,5 +554,93 @@ public class FXMLHeroesController implements Initializable {
 
     @FXML
     private void deleteHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstHCClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prev(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextHCClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastHCClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstHTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevHTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextHTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastHTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addHTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteHTClicked(ActionEvent event) {
     }
 }
