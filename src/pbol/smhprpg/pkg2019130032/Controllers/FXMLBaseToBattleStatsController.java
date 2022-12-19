@@ -299,7 +299,8 @@ public class FXMLBaseToBattleStatsController implements Initializable {
     @FXML
     private void validateInput(KeyEvent event) {
         char test = event.getCharacter().charAt(0);
-        if(!Character.isDigit(test) && test != '.') event.consume();
+        int batas = 10;
+        if((!Character.isDigit(test) && test != '.') || txtInput.getText().length() >= batas) event.consume();
     }
 
     @FXML
