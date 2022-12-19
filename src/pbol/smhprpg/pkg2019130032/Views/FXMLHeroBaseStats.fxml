@@ -1,11 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLHeroBaseStatsController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="830.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="pbol.smhprpg.pkg2019130032.Controllers.FXMLHeroBaseStatsController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/HeroDetails.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="25.0" layoutY="24.0" text="Hero base stats" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="search1" layoutX="552.0" layoutY="72.0" onKeyReleased="#searchData1" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <TableView fx:id="tbv" layoutX="30.0" layoutY="102.0" onMouseClicked="#select" prefHeight="250.0" prefWidth="375.0">
+         <columns>
+            <TableColumn prefWidth="120.0" text="C1" />
+            <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tbv1" layoutX="427.0" layoutY="102.0" onMouseClicked="#select1" prefHeight="250.0" prefWidth="375.0">
+         <columns>
+            <TableColumn prefWidth="120.0" text="C1" />
+            <TableColumn minWidth="5.999969482421875" prefWidth="120.0" text="C2" />
+         </columns>
+      </TableView>
+      <Button layoutX="28.0" layoutY="363.0" mnemonicParsing="false" onAction="#firstClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/first.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="78.0" layoutY="363.0" mnemonicParsing="false" onAction="#prevClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/prev.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="318.0" layoutY="363.0" mnemonicParsing="false" onAction="#nextClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="365.0" layoutY="363.0" mnemonicParsing="false" onAction="#lastClicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/last.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="426.0" layoutY="363.0" mnemonicParsing="false" onAction="#first1Clicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/first.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="476.0" layoutY="363.0" mnemonicParsing="false" onAction="#prev1Clicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/prev.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="717.0" layoutY="363.0" mnemonicParsing="false" onAction="#next1Clicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="764.0" layoutY="363.0" mnemonicParsing="false" onAction="#last1Clicked" prefHeight="24.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/last.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="428.0" layoutY="72.0" text="Base stats" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="760.0" layoutY="72.0" mnemonicParsing="false" onAction="#clear2Clicked" text="Clear" />
+      <Label layoutX="30.0" layoutY="72.0" text="Heroes" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="search" layoutX="153.0" layoutY="72.0" onKeyReleased="#searchData" prefHeight="24.0" prefWidth="200.0" promptText="Search..." />
+      <Button layoutX="361.0" layoutY="72.0" mnemonicParsing="false" onAction="#clear1Clicked" text="Clear" />
+      <TextField fx:id="txtId" editable="false" layoutX="143.0" layoutY="367.0" />
+      <TextField fx:id="txtId1" editable="false" layoutX="540.0" layoutY="366.0" />
+      <TextField fx:id="txtInput" layoutX="361.0" layoutY="410.0" onKeyTyped="#validateInput" />
+      <Label layoutX="319.0" layoutY="413.0" text="Value" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="327.0" layoutY="449.0" mnemonicParsing="false" onAction="#saveClicked" prefWidth="54.0" text="Save" />
+      <Button layoutX="388.0" layoutY="449.0" mnemonicParsing="false" onAction="#clearClicked" prefWidth="54.0" text="Clear" />
+      <Button fx:id="btnExit" layoutX="450.0" layoutY="449.0" mnemonicParsing="false" onAction="#exitClicked" prefWidth="54.0" text="Exit" />
+   </children>
 </AnchorPane>
