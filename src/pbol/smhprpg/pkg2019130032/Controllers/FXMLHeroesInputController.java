@@ -11,9 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import pbol.smhprpg.pkg2019130032.Koneksi;
 import pbol.smhprpg.pkg2019130032.Models.HeroModel;
 
@@ -32,28 +34,37 @@ public class FXMLHeroesInputController implements Initializable {
     private TextArea txtDes;
     @FXML
     private Button btnExit;
-    @FXML
     private ComboBox<Integer> cbRace;
-    @FXML
     private ComboBox<Integer> cbCurrentclass;
     @FXML
     private TextField txtRace;
-    @FXML
     private TextField txtCurrclass;
     @FXML
     private TextField txtImage;
-    @FXML
     private TextField txtUser;
     @FXML
     private ComboBox<Integer> cbUser;
-    @FXML
     private Spinner<Integer> spSkillpoints;
-    @FXML
     private Spinner<Integer> spExp;
-    @FXML
     private Spinner<Integer> spStatpoints;
     @FXML
     private ComboBox<Character> cbGender;
+    @FXML
+    private TextField txtSkillpoints;
+    @FXML
+    private TextField txtStatpoints;
+    @FXML
+    private TextField txtExp;
+    @FXML
+    private TableView<?> tbv;
+    @FXML
+    private TextField search;
+    @FXML
+    private TextField txtClass;
+    @FXML
+    private TableView<?> tbv1;
+    @FXML
+    private TextField search2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -231,5 +242,69 @@ public class FXMLHeroesInputController implements Initializable {
     private void validateDes(KeyEvent event) {
         int batas = 255;
         if (txtDes.getText().length() >= batas) event.consume();
+    }
+
+    @FXML
+    private void validateSkill(KeyEvent event) {
+    }
+
+    @FXML
+    private void validateStat(KeyEvent event) {
+    }
+
+    @FXML
+    private void validateExp(KeyEvent event) {
+    }
+
+    @FXML
+    private void select(MouseEvent event) {
+    }
+
+    @FXML
+    private void firstClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void searchData(KeyEvent event) {
+    }
+
+    @FXML
+    private void clear1Clicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void searchData1(KeyEvent event) {
+    }
+
+    @FXML
+    private void clear2Clicked(ActionEvent event) {
     }
 }

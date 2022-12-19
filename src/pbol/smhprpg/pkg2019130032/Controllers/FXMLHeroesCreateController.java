@@ -10,9 +10,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import pbol.smhprpg.pkg2019130032.Koneksi;
 import pbol.smhprpg.pkg2019130032.Models.HeroModel;
 
@@ -29,13 +31,10 @@ public class FXMLHeroesCreateController implements Initializable {
     private TextField txtName;
     @FXML
     private TextArea txtDes;
-    @FXML
     private ComboBox<Integer> cbRace;
-    @FXML
     private ComboBox<Integer> cbCurrentclass;
     @FXML
     private TextField txtRace;
-    @FXML
     private TextField txtCurrclass;
     @FXML
     private TextField txtImage;
@@ -43,6 +42,16 @@ public class FXMLHeroesCreateController implements Initializable {
     private Button btnExit;
     @FXML
     private ComboBox<Character> cbGender;
+    @FXML
+    private TableView<?> tbv;
+    @FXML
+    private TextField search;
+    @FXML
+    private TextField txtClass;
+    @FXML
+    private TableView<?> tbv1;
+    @FXML
+    private TextField search1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -181,5 +190,57 @@ public class FXMLHeroesCreateController implements Initializable {
     @FXML
     private void exitClicked(ActionEvent event) {
         btnExit.getScene().getWindow().hide();
+    }
+
+    @FXML
+    private void insertImg(ActionEvent event) {
+    }
+
+    @FXML
+    private void select(MouseEvent event) {
+    }
+
+    @FXML
+    private void firstClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void searchData(KeyEvent event) {
+    }
+
+    @FXML
+    private void clear1Clicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastClicked1(ActionEvent event) {
+    }
+
+    @FXML
+    private void clear2Clicked(ActionEvent event) {
     }
 }
