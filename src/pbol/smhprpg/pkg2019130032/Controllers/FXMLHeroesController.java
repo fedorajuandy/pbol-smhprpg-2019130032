@@ -140,8 +140,8 @@ public class FXMLHeroesController implements Initializable {
         
         try {
             String temp = tbv.getSelectionModel().getSelectedItem().getImage();
-            if (temp == "") {
-                temp = "imgs/placeholder.png";
+            if (temp.equals("")) {
+                temp = "src/pbol/smhprpg/pkg2019130032/imgs/placeholder.png";
             }
             gambar = new Image(new FileInputStream(temp));
         } catch (FileNotFoundException ex) {
@@ -304,6 +304,7 @@ public class FXMLHeroesController implements Initializable {
             tbvHT.getColumns().addAll(col);
             
             tbvHT.setItems(data5);
+            showImage();
          } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Empty data", ButtonType.OK);
             a.showAndWait();

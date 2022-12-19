@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -33,17 +34,19 @@ public class FXMLBattlesSimulationController implements Initializable {
     @FXML
     private TextArea txtDes;
     @FXML
-    private ListView<?> txtFight;
+    private TextField txtHPEnemy;
     @FXML
-    private TextField txtMp;
+    private Label lbEnemy;
     @FXML
-    private TextField txtDmg;
+    private Label lbHero;
     @FXML
-    private TextField txtSuccess;
+    private TableView<?> tbv;
     @FXML
-    private Label lbNameEnemy;
+    private TextField txtHPHero;
     @FXML
-    private ComboBox<?> cbHeroes;
+    private TextField txtLvHero;
+    @FXML
+    private TextField txtLvEnemy;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,6 +71,22 @@ public class FXMLBattlesSimulationController implements Initializable {
 
     @FXML
     private void changeEnemy(ActionEvent event) {
+    }
+
+    @FXML
+    private void prevClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void nextClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void firstClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void lastClicked(ActionEvent event) {
     }
     
 }
