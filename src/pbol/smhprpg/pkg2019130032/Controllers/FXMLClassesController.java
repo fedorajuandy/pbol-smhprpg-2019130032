@@ -72,12 +72,12 @@ public class FXMLClassesController implements Initializable {
             col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("name"));
             tbv.getColumns().addAll(col);
             
-            col = new TableColumn("Parent Class Name");
-            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
-            tbv.getColumns().addAll(col);
-            
             col = new TableColumn("Parent Class Id");
             col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclass_id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Parent Class Name");
+            col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
             tbv.getColumns().addAll(col);
             
             col = new TableColumn("Des");
@@ -111,16 +111,16 @@ public class FXMLClassesController implements Initializable {
                 col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("name"));
                 tbv.getColumns().addAll(col);
 
-                col = new TableColumn("Des");
-                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("des"));
-                tbv.getColumns().addAll(col);
-                
                 col = new TableColumn("Parent Class Id");
                 col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclass_id"));
                 tbv.getColumns().addAll(col);
                 
                 col = new TableColumn("Parent Class Name");
                 col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("parentclassName"));
+                tbv.getColumns().addAll(col);
+                
+                col = new TableColumn("Des");
+                col.setCellValueFactory(new PropertyValueFactory<ClassModel, String>("des"));
                 tbv.getColumns().addAll(col);
                 
                 tbv.setItems(data);
@@ -415,5 +415,53 @@ public class FXMLClassesController implements Initializable {
         showData();
         showDetails();
         search.requestFocus();
+    }
+
+    @FXML
+    private void addCTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateCTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteCTClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addCBTSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateCBTSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteCBTSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addCBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateCBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteCBSClicked(ActionEvent event) {
     }
 }

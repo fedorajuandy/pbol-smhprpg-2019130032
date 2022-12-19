@@ -1,5 +1,7 @@
 package pbol.smhprpg.pkg2019130032.Controllers;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import pbol.smhprpg.pkg2019130032.Models.HeroModel;
 import pbol.smhprpg.pkg2019130032.Models.HeroEffectModel;
 import pbol.smhprpg.pkg2019130032.Models.HeroBaseStatModel;
@@ -9,6 +11,8 @@ import pbol.smhprpg.pkg2019130032.Models.HeroSkillModel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -49,12 +54,15 @@ public class FXMLHeroesController implements Initializable {
     private TableView<HeroSkillModel> tbvd4;
     @FXML
     private TableView<HeroClassModel> tbvd2;
+    @FXML
+    private ImageView img;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showData();
         tbv.getSelectionModel().selectFirst();
         showDetails();
+        showImage();
     }    
 
     public void showData() {
@@ -68,22 +76,6 @@ public class FXMLHeroesController implements Initializable {
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("id"));
             tbv.getColumns().addAll(col);
             
-            col = new TableColumn("Race Id");
-            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("race_id"));
-            tbv.getColumns().addAll(col);
-            
-            col = new TableColumn("Curr class id");
-            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
-            tbv.getColumns().addAll(col);
-            
-            col = new TableColumn("Curr class name");
-            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("className"));
-            tbv.getColumns().addAll(col);
-            
-            col = new TableColumn("Parent Class Id");
-            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("parentclass_id"));
-            tbv.getColumns().addAll(col);
-            
             col = new TableColumn("Name");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("name"));
             tbv.getColumns().addAll(col);
@@ -92,12 +84,44 @@ public class FXMLHeroesController implements Initializable {
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("gender"));
             tbv.getColumns().addAll(col);
             
-            col = new TableColumn("Lv");
-            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("lv"));
+            col = new TableColumn("Description");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("des"));
             tbv.getColumns().addAll(col);
             
-            col = new TableColumn("Exp");
+            col = new TableColumn("Race Id");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("race_id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Race name");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Curr class id");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Experience");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("exp"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Curr class name");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("className"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Stat points");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("stat_points"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Skill points");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("skill_points"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("User id");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("user_id"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Username");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("username"));
             tbv.getColumns().addAll(col);
             
             tbv.setItems(data);
@@ -107,6 +131,19 @@ public class FXMLHeroesController implements Initializable {
             tbv.getScene().getWindow().hide();;
         }
     }
+    
+    @FXML
+    public void showImage(){
+        Image gambar = null;
+        
+        try {
+            gambar = new Image(new FileInputStream(tbv.getSelectionModel().getSelectedItem().getImage()));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FXMLHeroesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        img.setImage(gambar);
+    }
 
     @FXML
     private void searchData(KeyEvent event) {
@@ -114,29 +151,13 @@ public class FXMLHeroesController implements Initializable {
         String key = search.getText();
         
         if (key != "") {
-            ObservableList<HeroModel> data = FXMLMainMenuController.dth.searchItems(key, key, key, key, key, key, key, key, key, key);
+            ObservableList<HeroModel> data = FXMLMainMenuController.dth.searchItems(key, key, key, key, key, key, key, key, key, key, key, key, key, key);
             if (data != null) {
                 tbv.getColumns().clear();
                 tbv.getItems().clear();
                 
                 TableColumn col = new TableColumn("Id");
                 col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("id"));
-                tbv.getColumns().addAll(col);
-
-                col = new TableColumn("Race Id");
-                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("race_id"));
-                tbv.getColumns().addAll(col);
-
-                col = new TableColumn("Curr class id");
-                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
-                tbv.getColumns().addAll(col);
-
-                col = new TableColumn("Curr class name");
-                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("className"));
-                tbv.getColumns().addAll(col);
-
-                col = new TableColumn("Parent Class Id");
-                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("parentclass_id"));
                 tbv.getColumns().addAll(col);
 
                 col = new TableColumn("Name");
@@ -147,12 +168,44 @@ public class FXMLHeroesController implements Initializable {
                 col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("gender"));
                 tbv.getColumns().addAll(col);
 
-                col = new TableColumn("Lv");
-                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("lv"));
+                col = new TableColumn("Description");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("des"));
                 tbv.getColumns().addAll(col);
 
-                col = new TableColumn("Exp");
+                col = new TableColumn("Race Id");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("race_id"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Race name");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Curr class id");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Experience");
                 col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("exp"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Curr class name");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("className"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Stat points");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("stat_points"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Skill points");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("skill_points"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("User id");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("user_id"));
+                tbv.getColumns().addAll(col);
+
+                col = new TableColumn("Username");
+                col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("username"));
                 tbv.getColumns().addAll(col);
                 
                 tbv.setItems(data);
@@ -259,6 +312,7 @@ public class FXMLHeroesController implements Initializable {
         tbv.getSelectionModel().selectFirst();
         tbv.requestFocus();
         showDetails();
+        showImage();
     }
 
     @FXML
@@ -266,6 +320,7 @@ public class FXMLHeroesController implements Initializable {
         tbv.getSelectionModel().selectAboveCell();
         tbv.requestFocus();
         showDetails();
+        showImage();
     }
 
     @FXML
@@ -343,6 +398,7 @@ public class FXMLHeroesController implements Initializable {
         tbv.getSelectionModel().selectBelowCell();
         tbv.requestFocus();
         showDetails();
+        showImage();
     }
 
     @FXML
@@ -350,6 +406,7 @@ public class FXMLHeroesController implements Initializable {
         tbv.getSelectionModel().selectLast();
         tbv.requestFocus();
         showDetails();
+        showImage();
     }
 
     @FXML
@@ -460,6 +517,55 @@ public class FXMLHeroesController implements Initializable {
         search.setText("");
         showData();
         showDetails();
+        showImage();
         search.requestFocus();
+    }
+
+    @FXML
+    private void addHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteHEClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteHBSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addHCClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateHCClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteHCClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateHCSClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteHCSClicked(ActionEvent event) {
     }
 }

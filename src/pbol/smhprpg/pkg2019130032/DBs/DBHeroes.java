@@ -31,7 +31,7 @@ public class DBHeroes {
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             
-            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id)");
+            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image, h.user_id, u.username FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) JOIN users u ON(h.user_id = u.id)");
 
             int i = 1;
             while (rs.next()) {
@@ -47,6 +47,8 @@ public class DBHeroes {
                 d.setStat_points(rs.getInt("stat_points"));
                 d.setSkill_points(rs.getInt("skill_points"));
                 d.setExp(rs.getInt("exp"));
+                d.setUser_id(rs.getInt("user_id"));
+                d.setUsername(rs.getString("username"));
                 d.setImage(rs.getString("image"));
                 
                 tableData.add(d);
@@ -88,7 +90,7 @@ public class DBHeroes {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO heroes (race_id, curr_class_id, name, gender, des, stat_points, skill_points, exp, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("INSERT INTO heroes (race_id, curr_class_id, name, gender, des, stat_points, skill_points, exp, image, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             con.preparedStatement.setInt(1, getHeroModel().getRace_id());
             con.preparedStatement.setInt(2, getHeroModel().getCurr_class_id());
             con.preparedStatement.setString(3, getHeroModel().getName());
@@ -98,6 +100,7 @@ public class DBHeroes {
             con.preparedStatement.setInt(7, getHeroModel().getSkill_points());
             con.preparedStatement.setInt(8, getHeroModel().getExp());
             con.preparedStatement.setString(9, getHeroModel().getImage());
+            con.preparedStatement.setInt(10, getHeroModel().getUser_id());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -135,7 +138,7 @@ public class DBHeroes {
         
         try {
             con.bukaKoneksi();
-            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE heroes SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, des = ?, lv = ?, exp = ?  WHERE  id = ?");
+            con.preparedStatement = con.dbKoneksi.prepareStatement("UPDATE heroes SET race_id = ?, curr_class_id = ?, name = ?, gender = ?, des = ?, stat_points = ?, skill_points = ?, exp = ?, image =?, user_id = ? WHERE  id = ?");
             con.preparedStatement.setInt(1, getHeroModel().getRace_id());
             con.preparedStatement.setInt(2, getHeroModel().getCurr_class_id());
             con.preparedStatement.setString(3, getHeroModel().getName());
@@ -145,6 +148,8 @@ public class DBHeroes {
             con.preparedStatement.setInt(7, getHeroModel().getSkill_points());
             con.preparedStatement.setInt(8, getHeroModel().getExp());
             con.preparedStatement.setString(9, getHeroModel().getImage());
+            con.preparedStatement.setInt(10, getHeroModel().getUser_id());
+            con.preparedStatement.setInt(11, getHeroModel().getId());
             con.preparedStatement.executeUpdate();
             
             berhasil = true;
@@ -157,14 +162,14 @@ public class DBHeroes {
         }
     }
     
-    public ObservableList<HeroModel> searchItems(String id, String ras, String kelas, String nama, String jk, String desk, String skill, String stat, String pengalaman, String gambar) {
+    public ObservableList<HeroModel> searchItems(String id, String ras_id, String ras, String kelas_id, String kelas, String nama, String jk, String desk, String skill, String stat, String pengalaman, String gambar, String pengguna_id, String pengguna) {
         try {
             ObservableList<HeroModel> tableData;
             tableData = FXCollections.observableArrayList();
             Koneksi con = new Koneksi(); 
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
-            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.stat_points, h.skill_points, h.exp, h.image FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) WHERE h.id LIKE '%" + id + "%' OR r.name LIKE '%" + ras + "%' OR c.name LIKE '%" + kelas + "%' OR h.name LIKE '%" + nama + "%' OR h.gender LIKE '%" + jk + "%' OR h.des LIKE '%" + desk + "%' OR h.stat_points LIKE '%" + stat + "%' OR h.skill_points LIKE '%" + skill + "%' OR h.exp LIKE '%" + pengalaman + "%' OR h.image LIKE '%" + gambar + "%'");
+            ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image, h.user_id, u.username FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) JOIN users u ON(h.user_id = u.id) WHERE h.id LIKE '%" + id + "%' OR r.race_id LIKE '%" + ras_id + "%' OR r.name LIKE '%" + ras + "%' OR c.class_id LIKE '%" + kelas_id + "%' OR c.name LIKE '%" + kelas + "%' OR h.name LIKE '%" + nama + "%' OR h.gender LIKE '%" + jk + "%' OR h.des LIKE '%" + desk + "%' OR h.stat_points LIKE '%" + stat + "%' OR h.skill_points LIKE '%" + skill + "%' OR h.exp LIKE '%" + pengalaman + "%' OR h.image LIKE '%" + gambar + "%' OR c.user_id LIKE '%" + pengguna_id + "%' OR u.username LIKE '%" + pengguna + "%'");
             
             int i = 1;
             while (rs.next()) {
@@ -180,6 +185,8 @@ public class DBHeroes {
                 d.setStat_points(rs.getInt("stat_points"));
                 d.setSkill_points(rs.getInt("skill_points"));
                 d.setExp(rs.getInt("exp"));
+                d.setUser_id(rs.getInt("user_id"));
+                d.setUsername(rs.getString("username"));
                 d.setImage(rs.getString("image"));
                 
                 tableData.add(d);

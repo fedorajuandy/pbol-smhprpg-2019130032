@@ -6,8 +6,16 @@ package pbol.smhprpg.pkg2019130032.Models;
  */
 public class HeroModel {
     private int id, race_id, curr_class_id, exp, stat_points, skill_points, user_id;
-    private String name, des, raceName, className, image;
+    private String name, des, raceName, className, image, username;
     private char gender;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getStat_points() {
         return stat_points;
