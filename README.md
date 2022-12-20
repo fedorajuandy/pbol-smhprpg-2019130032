@@ -38,7 +38,10 @@
 - Users photo by <a href="https://unsplash.com/@kylejglenn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kyle Glenn</a> on <a href="https://unsplash.com/s/photos/adventurers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Elf photo by <a href="https://unsplash.com/@cassianokw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Cassiano K. Wehr</a> on <a href="https://unsplash.com/s/photos/elf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - Sihouette photo by <a href="https://unsplash.com/@fortyozsteak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joe Shields</a> on <a href="https://unsplash.com/s/photos/silhouette?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- 
+- Dwarf photo by <a href="https://unsplash.com/@julianhochgesang?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Julian Hochgesang</a> on <a href="https://unsplash.com/s/photos/dwarf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Human (female) photo by <a href="https://unsplash.com/@tokaito?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antonio Friedemann</a> on <a href="https://unsplash.com/s/photos/fantasy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Gnome photo by <a href="https://unsplash.com/@graystreet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sarah Mae</a> on <a href="https://unsplash.com/s/photos/gnome?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- Human (male) photo by <a href="https://unsplash.com/@erik_lucatero?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Erik  Lucatero</a> on <a href="https://unsplash.com/s/photos/human?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 ### Ideas
 

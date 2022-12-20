@@ -4,6 +4,7 @@ import pbol.smhprpg.pkg2019130032.Koneksi;
 import pbol.smhprpg.pkg2019130032.Models.LevelModel;
 
 import java.sql.ResultSet;
+import pbol.smhprpg.pkg2019130032.Models.HeroModel;
 
 /**
  *
@@ -68,5 +69,25 @@ public class DBLevel {
             con.tutupKoneksi();
             return berhasil;
         }
+    }
+    
+    public int levelUp(HeroModel h, LevelModel l) {
+        int lv = 1;
+        int exp = h.getExp();
+        int max_lv = l.getMax_lv();
+        int base_exp = l.getBase_exp();
+        double scale = l.getScale();
+        int temp = base_exp;
+        
+        while (exp - temp > 0) {
+            if (lv >= max_lv) {
+                return max_lv;
+            } else {
+                temp = (int) Math.round(temp + temp * scale);
+                lv++;
+            }
+        }
+        
+        return lv;
     }
 }

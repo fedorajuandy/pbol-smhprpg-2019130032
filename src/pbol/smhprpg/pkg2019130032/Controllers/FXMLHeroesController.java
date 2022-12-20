@@ -103,12 +103,12 @@ public class FXMLHeroesController implements Initializable {
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("raceName"));
             tbv.getColumns().addAll(col);
             
-            col = new TableColumn("Experience");
-            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("exp"));
-            tbv.getColumns().addAll(col);
-            
             col = new TableColumn("Curr class name");
             col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("className"));
+            tbv.getColumns().addAll(col);
+            
+            col = new TableColumn("Experience");
+            col.setCellValueFactory(new PropertyValueFactory<HeroModel, String>("exp"));
             tbv.getColumns().addAll(col);
             
             col = new TableColumn("Stat points");

@@ -63,6 +63,84 @@ public class DBHeroes {
         }
     }
     
+    public ObservableList<HeroModel> loadUser(int un) {
+        try {
+            ObservableList<HeroModel> tableData = FXCollections.observableArrayList();
+            Koneksi con = new Koneksi();
+            con.bukaKoneksi();
+            con.statement = con.dbKoneksi.createStatement();
+            
+            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image, h.user_id, u.username FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) LEFT JOIN users u ON(h.user_id = u.id) WHERE u.id LIKE " + un);
+
+            int i = 1;
+            while (rs.next()) {
+                HeroModel d = new HeroModel();
+                d.setId(rs.getInt("id"));
+                d.setRace_id(rs.getInt("race_id"));
+                d.setRaceName(rs.getString("raceName"));
+                d.setCurr_class_id(rs.getInt("curr_class_id"));
+                d.setClassName(rs.getString("className"));
+                d.setName(rs.getString("name"));
+                d.setGender(rs.getString("gender"));
+                d.setDes(rs.getString("des"));
+                d.setStat_points(rs.getInt("stat_points"));
+                d.setSkill_points(rs.getInt("skill_points"));
+                d.setExp(rs.getInt("exp"));
+                d.setUser_id(rs.getInt("user_id"));
+                d.setUsername(rs.getString("username"));
+                d.setImage(rs.getString("image"));
+                
+                tableData.add(d);
+                i++;
+            }
+            
+            con.tutupKoneksi();
+            return tableData;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public ObservableList<HeroModel> loadNotUser(int un) {
+        try {
+            ObservableList<HeroModel> tableData = FXCollections.observableArrayList();
+            Koneksi con = new Koneksi();
+            con.bukaKoneksi();
+            con.statement = con.dbKoneksi.createStatement();
+            
+            ResultSet rs = con.statement.executeQuery("SELECT h.id, h.race_id, r.name AS raceName, h.curr_class_id, c.name AS className, h.name, h.gender, h.des, h.exp, h.stat_points, h.skill_points, h.image, h.user_id, u.username FROM heroes h JOIN races r ON(h.race_id = r.id) JOIN classes c ON(h.curr_class_id = c.id) LEFT JOIN users u ON(h.user_id = u.id) WHERE u.id NOT LIKE " + un);
+
+            int i = 1;
+            while (rs.next()) {
+                HeroModel d = new HeroModel();
+                d.setId(rs.getInt("id"));
+                d.setRace_id(rs.getInt("race_id"));
+                d.setRaceName(rs.getString("raceName"));
+                d.setCurr_class_id(rs.getInt("curr_class_id"));
+                d.setClassName(rs.getString("className"));
+                d.setName(rs.getString("name"));
+                d.setGender(rs.getString("gender"));
+                d.setDes(rs.getString("des"));
+                d.setStat_points(rs.getInt("stat_points"));
+                d.setSkill_points(rs.getInt("skill_points"));
+                d.setExp(rs.getInt("exp"));
+                d.setUser_id(rs.getInt("user_id"));
+                d.setUsername(rs.getString("username"));
+                d.setImage(rs.getString("image"));
+                
+                tableData.add(d);
+                i++;
+            }
+            
+            con.tutupKoneksi();
+            return tableData;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
     public int validasi(int nomor) {
         int val = 0;
         

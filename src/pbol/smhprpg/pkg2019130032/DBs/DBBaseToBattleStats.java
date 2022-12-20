@@ -172,7 +172,7 @@ public class DBBaseToBattleStats {
         try {
             ObservableList<BattleStatModel> tableData;
             tableData = FXCollections.observableArrayList();
-            Koneksi con = new Koneksi(); 
+            Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = (Statement) con.dbKoneksi.createStatement();
             ResultSet rs = (ResultSet) con.statement.executeQuery("SELECT * FROM battle_stats WHERE id LIKE '%" + id + "%' OR abbrev LIKE '" + singkatan + "%' OR name LIKE '%" + nama + "%' OR des LIKE '%" + desk + "%'");
