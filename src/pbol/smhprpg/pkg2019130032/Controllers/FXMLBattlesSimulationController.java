@@ -2,28 +2,17 @@ package pbol.smhprpg.pkg2019130032.Controllers;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import java.util.Timer;
-import java.util.TimerTask; 
-import javafx.application.Platform;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -34,12 +23,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import static pbol.smhprpg.pkg2019130032.Controllers.FXMLLoginController.username;
-import pbol.smhprpg.pkg2019130032.Koneksi;
 import pbol.smhprpg.pkg2019130032.Models.HeroModel;
 import pbol.smhprpg.pkg2019130032.Models.LevelModel;
+import pbol.smhprpg.pkg2019130032.Controllers.FXMLMainMenuController;
+import pbol.smhprpg.pkg2019130032.Koneksi;
 
 /**
  * FXML Controller class
@@ -143,7 +131,7 @@ public class FXMLBattlesSimulationController implements Initializable {
             hero.setId(Integer.parseInt(heroName.substring(0, heroName.indexOf(" - "))));
             HeroModel enemy = new HeroModel();
             String enemyName = lstHero.getItems().get(e);
-            enemy.setId(Integer.parseInt(enemyName.substring(0, heroName.indexOf(" - "))));
+            enemy.setId(Integer.parseInt(enemyName.substring(0, enemyName.indexOf(" - "))));
             LevelModel level = FXMLMainMenuController.dtl.load();
             
             try {
@@ -154,6 +142,7 @@ public class FXMLBattlesSimulationController implements Initializable {
                 ResultSet rs = con.statement.executeQuery("SELECT id, name, exp, stat_points, skill_points, image FROM heroes WHERE id = '" + hero.getId() + "'");
 
                 while (rs.next()) {
+                    hero.setId(rs.getInt("id"));
                     hero.setName(rs.getString("name"));
                     hero.setStat_points(rs.getInt("stat_points"));
                     hero.setSkill_points(rs.getInt("skill_points"));
@@ -167,6 +156,7 @@ public class FXMLBattlesSimulationController implements Initializable {
                 rs = con.statement.executeQuery("SELECT id, name, exp, stat_points, skill_points, image FROM heroes WHERE id = '" + enemy.getId() + "'");
 
                 while (rs.next()) {
+                    enemy.setId(rs.getInt("id"));
                     enemy.setName(rs.getString("name"));
                     enemy.setStat_points(rs.getInt("stat_points"));
                     enemy.setSkill_points(rs.getInt("skill_points"));
@@ -181,33 +171,112 @@ public class FXMLBattlesSimulationController implements Initializable {
             } catch (Exception except) {
                 except.printStackTrace();
             }
-          
-           
             
-            // WHILE THE DANN HP > 0
-            String attacker = "";
-            String defender = "";
-            int damage = 0;
-            // PENDING ;v; I cannot calculate
+            int patkH = 0;
+            int pdefH = 0;
+            int hpH = 0;
+            int spdH = 0;
             
-            t.scheduleAtFixedRate(new TimerTask() {           
-                @Override           
-                public void run(){       
-                    Platform.runLater(() -> {});
-                }        
-            }, 0, 5000);
-            
-            txa.setText(txa.getText() + "\n" + attacker + " dealt " + damage + " to " + defender + "!");
-            // END
-            
-            // if whoever won
-            txa.setText(txa.getText() + "\n" + attacker + " won!");
-            hero.setExp(hero.getExp() + level.getBase_exp() * FXMLMainMenuController.dtl.levelUp(enemy, level));
-            if (Integer.parseInt(txtLvHero.getText()) < FXMLMainMenuController.dtl.levelUp(hero, level)) {
-                txa.setText(txa.getText() + "\n" + attacker + " level up!");
+            try {
+                 Koneksi con = new Koneksi();
+                 con.bukaKoneksi();
+                 con.statement = con.dbKoneksi.createStatement();
+                 ResultSet rs = con.statement.executeQuery("SELECT hbs.hero_id, hbs.base_stat_id AS hbsBSId, hbs.val, bs.id AS bsId, btb.base_stat_id AS btbBSId, btb.battle_stat_id, btb.scale, bt.id AS btId, bt.abbrev AS btAbbrev FROM hero_base_stats hbs LEFT JOIN base_stats bs ON(hbs.base_stat_id = bs.id) LEFT JOIN base_to_battle_stats btb ON (bs.id = btb.base_stat_id) LEFT JOIN battle_stats bt ON (btb.battle_stat_id = bt.id) WHERE hbs.hero_id LIKE '" + hero.getId() + "'");
+
+                 while (rs.next()) {
+                     String abbrev = rs.getString("btAbbrev");
+                     if (abbrev != null) {
+                        if (abbrev.equals("PATK")) {
+                            patkH += rs.getInt("val") * rs.getDouble("scale") * 10;
+                        } else if (abbrev.equals("PDEF")) {
+                            pdefH += rs.getInt("val") * rs.getDouble("scale") * 10;
+                        } else if (abbrev.equals("HP")) {
+                            hpH += rs.getInt("val") * rs.getDouble("scale") * 100;
+                        } else if (abbrev.equals("SPD")) {
+                            spdH += rs.getInt("val") * rs.getDouble("scale") * 10;
+                        }
+                     }
+                 }
+                 
+                 txtHPHero.setText(Integer.toString(hpH));
+                 con.tutupKoneksi();
+            } catch (Exception except) {
+                except.printStackTrace();
             }
-            // else
-            txa.setText(txa.getText() + "\n" + attacker + " lose...");
+            
+            int patkE = 0;
+            int pdefE = 0;
+            int hpE = 0;
+            int spdE = 0;
+            
+            try {
+                 Koneksi con = new Koneksi();
+                 con.bukaKoneksi();
+                 con.statement = con.dbKoneksi.createStatement();
+                 ResultSet rs = con.statement.executeQuery("SELECT hbs.hero_id, hbs.base_stat_id AS hbsBSId, hbs.val, bs.id AS bsId, btb.base_stat_id AS btbBSId, btb.battle_stat_id, btb.scale, bt.id AS btId, bt.abbrev AS btAbbrev FROM hero_base_stats hbs LEFT JOIN base_stats bs ON(hbs.base_stat_id = bs.id) LEFT JOIN base_to_battle_stats btb ON (bs.id = btb.base_stat_id) LEFT JOIN battle_stats bt ON (btb.battle_stat_id = bt.id) WHERE hbs.hero_id LIKE '" + enemy.getId() + "'");
+
+                 while (rs.next()) {
+                     String abbrev = rs.getString("btAbbrev");
+                     System.out.println(abbrev);
+                     if (abbrev != null) {
+                        if (abbrev.equals("PATK")) {
+                            patkE += rs.getInt("val") * rs.getDouble("scale") * 10;
+                        } else if (abbrev.equals("PDEF")) {
+                            pdefE += rs.getInt("val") * rs.getDouble("scale") * 10;
+                        } else if (abbrev.equals("HP")) {
+                            hpE += rs.getInt("val") * rs.getDouble("scale") * 100;
+                        } else if (abbrev.equals("SPD")) {
+                            spdE += rs.getInt("val") * rs.getDouble("scale") * 10;
+                        }
+                     }
+                 }
+                 
+                 txtHPEnemy.setText(Integer.toString(hpE));
+                 con.tutupKoneksi();
+            } catch (Exception except) {
+                except.printStackTrace();
+            }
+            
+            String attacker = hero.getName();
+            String defender = enemy.getName();
+            
+            if (spdE > spdH) {
+                attacker = enemy.getName();
+                defender = hero.getName();
+                
+                while (hpH > 0 && hpE > 0) {
+                   hpH -= patkE - pdefH;
+                   txa.setText(txa.getText() + "\n" + attacker + " dealt " + patkE + " to " + defender + "!");
+                   txtHPHero.setText(Integer.toString(hpH));
+                   hpE -= patkH - pdefE;
+                   txa.setText(txa.getText() + "\n" + defender + " dealt " + patkH + " to " + attacker + "!");
+                   txtHPEnemy.setText(Integer.toString(hpE));
+                }
+            } else {
+                while (hpH > 0 && hpE > 0) {
+                   hpE -= patkH - pdefE;
+                   txa.setText(txa.getText() + "\n" + attacker + " dealt " + patkH + " to " + defender + "!");
+                   txtHPEnemy.setText(Integer.toString(hpE));
+                   hpH -= patkE - pdefH;
+                   txa.setText(txa.getText() + "\n" + defender + " dealt " + patkE + " to " + attacker + "!");
+                   txtHPHero.setText(Integer.toString(hpH));
+                }
+            }
+            
+           if (hpH > hpE) {
+                txtHPEnemy.setText(Integer.toString(0));
+                txa.setText(txa.getText() + "\n" + hero.getName() + " won!");
+                hero.setExp(hero.getExp() + level.getBase_exp() * FXMLMainMenuController.dtl.levelUp(enemy, level));
+                hero.setStat_points(hero.getStat_points() + level.getStat_points());
+                hero.setSkill_points(hero.getSkill_points() + level.getSkill_points());
+                
+                if (Integer.parseInt(txtLvHero.getText()) < FXMLMainMenuController.dtl.levelUp(hero, level)) {
+                    txa.setText(txa.getText() + "\n" + attacker + " level up!");
+                }
+           } else {
+                txtHPHero.setText(Integer.toString(0));
+                txa.setText(txa.getText() + "\n" + attacker + " lose...");
+           }
         }
     }
 

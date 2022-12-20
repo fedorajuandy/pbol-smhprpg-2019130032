@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -62,8 +63,6 @@ public class FXMLHeroesSimulationController implements Initializable {
     @FXML
     private TextField txtStat;
     @FXML
-    private TableView<BattleStatModel> tbvBattle;
-    @FXML
     private TableView<HeroEffectModel> tbvEffect;
     @FXML
     private TableView<HeroTraitModel> tbvTrait;
@@ -89,6 +88,8 @@ public class FXMLHeroesSimulationController implements Initializable {
     private TextField txtClass;
     @FXML
     private Label lbUsername;
+    @FXML
+    private ListView<String> lstBattle;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -381,6 +382,58 @@ public class FXMLHeroesSimulationController implements Initializable {
         lbGender.setText(hm.getGender());
         txtExp.setText(Integer.toString(hm.getExp()));
         txtLv.setText(Integer.toString(FXMLMainMenuController.dtl.levelUp(hm, level)));
+        
+        lstBattle.getItems().clear();
+        
+        
+        int patk = 0;
+        int matk = 0;
+        int pdef = 0;
+        int mdef = 0;
+        int hp = 0;
+        int mp = 0;
+        int spd = 0;
+        
+        try {
+            Koneksi con = new Koneksi();
+            con.bukaKoneksi();
+            con.statement = con.dbKoneksi.createStatement();
+            ResultSet rs = con.statement.executeQuery("SELECT hbs.hero_id, hbs.base_stat_id AS hbsBSId, hbs.val, bs.id AS bsId, btb.base_stat_id AS btbBSId, btb.battle_stat_id, btb.scale, bt.id AS btId, bt.abbrev AS btAbbrev FROM hero_base_stats hbs LEFT JOIN base_stats bs ON(hbs.base_stat_id = bs.id) LEFT JOIN base_to_battle_stats btb ON (bs.id = btb.base_stat_id) LEFT JOIN battle_stats bt ON (btb.battle_stat_id = bt.id) WHERE hbs.hero_id LIKE '" + hm.getId() + "'");
+
+            while (rs.next()) {
+                String abbrev = rs.getString("btAbbrev");
+                System.out.println(abbrev);
+                if (abbrev != null) {
+                   if (abbrev.equals("PATK")) {
+                       patk += rs.getInt("val") * rs.getDouble("scale") * 10;
+                   } else if (abbrev.equals("PDEF")) {
+                       pdef += rs.getInt("val") * rs.getDouble("scale") * 10;
+                   } else if (abbrev.equals("HP")) {
+                       hp += rs.getInt("val") * rs.getDouble("scale") * 100;
+                   } else if (abbrev.equals("SPD")) {
+                       spd += rs.getInt("val") * rs.getDouble("scale") * 10;
+                   } else if (abbrev.equals("MATK")) {
+                       matk += rs.getInt("val") * rs.getDouble("scale") * 10;
+                   } else if (abbrev.equals("MDEF")) {
+                       mdef += rs.getInt("val") * rs.getDouble("scale") * 10;
+                   } else if (abbrev.equals("MP")) {
+                       mp += rs.getInt("val") * rs.getDouble("scale") * 100;
+                   }
+                }
+            }
+            
+            lstBattle.getItems().add("HP : " + hp);
+            lstBattle.getItems().add("MP : " + mp);
+            lstBattle.getItems().add("PATK : " + patk);
+            lstBattle.getItems().add("PDEF : " + pdef);
+            lstBattle.getItems().add("MATK : " + matk);
+            lstBattle.getItems().add("MDEF : " + mdef);
+            lstBattle.getItems().add("SPD : " + spd);
+            
+            con.tutupKoneksi();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

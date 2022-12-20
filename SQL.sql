@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `base_stats` (
   `name` varchar(25) NOT NULL,
   `des` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COMMENT='https://en.wikipedia.org/wiki/Attribute_(role-playing_games)';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.base_stats: ~7 rows (approximately)
+-- Dumping data for table db_smhprpg.base_stats: ~8 rows (approximately)
 /*!40000 ALTER TABLE `base_stats` DISABLE KEYS */;
 INSERT INTO `base_stats` (`id`, `abbrev`, `name`, `des`) VALUES
 	(1, 'STR', 'strength', 'Measures physical power and carrying capacity.'),
@@ -37,7 +37,7 @@ INSERT INTO `base_stats` (`id`, `abbrev`, `name`, `des`) VALUES
 	(4, 'INT', 'intelligence', 'Measures deductive reasoning, cognition, knowledge, memory, logic, and rationality.'),
 	(5, 'WIS', 'wisdom', 'Measures self-awareness, common sense, restraint, perception, and insight'),
 	(6, 'CHA', 'charisma', 'Measures force of personality, persuasiveness, leadership, and successful planning.'),
-	(7, 'LUC', 'LUCK', 'Measures the chances of happentances, usually the matter of successes and failures.');
+	(7, 'LUC', 'luck', 'Measures the chances of happentances, usually the matter of successes and failures.');
 /*!40000 ALTER TABLE `base_stats` ENABLE KEYS */;
 
 -- Dumping structure for table db_smhprpg.base_to_battle_stats
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `base_to_battle_stats` (
   CONSTRAINT `FK_basetobattlestats_battlestatid` FOREIGN KEY (`battle_stat_id`) REFERENCES `battle_stats` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.base_to_battle_stats: ~8 rows (approximately)
+-- Dumping data for table db_smhprpg.base_to_battle_stats: ~10 rows (approximately)
 /*!40000 ALTER TABLE `base_to_battle_stats` DISABLE KEYS */;
 INSERT INTO `base_to_battle_stats` (`base_stat_id`, `battle_stat_id`, `scale`) VALUES
 	(1, 1, 1),
@@ -75,9 +75,9 @@ CREATE TABLE IF NOT EXISTS `battle_stats` (
   `name` varchar(50) NOT NULL,
   `des` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.battle_stats: ~7 rows (approximately)
+-- Dumping data for table db_smhprpg.battle_stats: ~6 rows (approximately)
 /*!40000 ALTER TABLE `battle_stats` DISABLE KEYS */;
 INSERT INTO `battle_stats` (`id`, `abbrev`, `name`, `des`) VALUES
 	(1, 'PATK', 'physical attack', 'Adds physical damage using muscle and weapons.'),
@@ -315,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `class_skills` (
   CONSTRAINT `FK_classskills_skillid` FOREIGN KEY (`skill_id`) REFERENCES `skills` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.class_skills: ~9 rows (approximately)
+-- Dumping data for table db_smhprpg.class_skills: ~13 rows (approximately)
 /*!40000 ALTER TABLE `class_skills` DISABLE KEYS */;
 INSERT INTO `class_skills` (`class_id`, `skill_id`) VALUES
 	(4, 1),
@@ -344,14 +344,15 @@ CREATE TABLE IF NOT EXISTS `class_traits` (
   CONSTRAINT `FK_classtraits_traitid` FOREIGN KEY (`trait_id`) REFERENCES `traits` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.class_traits: ~6 rows (approximately)
+-- Dumping data for table db_smhprpg.class_traits: ~7 rows (approximately)
 /*!40000 ALTER TABLE `class_traits` DISABLE KEYS */;
 INSERT INTO `class_traits` (`class_id`, `trait_id`) VALUES
 	(3, 5),
 	(4, 7),
 	(7, 10),
 	(8, 10),
-	(10, 2);
+	(10, 2),
+	(1, 6);
 /*!40000 ALTER TABLE `class_traits` ENABLE KEYS */;
 
 -- Dumping structure for table db_smhprpg.effects
@@ -361,7 +362,7 @@ CREATE TABLE IF NOT EXISTS `effects` (
   `name` varchar(50) NOT NULL,
   `des` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='https://tvtropes.org/pmwiki/pmwiki.php/Main/StatusEffects';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_smhprpg.effects: ~6 rows (approximately)
 /*!40000 ALTER TABLE `effects` DISABLE KEYS */;
@@ -381,30 +382,34 @@ CREATE TABLE IF NOT EXISTS `heroes` (
   `race_id` int(10) NOT NULL,
   `curr_class_id` int(10) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `gender` char(1) NOT NULL,
+  `gender` varchar(10) NOT NULL DEFAULT '0',
   `des` varchar(255) DEFAULT '',
-  `lv` int(3) NOT NULL DEFAULT '1',
   `exp` int(15) NOT NULL DEFAULT '0',
+  `stat_points` int(2) NOT NULL DEFAULT '0',
+  `skill_points` int(1) NOT NULL DEFAULT '0',
+  `image` varchar(255) NOT NULL DEFAULT '',
+  `user_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_heroes_raceid` (`race_id`),
   KEY `FK_heroes_currclassid` (`curr_class_id`),
+  KEY `FK_heroes_userid` (`user_id`),
   CONSTRAINT `FK_heroes_currclassid` FOREIGN KEY (`curr_class_id`) REFERENCES `classes` (`id`),
   CONSTRAINT `FK_heroes_raceid` FOREIGN KEY (`race_id`) REFERENCES `races` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COMMENT='https://www.name-generator.org.uk/';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.heroes: ~10 rows (approximately)
+-- Dumping data for table db_smhprpg.heroes: ~11 rows (approximately)
 /*!40000 ALTER TABLE `heroes` DISABLE KEYS */;
-INSERT INTO `heroes` (`id`, `race_id`, `curr_class_id`, `name`, `gender`, `des`, `lv`, `exp`) VALUES
-	(1, 9, 3, 'Badortiz', 'f', 'A kind orc who despites her limitation in intelligence, uses her strenght to help people.', 22, 755),
-	(2, 6, 4, 'Crookedke', 'm', 'A petty thief who seeks revenge for some time.', 34, 2449),
-	(3, 2, 11, 'Helffin Shson', 'm', 'A man who has lost everything and entered the dark side of Y Town since then.', 50, 10938),
-	(4, 4, 9, 'Smtran', 'm', 'Some says there would be some arrows aimed at visitors in a dwarf town from unknown directions...', 1, 57),
-	(5, 3, 1, 'Azjohnson', 'm', 'A common elf who loves to fight.', 1, 22),
-	(6, 1, 2, 'Macat Thomamar', 'f', 'A dwarf who guards the entrance to her home.', 72, 87777),
-	(7, 7, 8, 'Kelleyolly Benorty Magicturner', 'f', 'A mage who has just started her journey as a summoner. Hint: she is bad at it.', 30, 1588),
-	(8, 5, 5, 'Broommacdonald Harkhoughton', 'f', 'A weird, flashy colorful ninja with equally weird name.', 42, 5249),
-	(9, 8, 7, 'Morganizzt Do\'bryant', 'f', 'Some rumors in Z City claims there is a skilled elementalist somewhere hidden near there.', 83, 255567),
-	(10, 10, 10, 'Hayesette', 'f', 'A professional hitman from unknown origin.', 96, 904838);
+INSERT INTO `heroes` (`id`, `race_id`, `curr_class_id`, `name`, `gender`, `des`, `exp`, `stat_points`, `skill_points`, `image`, `user_id`) VALUES
+	(1, 9, 3, 'Badortiz', 'female', 'A kind orc who despites her limitation in intelligence, uses her strenght to help people.', 755, 0, 0, '', 2),
+	(2, 6, 4, 'Crookedke', 'male', 'A petty thief who seeks revenge for some time.', 2449, 0, 0, '', 1),
+	(3, 2, 11, 'Helffin Shson', 'male', 'A man who has lost everything and entered the dark side of Y Town since then.', 10938, 0, 0, 'src/pbol/smhprpg/pkg2019130032/imgs/HumanM.png', 2),
+	(4, 4, 9, 'Smtran', 'male', 'Some says there would be some arrows aimed at visitors in a dwarf town from unknown directions...', 57, 0, 0, 'src/pbol/smhprpg/pkg2019130032/imgs/Gnome.png', 1),
+	(5, 3, 1, 'Azjohnson', 'male', 'A common elf who loves to fight.', 22, 0, 0, '', 1),
+	(6, 1, 2, 'Macat Thomamar', 'male', 'A dwarf who guards the entrance to his home.', 87777, 0, 0, 'src/pbol/smhprpg/pkg2019130032/imgs/Dwarf.png', 2),
+	(7, 7, 8, 'Kelleyolly Benorty Magicturner', 'female', 'A mage who has just started her journey as a summoner. Hint: she is bad at it.', 1588, 0, 0, 'src/pbol/smhprpg/pkg2019130032/imgs/Elf.png', 2),
+	(8, 5, 5, 'Broommacdonald Harkhoughton', 'female', 'A weird, flashy colorful ninja with equally weird name.', 5249, 0, 0, 'src/pbol/smhprpg/pkg2019130032/imgs/Human.png', 2),
+	(9, 8, 7, 'Morganizzt Do\'bryant', 'female', 'Some rumors in Z City claims there is a skilled elementalist somewhere hidden near there.', 255567, 0, 0, '', 1),
+	(10, 10, 10, 'Hayesette', 'female', 'A professional hitman from unknown origin.', 904838, 0, 0, '', 2);
 /*!40000 ALTER TABLE `heroes` ENABLE KEYS */;
 
 -- Dumping structure for table db_smhprpg.hero_base_stats
@@ -506,9 +511,9 @@ CREATE TABLE IF NOT EXISTS `hero_classes` (
   KEY `FK_heroclasses_classid` (`class_id`),
   CONSTRAINT `FK_heroclasses_classid` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`),
   CONSTRAINT `FK_heroclasses_heroid` FOREIGN KEY (`hero_id`) REFERENCES `heroes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.hero_classes: ~18 rows (approximately)
+-- Dumping data for table db_smhprpg.hero_classes: ~19 rows (approximately)
 /*!40000 ALTER TABLE `hero_classes` DISABLE KEYS */;
 INSERT INTO `hero_classes` (`id`, `hero_id`, `class_id`, `mastery_lv`) VALUES
 	(1, 1, 1, 20),
@@ -544,7 +549,7 @@ CREATE TABLE IF NOT EXISTS `hero_effects` (
   CONSTRAINT `FK_heroeffects_heroid` FOREIGN KEY (`hero_id`) REFERENCES `heroes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.hero_effects: ~12 rows (approximately)
+-- Dumping data for table db_smhprpg.hero_effects: ~11 rows (approximately)
 /*!40000 ALTER TABLE `hero_effects` DISABLE KEYS */;
 INSERT INTO `hero_effects` (`hero_id`, `effect_id`, `duration_left`) VALUES
 	(1, 1, 0),
@@ -573,7 +578,7 @@ CREATE TABLE IF NOT EXISTS `hero_skills` (
   CONSTRAINT `FK_heroskills_skillid` FOREIGN KEY (`skill_id`) REFERENCES `skills` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.hero_skills: ~26 rows (approximately)
+-- Dumping data for table db_smhprpg.hero_skills: ~24 rows (approximately)
 /*!40000 ALTER TABLE `hero_skills` DISABLE KEYS */;
 INSERT INTO `hero_skills` (`hero_class_id`, `skill_id`, `lv`) VALUES
 	(1, 1, 1),
@@ -615,7 +620,7 @@ CREATE TABLE IF NOT EXISTS `hero_traits` (
   CONSTRAINT `FK_herotraits_traitid` FOREIGN KEY (`trait_id`) REFERENCES `traits` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.hero_traits: ~9 rows (approximately)
+-- Dumping data for table db_smhprpg.hero_traits: ~10 rows (approximately)
 /*!40000 ALTER TABLE `hero_traits` DISABLE KEYS */;
 INSERT INTO `hero_traits` (`hero_id`, `trait_id`) VALUES
 	(3, 2),
@@ -630,6 +635,24 @@ INSERT INTO `hero_traits` (`hero_id`, `trait_id`) VALUES
 	(10, 2);
 /*!40000 ALTER TABLE `hero_traits` ENABLE KEYS */;
 
+-- Dumping structure for table db_smhprpg.level
+DROP TABLE IF EXISTS `level`;
+CREATE TABLE IF NOT EXISTS `level` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `max_lv` int(5) DEFAULT '100',
+  `base_exp` int(10) NOT NULL DEFAULT '1000',
+  `scale` double NOT NULL DEFAULT '1.25',
+  `stat_points` int(2) NOT NULL DEFAULT '0',
+  `skill_points` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table db_smhprpg.level: ~0 rows (approximately)
+/*!40000 ALTER TABLE `level` DISABLE KEYS */;
+INSERT INTO `level` (`id`, `max_lv`, `base_exp`, `scale`, `stat_points`, `skill_points`) VALUES
+	(1, 100, 1000, 1.25, 5, 1);
+/*!40000 ALTER TABLE `level` ENABLE KEYS */;
+
 -- Dumping structure for table db_smhprpg.races
 DROP TABLE IF EXISTS `races`;
 CREATE TABLE IF NOT EXISTS `races` (
@@ -640,9 +663,9 @@ CREATE TABLE IF NOT EXISTS `races` (
   PRIMARY KEY (`id`),
   KEY `FK_races_parentraceid` (`parentrace_id`),
   CONSTRAINT `FK_races_parentraceid` FOREIGN KEY (`parentrace_id`) REFERENCES `races` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COMMENT='https://www.d20srd.org/srd/monsters/dwarf.htm';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_smhprpg.races: ~10 rows (approximately)
+-- Dumping data for table db_smhprpg.races: ~11 rows (approximately)
 /*!40000 ALTER TABLE `races` DISABLE KEYS */;
 INSERT INTO `races` (`id`, `parentrace_id`, `name`, `des`) VALUES
 	(1, NULL, 'dwarf', 'Dwarves favor earth tones in their clothing and prefer simple and functional garb. The skin can be very dark, but it is always some shade of tan or brown. Hair color can be black, gray, or brown.'),
@@ -654,7 +677,8 @@ INSERT INTO `races` (`id`, `parentrace_id`, `name`, `des`) VALUES
 	(7, 3, 'aquatic elf', 'Also called sea elves, these creatures are waterbreathing cousins to land-dwelling elves.'),
 	(8, 3, 'drow', 'Also known as dark elves, drow are a depraved and evil subterranean offshoot.'),
 	(9, NULL, 'orc', 'An orc’s hair usually is black. It has lupine ears and reddish eyes. Orcs prefer wearing vivid colors that many humans would consider unpleasant, such as blood red, mustard yellow, yellow-green, and deep purple.'),
-	(10, 4, 'svirfneblin', 'Also called deep gnomes, svirfneblin are said to dwell in great cities deep underground.');
+	(10, 4, 'svirfneblin', 'Also called deep gnomes, svirfneblin are said to dwell in great cities deep underground.'),
+	(11, 11, 'the cursed', 'The ancient ones reside in Unknown whose domain are destiny. They have silver hair and eyes. The main characteristic of them is the emotionless nature and duty bound actions.');
 /*!40000 ALTER TABLE `races` ENABLE KEYS */;
 
 -- Dumping structure for table db_smhprpg.race_base_stats
@@ -667,7 +691,7 @@ CREATE TABLE IF NOT EXISTS `race_base_stats` (
   KEY `FK_racebasestats_basestatid` (`base_stat_id`),
   CONSTRAINT `FK_racebasestats_basestatid` FOREIGN KEY (`base_stat_id`) REFERENCES `base_stats` (`id`),
   CONSTRAINT `FK_racebasestats_raceid` FOREIGN KEY (`race_id`) REFERENCES `races` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='https://www.d20srd.org/srd/races.htm#humans';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_smhprpg.race_base_stats: ~70 rows (approximately)
 /*!40000 ALTER TABLE `race_base_stats` DISABLE KEYS */;
@@ -681,7 +705,7 @@ INSERT INTO `race_base_stats` (`race_id`, `base_stat_id`, `val`) VALUES
 	(2, 1, 0),
 	(2, 2, 0),
 	(2, 3, 0),
-	(2, 4, 0),
+	(2, 4, 1),
 	(2, 5, 0),
 	(1, 6, -2),
 	(2, 6, 0),
@@ -804,7 +828,7 @@ CREATE TABLE IF NOT EXISTS `traits` (
   `name` varchar(50) NOT NULL,
   `des` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COMMENT='https://www.d20srd.org/srd/variant/buildingCharacters/characterTraits.htm';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_smhprpg.traits: ~11 rows (approximately)
 /*!40000 ALTER TABLE `traits` DISABLE KEYS */;
@@ -818,8 +842,7 @@ INSERT INTO `traits` (`id`, `name`, `des`) VALUES
 	(7, 'quick', 'You are fast, but less sturdy than average members of your race.'),
 	(8, 'reckless', 'You naturally sacrifice accuracy to put more power behind your blows.'),
 	(9, 'slow', 'You are slow, but sturdier than average members of your race.'),
-	(10, 'spellgifted', 'You have a gift for casting spells from a certain school. Although your spells from this school are more potent than those of other casters, you are not as effective at casting spells from other schools.'),
-	(12, 'tragic', 'has tragic backgroundstory tm, like teenage angst-');
+	(10, 'spellgifted', 'You have a gift for casting spells from a certain school. Although your spells from this school are more potent than those of other casters, you are not as effective at casting spells from other schools.');
 /*!40000 ALTER TABLE `traits` ENABLE KEYS */;
 
 -- Dumping structure for table db_smhprpg.trait_base_stats
@@ -850,6 +873,24 @@ INSERT INTO `trait_base_stats` (`trait_id`, `base_stat_id`, `val`) VALUES
 	(9, 3, -2),
 	(10, 4, 3);
 /*!40000 ALTER TABLE `trait_base_stats` ENABLE KEYS */;
+
+-- Dumping structure for table db_smhprpg.users
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `username` varchar(10) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `role` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table db_smhprpg.users: ~4 rows (approximately)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
+	(1, 'admin', 'admin', 0),
+	(2, 'user0', '12345', 1),
+	(3, 'user1', '23456', 1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

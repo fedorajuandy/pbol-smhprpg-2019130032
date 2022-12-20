@@ -1,6 +1,8 @@
-# UAS PBOL - Sistem Maintenance Hero Permainan RPG
+# PBOL - Sistem Maintenance Hero Permainan RPG
 
 2019130032 - Fedora Yoshe Juandy
+
+![ERD](ERD.png)
 
 ## References
 
@@ -15,7 +17,6 @@
 - [To change combobox value/index](https://stackoverflow.com/questions/18146712/combo-box-select-item-in-javafx-2)
 - [To get table's size](https://stackoverflow.com/questions/26528231/javafx-8-how-to-get-the-row-count-of-a-tableview)
 - [To disable table view](https://stackoverflow.com/questions/43391402/javafx-tableview-enable-and-disable-row-selection)
-- 
 
 ## Images
 
@@ -45,11 +46,15 @@
 
 ### Ideas
 
-- Systems located at DB tables' comments
+- [RPG common attributes](https://en.wikipedia.org/wiki/Attribute_(role-playing_games))
+- [Status effects](https://tvtropes.org/pmwiki/pmwiki.php/Main/StatusEffects)
+- [Name generator](https://www.name-generator.org.uk/)
+- [RPG races](https://www.d20srd.org/srd/monsters.htm)
+- [Character traits](https://www.d20srd.org/srd/variant/buildingCharacters/characterTraits.htm)
 - [Maximum password length](https://stackoverflow.com/questions/98768/should-i-impose-a-maximum-length-on-passwords)
 
 ## Tools
 
 - Database: Laragon (HeidiSQL)
 - IDE: Apache NetBeans IDE 14
-- Image editor: [Canva](https://www.canva.com/)
+- Image editor: [Canva](https://www.canva.com/) & [Figma](https://www.figma.com/)
